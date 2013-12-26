@@ -39,6 +39,7 @@ group :test, :development do
   gem "shoulda-matchers"
   gem "better_errors"
   gem "capybara"
+  gem "binding_of_caller"
   gem "rspec-rails"
   gem "valid_attribute"
   gem "pry-rails"
