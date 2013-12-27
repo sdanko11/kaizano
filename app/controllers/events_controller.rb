@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @events = Event.all
@@ -21,8 +22,8 @@ class EventsController < ApplicationController
   protected
 
   def event_params
-    params.require(:event).permit(:name, :user_id, :event_key, :location, :date, :event_url, 
+    params.require(:event).permit(:name, :user_id, :event_password, :location, :date, :event_url, 
     :description, :time, :user_id)
   end
-
+  
 end

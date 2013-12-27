@@ -6,8 +6,8 @@
 <%= form_for(@event) do |f| -%><br/>
         <%= f.label "Name" %> 
         <%= f.text_field(:name)%><br />
-        <%= f.label "Access Key" %>
-        <%= f.text_field(:event_key) %><br />
+        <%= f.label "Event Password" %>
+        <%= f.text_field(:event_password) %><br />
         <%= f.label "Date" %>
         <%= f.text_field(:event_date)  %><br />
         <%= f.label "Time" %>

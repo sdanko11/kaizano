@@ -11,25 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226220750) do
+ActiveRecord::Schema.define(version: 20131227184146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: true do |t|
-    t.string   "name",        null: false
+    t.string   "name",                     null: false
     t.string   "location"
     t.string   "event_url"
-    t.string   "description", null: false
+    t.text     "description",              null: false
     t.integer  "user_id"
     t.datetime "time"
     t.datetime "event_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "event_key",   null: false
+    t.string   "event_password", limit: 8, null: false
   end
 
-  add_index "events", ["event_key"], name: "index_events_on_event_key", unique: true, using: :btree
+  add_index "events", ["event_password"], name: "index_events_on_event_password", unique: true, using: :btree
 
   create_table "reviews", force: true do |t|
     t.string   "feedback_comments"
