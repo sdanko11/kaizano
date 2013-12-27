@@ -1,0 +1,22 @@
+<br>
+<br>
+
+<b><font size="6">Create a New Event</font></b>
+
+<%= form_for(@event) do |f| -%><br/>
+        <%= f.label "Name" %> 
+        <%= f.text_field(:name)%><br />
+        <%= f.label "Access Key" %>
+        <%= f.text_field(:event_key) %><br />
+        <%= f.label "Date" %>
+        <%= f.text_field(:event_date)  %><br />
+        <%= f.label "Time" %>
+        <%= f.text_field(:time) %><br />
+        <%= f.label "Event Location" %>
+        <%= f.text_field(:location)%><br />
+        <%= f.label "Event URL" %>
+        <%= f.text_field(:event_url)%><br />
+        <%= f.label "Descrition" %>
+        <%= f.text_field(:description)%><br />
+<%= f.submit 'Save' %>
+<% end -%>

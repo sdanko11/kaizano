@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131225022551) do
+ActiveRecord::Schema.define(version: 20131226220750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20131225022551) do
     t.datetime "event_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_key",   null: false
   end
+
+  add_index "events", ["event_key"], name: "index_events_on_event_key", unique: true, using: :btree
 
   create_table "reviews", force: true do |t|
     t.string   "feedback_comments"

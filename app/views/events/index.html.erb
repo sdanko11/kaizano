@@ -1,0 +1,17 @@
+<%= form_for(@event) do |f| -%>
+        <%= f.label(:name) %>
+        <%= f.text_field(:name)%><br />
+        <%= f.label "Access Key" %>
+        <%= f.text_field(:unique_key) %>
+        <%= f.label "Date" %>
+        <%= f.text_field(:event_date)  %><br />
+        <%= f.label "Time" %>
+        <%= f.text_field(:time) %>
+        <%= f.label "Event Location" %>
+        <%= f.text_field(:location)  %><br />
+        <%= f.label "Event URL" %>
+        <%= f.text_field(:event_url)  %><br />
+        <%= f.lablel "Descrition" %>
+        <%= f.text_field(:description)  %><br />
+<%= f.submit 'Save' %>
+<% end -%>

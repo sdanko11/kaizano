@@ -1,7 +1,16 @@
 Kaizano::Application.routes.draw do
   devise_for :users
 
-  root to: "home#index"
+
+  root "home#index"
+  resources :events
+
+  #  get "blog_post/index"
+
+  # root 'blog_posts#index'
+  # resources :blog_posts
+  # resources :categories
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
