@@ -4,6 +4,7 @@ Kaizano::Application.routes.draw do
 
   root "home#index"
   resources :events
+  resources :reviews
 
   #  get "blog_post/index"
 

@@ -1,8 +1,6 @@
 <br>
 <br>
-
 <b><font size="6">Create a New Event</font></b>
-
 <%= form_for(@event) do |f| -%><br/>
         <%= f.label "Name" %> 
         <%= f.text_field(:name)%><br />
@@ -18,5 +16,5 @@
         <%= f.text_field(:event_url)%><br />
         <%= f.label "Descrition" %>
         <%= f.text_field(:description)%><br />
-<%= f.submit 'Save' %>
+<%= f.submit 'Create Event' %>
 <% end -%>

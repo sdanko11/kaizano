@@ -1,0 +1,9 @@
+<br>
+<br>
+<b><font size="6">Enter Event Password</font></b>
+
+<%= form_tag events_path, method: "get" do %>
+  <%= label_tag "Event Password" %>
+  <%= text_field :search, params[:search] %>
+  <%= submit_tag "Find Event" %>
+<% end %>
