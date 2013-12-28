@@ -1,9 +1,16 @@
+<div class="row">
+  <div class="large-">
+    <div class="row">
+      <div class="large-6 columns">
 <br>
-<br>
-<b><font size="6">Enter Event Password</font></b>
-
-<%= form_tag events_path, method: "get" do %>
-  <%= label_tag "Event Password" %>
-  <%= text_field :search, params[:search] %>
-  <%= submit_tag "Find Event" %>
+  <%= form_for(@review) do |f| %>
+  <%= f.label "Feedback" %><br>
+  <%= f.text_field :feedback_comments %><br />
+  <%= f.label "Rate the presentation on a scale of 1-10" %><br>
+  <%= f.text_field :rating %><br>
+  <%= f.submit "Give Review", class: "button"%>
 <% end %>
+    </div>
+    </div>
+  </div>
+</div>

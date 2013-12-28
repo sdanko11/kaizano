@@ -1,4 +1,7 @@
-<br>
+<div class="row">
+  <div class="large-">
+    <div class="row">
+      <div class="large-6 columns"><br>
 <br>
 <b><font size="6">Create a New Event</font></b>
 <%= form_for(@event) do |f| -%><br/>
@@ -16,5 +19,9 @@
         <%= f.text_field(:event_url)%><br />
         <%= f.label "Descrition" %>
         <%= f.text_field(:description)%><br />
-<%= f.submit 'Create Event' %>
+<%= f.submit 'Create Event',class: "button" %>
 <% end -%>
+    </div>
+    </div>
+  </div>
+</div>

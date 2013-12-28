@@ -1,3 +1,17 @@
+<div class="row">
+  <div class="large-">
+    <div class="row">
+      <div class="large-6 columns"><br>
+<br>
+<b><font size="6">Enter Event Password</font></b>
+<br>
+<%= form_tag events_path, method: "get" do %><br>
+  <%= label_tag "Event Password" %><br>
+  <%= text_field :search, params[:search] %>
+  <br>
+  <%= submit_tag "Find Event" %>
+<% end %>
+<% if @event != nil %>
 <% @event.each do |event| %>
 <br>
   Event Name: <%= event.name %> <br>
@@ -15,3 +29,11 @@
     Date: <%= event.time %> <br>
   <% end %>
 <% end %>
+<br>
+<%= link_to 'Give Feedback', new_review_path %>
+
+<% end %>
+    </div>
+    </div>
+  </div>
+</div>
