@@ -3,8 +3,10 @@ Kaizano::Application.routes.draw do
 
 
   root "home#index"
-  resources :events
-  resources :reviews
+
+  resources :events do
+    resources :reviews
+  end
 
   #  get "blog_post/index"
 

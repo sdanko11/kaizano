@@ -1,25 +1,4 @@
 <!DOCTYPE html>
-<nav class="top-bar">
-  <ul class="title-area">
-    <li class="name">
-    <h1><%= link_to "Kaizano", root_path %></h1>
-    </li>
-  </ul>
-  <section class="top-bar-section">
-    <ul class="right">
-      <% if user_signed_in? %>
-      <li class="divider"></li>
-      <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-      <%else %>
-      <li class="divider"></li>
-      <li><%= link_to "Sign up", new_user_registration_path %></li>
-      <li class="divider"></li>
-      <li><%= link_to "sign in",new_user_session_path %></li>
-      <% end %>
-    </ul>
-  </div>
-</nav>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -33,8 +12,33 @@
   </head>
 
   <body>
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+        <h1><%= link_to "Kaizano", root_path %></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <% if user_signed_in? %>
+          <li class="divider"></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <%else %>
+          <li class="divider"></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "sign in",new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
 
-    <%= yield %>
+    <div class="row">
+      <div class="span-12 columns">
+        <%= yield %>
+      </div>
+    </div>  
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

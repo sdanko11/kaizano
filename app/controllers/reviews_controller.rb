@@ -1,21 +1,23 @@
 class ReviewsController < ApplicationController
 
- def index
+  def index
     @reviews = Review.all
   end
 
   def new
-    @review = Review.new
+    @event = Event.find(params[:event_id])
+    @review = @event.reviews.build
   end
 
   def create
     @event = Event.find(params[:event_id])
     @review = @event.reviews.build(review_params)
+    @review.save
   end
 
-  # def show
-  #   @event = Event.find(params[:id])
-  # end
+  def show
+    @event = Event.find(params[:id])
+  end
 
   # def update
   #   @event = Event.find(params[:id])

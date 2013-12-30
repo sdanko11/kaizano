@@ -1,3 +1,7 @@
+<div class="row">
+  <div class="large-">
+    <div class="row">
+      <div class="large-6 columns"><br>
 <h2>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
@@ -29,7 +33,11 @@
 
 
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Sign up", class: "button" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+   </ul>
+  </div>
+</nav>

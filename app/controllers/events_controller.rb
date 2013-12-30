@@ -3,7 +3,11 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    @event = Event.search(params[:search])
+
+    if params[:search]
+      # @event = Event.search(params[:search][:event_password])
+      @event = Event.find_by(event_password: params[:search][:event_password])
+    end
   end
 
   def new
@@ -11,8 +15,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    @user  = current_user
-    @event = @user.events.build(event_params)
+    @event = current_user.events.build(event_params)
+
+    @event = Event.new(event_params)
+    @event.user = current_user
+
     @event.save
     if @event.save
       redirect_to user_session_path
@@ -20,8 +27,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    @events = Event.find(params[:id])
-    @review = Review.new
+    @event = Event.find(params[:id])
+    # @review = Review.new
   end
 
   def update

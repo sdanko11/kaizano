@@ -2,35 +2,35 @@
   <div class="large-">
     <div class="row">
       <div class="large-6 columns"><br>
+
 <br>
 <b><font size="6">Enter Event Password</font></b>
 <br>
-<%= form_tag events_path, method: "get" do %><br>
-  <%= label_tag "Event Password" %><br>
-  <%= text_field :search, params[:search] %>
+<%= form_for :search, action: events_path, method: "get" do |f| %><br>
+  <%= f.label "Event Password" %><br>
+  <%= f.text_field :event_password %>
   <br>
-  <%= submit_tag "Find Event" %>
+  <%= submit_tag "Find Event", class: "button" %>
 <% end %>
 <% if @event != nil %>
-<% @event.each do |event| %>
 <br>
-  Event Name: <%= event.name %> <br>
-  Event Description: <%= event.description %> <br>
-  <% if event.location.length > 0 %>
-    Location: <%= event.location %> <br>
+  Event Name: <%= @event.name %> <br>
+  Event Description: <%= @event.description %> <br>
+  <% if @event.location.length > 0 %>
+    Location: <%= @event.location %> <br><br>
   <% end %>
-  <% if event.event_url.length > 0 %>
-    Event Url: <%= event.event_url %> <br>
+  <% if @event.event_url.length > 0 %>
+    Event Url: <%= @event.event_url %> <br>
   <% end %>
-  <% if event.event_date != nil %>
-    Date: <%= event.event_date %> <br>
+  <br>
+  <% if @event.event_date != nil %>
+    Date: <%= @event.event_date %> <br>
   <% end %>
-  <% if event.time != nil %>
-    Date: <%= event.time %> <br>
+  <% if @event.time != nil %>
+    Date: <%= @event.time %> <br>
   <% end %>
-<% end %>
-<br>
-<%= link_to 'Give Feedback', new_review_path %>
+<%= link_to 'Give Feedback', new_event_review_path(@event) %>
+  <br>
 
 <% end %>
     </div>

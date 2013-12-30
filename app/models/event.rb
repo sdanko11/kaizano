@@ -7,8 +7,9 @@ class Event < ActiveRecord::Base
 
   def self.search(search)
     if search != nil
-      search = search.join
+      # search = search.join
       Event.where("event_password like ?", "#{search}")
+      # Event.find_by(event_password: search)
     end
   end
 

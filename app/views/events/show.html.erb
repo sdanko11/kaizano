@@ -1,33 +1,19 @@
-<br>
-<br>
-<b><font size="6">Enter Event Password</font></b>
+<%= @event %>
 
-<%= form_tag event_path, method: "get" do %>
-  <%= label_tag "Event Password" %><br>
-  <%= text_field :search, params[:search] %>
-  <br>
-  <%= submit_tag "Find Event" %>
-<% end %>
 
-<% if @event != nil %>
-<% @event.each do |event| %>
+<!-- <div class="row">
+  <div class="large-">
+    <div class="row">
+      <div class="large-6 columns">
 <br>
-  Event Name: <%= event.name %> <br>
-  Event Description: <%= event.description %> <br>
-  <% if event.location.length > 0 %>
-    Location: <%= event.location %> <br>
-  <% end %>
-  <% if event.event_url.length > 0 %>
-    Event Url: <%= event.event_url %> <br>
-  <% end %>
-  <% if event.event_date != nil %>
-    Date: <%= event.event_date %> <br>
-  <% end %>
-  <% if event.time != nil %>
-    Date: <%= event.time %> <br>
-  <% end %>
+  <%= form_for [@event, @review] do |f| %>
+  <%= f.label "Feedback" %><br>
+  <%= f.text_field :feedback_comments %><br />
+  <%= f.label "Rate the presentation on a scale of 1-10" %><br>
+  <%= f.text_field :rating %><br>
+  <%= f.submit "Give Review", new_review_path %>
 <% end %>
-<br>
-<%= link_to 'Give Feedback', new_review_path %>
-
-<% end %>
+    </div>
+    </div>
+  </div>
+</div> -->
