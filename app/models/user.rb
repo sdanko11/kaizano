@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   validates_presence_of :sign_in_count
   has_many :events
   belongs_to :event
+  mount_uploader :avatar, ImageUploader
 end

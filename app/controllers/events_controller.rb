@@ -5,7 +5,6 @@ class EventsController < ApplicationController
     @events = Event.all
 
     if params[:search]
-      # @event = Event.search(params[:search][:event_password])
       @event = Event.find_by(event_password: params[:search][:event_password])
     end
   end
@@ -26,7 +25,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    # @review = Review.new
   end
 
   def update

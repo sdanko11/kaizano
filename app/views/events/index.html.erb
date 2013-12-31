@@ -9,6 +9,7 @@
 <%= form_for :search, action: events_path, method: "get" do |f| %><br>
   <%= f.label "Event Password" %><br>
   <%= f.text_field :event_password %>
+  <%= flash[:notice] %>
   <br>
   <%= submit_tag "Find Event", class: "button" %>
 <% end %>
@@ -28,7 +29,7 @@
   <% end %>
   <% if @event.time != nil %>
     Date: <%= @event.time %> <br>
-  <% end %>
+<% end %>
 <%= link_to 'Give Feedback', new_event_review_path(@event) %>
   <br>
 
