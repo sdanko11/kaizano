@@ -1,4 +1,4 @@
 class Review < ActiveRecord::Base
-  validates_presence_of :rating, :in => 1..10
+  validates_presence_of :rating
   belongs_to :event
 end

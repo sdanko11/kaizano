@@ -1,8 +1,9 @@
 class Event < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
+  validates_presence_of :event_password
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, :dependent => :destroy
 
 
   def self.search(search)

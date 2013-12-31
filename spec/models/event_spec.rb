@@ -8,6 +8,9 @@ describe Event do
   it { should have_valid(:description).when('sdfsdfsdf', 'this is a description', 'hahahaha') }
   it { should_not have_valid(:description).when(nil, '') }
 
+  it { should have_valid(:event_password).when('sdfsdfsdf', 'this is a description', 'hahahaha') }
+  it { should_not have_valid(:event_password).when(nil, '') }
+
   it { should belong_to(:user) }
 
   it { should have_many(:reviews)}

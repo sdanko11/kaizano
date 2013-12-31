@@ -18,6 +18,9 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
       if @event.save
         redirect_to user_session_path
+      else
+        flash.now[:notice] = "Please fill out all required fields."
+        render :new
       end
     end
 
