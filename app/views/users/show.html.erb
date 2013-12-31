@@ -1,0 +1,9 @@
+<br>
+<%= image_tag @user.avatar.thumb.url %><br>
+<%= @user.first_name %> <%= @user.last_name %><br>
+<% @all_events.each do |event| %>
+  Event Title:
+  <%= event.name %><br>
+  Event Description:
+  <%= event.description %>
+<% end %>

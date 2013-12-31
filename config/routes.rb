@@ -8,6 +8,8 @@ Kaizano::Application.routes.draw do
     resources :reviews
   end
 
+  resources :users
+
   #  get "blog_post/index"
 
   # root 'blog_posts#index'

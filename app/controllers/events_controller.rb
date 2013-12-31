@@ -3,7 +3,6 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-
     if params[:search]
       @event = Event.find_by(event_password: params[:search][:event_password])
     end

@@ -4,7 +4,7 @@
       <div class="large-6 columns">
 <br>
   <%= simple_form_for ([@event, @review]) do |f| %>
-  Rating this Presentation<br>
+  Rate this Presentation<br>
   <br>
   <%= f.input :rating, label: "10 being really good and 1 not good", 
   :collection => 1..10, :include_blank => false %><br>
