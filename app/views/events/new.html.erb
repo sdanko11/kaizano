@@ -4,21 +4,14 @@
       <div class="large-6 columns"><br>
 <br>
 <b><font size="6">Create a New Event</font></b>
-<%= form_for(@event) do |f| -%><br/>
-        <%= f.label "Name" %> 
-        <%= f.text_field(:name)%><br />
-        <%= f.label "Event Password" %>
-        <%= f.text_field(:event_password) %><br />
-        <%= f.label "Date" %>
-        <%= f.text_field(:event_date)  %><br />
-        <%= f.label "Time" %>
-        <%= f.text_field(:time) %><br />
-        <%= f.label "Event Location" %>
-        <%= f.text_field(:location)%><br />
-        <%= f.label "Event URL" %>
-        <%= f.text_field(:event_url)%><br />
-        <%= f.label "Descrition" %>
-        <%= f.text_field(:description)%><br />
+<%= simple_form_for(@event) do |f| %>
+        <%= f.input :name %><br />
+        <%= f.input :event_password %><br />
+        <%= f.input :event_date  %><br />
+        <%= f.input :time %><br />
+        <%= f.input :location%><br />
+        <%= f.input :event_url%><br />
+        <%= f.input :description%><br />
 <%= f.submit 'Create Event',class: "button" %>
 <% end -%>
     </div>
