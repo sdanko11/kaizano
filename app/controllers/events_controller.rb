@@ -16,15 +16,10 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-
-    @event = Event.new(event_params)
-    @event.user = current_user
-
-    @event.save
-    if @event.save
-      redirect_to user_session_path
+      if @event.save
+        redirect_to user_session_path
+      end
     end
-  end
 
   def show
     @event = Event.find(params[:id])

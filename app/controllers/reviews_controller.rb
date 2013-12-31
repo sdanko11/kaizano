@@ -12,7 +12,11 @@ class ReviewsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @review = @event.reviews.build(review_params)
-    @review.save
+    if @review.save
+       redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
