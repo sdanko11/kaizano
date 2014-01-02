@@ -8,8 +8,10 @@ describe Event do
   it { should have_valid(:description).when('sdfsdfsdf', 'this is a description', 'hahahaha') }
   it { should_not have_valid(:description).when(nil, '') }
 
-  it { should have_valid(:event_password).when('sdfsdfsdf', 'this is a description', 'hahahaha') }
+  it { should have_valid(:event_password).when('12345678', '8char', 'exactly8') }
   it { should_not have_valid(:event_password).when(nil, '') }
+  it { should_not have_valid(:event_password).when("this is a long string", 
+      "not 8 characters long")}
 
   it { should belong_to(:user) }
 

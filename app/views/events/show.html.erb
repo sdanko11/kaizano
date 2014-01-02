@@ -1,0 +1,24 @@
+<br>
+<% @all_ratings = [] %>
+<% @feedback_comments =[] %>
+Event Title: 
+<%= @event.name %><br>
+Event Description: 
+<%= @event.description%><br>
+Number of Feedbacks Recieved:
+<%= @event.reviews.count %><br>
+  <% if @event.reviews.count > 0 %>
+Average Rating: 
+    <% @event.reviews.each do |feedback| %>
+       <% @all_ratings << feedback.rating %>
+       <% @feedback_comments << feedback.feedback_comments %>
+    <% end %>
+    <% review_total = @all_ratings.inject(0) { |sum, review| sum += review } %>
+    <%= (review_total/@event.reviews.count).round(2) %><br>
+    All Reviews<br>
+    <% @feedback_comments.each do |feedback| %>
+    <% if feedback != nil %>
+      <%= feedback %><br>
+    <%end%>
+  <%end%>
+<%end%>

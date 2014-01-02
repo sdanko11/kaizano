@@ -1,9 +1,19 @@
 <br>
 <%= image_tag @user.avatar.thumb.url %><br>
+<br>
 <%= @user.first_name %> <%= @user.last_name %><br>
-<% @all_events.each do |event| %>
-  Event Title:
-  <%= event.name %><br>
-  Event Description:
-  <%= event.description %>
+<br>
+  <% @all_events.each do |event| %>
+Event Title:
+    <%= event.name %><br>
+Event Description:
+    <%= event.description %><br>
+      <% if event.reviews.count > 0 %>
+Reviews<br>
+        <% event.reviews.each do |review| %>
+      <% if review.feedback_comments.length > 0 %> 
+          <%= review.feedback_comments %><br>
+      <% end %>
+    <% end %>
+  <% end %>
 <% end %>

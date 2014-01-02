@@ -1,4 +1,10 @@
 <h1> Welcome to Kaizano <h1>
 <%= link_to 'Create new Event', new_event_path %>
 <br>
-<%= link_to 'Give Feedback', events_path %>
+<%= link_to 'Give Feedback', events_path %><br>
+
+<% if user_signed_in? %>
+<%= link_to 'View all events', users_path %><br>
+<% end %>
+
+

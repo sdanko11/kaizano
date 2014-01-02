@@ -1,0 +1,12 @@
+<br>
+<%= image_tag @user.avatar.thumb.url %><br>
+<br>
+<%= @user.first_name %> <%= @user.last_name %><br>
+<br>
+<%= flash[:edits_saved] %><br>
+  <% @all_events.each do |event| %>
+Event:
+    <%= event.name %>
+    <%= link_to "Edit Event", edit_event_path(event)%>
+    <%= link_to "View Event", event_path(event) %><br>
+<% end %>

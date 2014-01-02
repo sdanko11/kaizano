@@ -1,3 +1,4 @@
+
 class EventsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
@@ -22,6 +23,10 @@ class EventsController < ApplicationController
       end
     end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
   def show
     @event = Event.find(params[:id])
   end
@@ -29,7 +34,8 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
-      redirect_to(@event)
+      flash[:edits_saved] = "Saved Changes"
+      redirect_to users_path
     else
        render :edit
     end
@@ -38,8 +44,8 @@ class EventsController < ApplicationController
   protected
 
   def event_params
-    params.require(:event).permit(:name, :user_id, :event_password, :location, :event_date, :event_url, 
-    :description, :time, :user_id)
+    params.require(:event).permit(:name, :user_id, :event_password, :location, :event_date, 
+    :event_url, :description, :time, :user_id)
   end
 
 end

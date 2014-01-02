@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="large-">
+    <div class="row">
+      <div class="large-6 columns"><br>
+<br>
+<b><font size="6">Edit Event Details</font></b><br>
+<br>
+<br>
+<%= simple_form_for(@event) do |f| %>
+        <%= f.input :name %><br />
+        <%= f.input :event_date  %><br />
+        <%= f.input :time %><br />
+        <%= f.input :location%><br />
+        <%= f.input :event_url%><br />
+        <%= f.input :description%><br />
+<%= f.submit 'Save Changes',class: "button" %>
+<% end -%>
+    </div>
+    </div>
+  </div>
+</div>
