@@ -1,7 +1,8 @@
 <br>
-<%= image_tag @user.avatar.thumb.url %>
-<h1><%= @user.first_name %> <%= @user.last_name %><h1>
-<%= flash[:edits_saved] %><br>
+<%= image_tag @user.avatar.thumb.url%>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<%=flash[:edits_saved] %><br>
+<br>
 <table border="1">
 <% @all_events.each do |event| %>
 <tr>
