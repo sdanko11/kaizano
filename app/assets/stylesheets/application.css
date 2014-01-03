@@ -13,3 +13,6 @@
 
  *= require_tree .
  */
+ .top-bar-section li a:hover:not(.button) {
+    background: #222222;
+  }

@@ -11,7 +11,7 @@ Number of Feedbacks Recieved:
 Average Rating: 
     <% @event.reviews.each do |feedback| %>
        <% @all_ratings << feedback.rating %>
-      <% @feedback_comments << feedback.feedback_comments %>
+       <% @feedback_comments << feedback.feedback_comments %>
     <% end %>
     <% review_total = @all_ratings.inject(0) { |sum, review| sum += review } %>
     <%= (review_total/@event.reviews.count).round(2) %><br>

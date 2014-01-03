@@ -12,16 +12,19 @@
   </head>
 
   <body>
-    <nav class="top-bar">
+    <body style="background-color:#F2F2F2">
+    <nav class="top-bar" style="background-color:#01DFA5">
       <ul class="title-area">
         <li class="name">
+          <div>
         <h1><%= link_to "Kaizano", root_path %></h1>
+          </div>
         </li>
       </ul>
       <section class="top-bar-section">
         <ul class="right">
           <% if user_signed_in? %>
-          <li class="divider"></li>
+          <li class="divider">
           <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           <%else %>
           <li class="divider"></li>

@@ -1,4 +1,3 @@
-
 class EventsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
@@ -6,6 +5,10 @@ class EventsController < ApplicationController
     @events = Event.all
     if params[:search]
       @event = Event.find_by(event_password: params[:search][:event_password])
+      if @event == nil
+        flash[:could_not_find_event_notice] = "Password does not match any events"
+        redirect_to events_path
+      end
     end
   end
 
@@ -20,8 +23,8 @@ class EventsController < ApplicationController
       else
         flash.now[:notice] = "Please fill out all required fields."
         render :new
-      end
     end
+  end
 
   def edit
     @event = Event.find(params[:id])
