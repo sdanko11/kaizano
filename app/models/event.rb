@@ -14,4 +14,20 @@ class Event < ActiveRecord::Base
     end
   end
 
+ def calculate_average_rating
+    @all_reviews = []
+    review_count = reviews.count
+    reviews.each do |review|
+      @all_reviews << review.rating
+    end
+    ratings_total = @all_reviews.inject(0) { |sum, review| sum += review }
+    (ratings_total/review_count).round(2)
+  end
+
+  def count_reviews
+    reviews.count
+  end
+
+
+  
 end

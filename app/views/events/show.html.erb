@@ -6,19 +6,14 @@ Event Title:
 Event Description: 
 <%= @event.description%><br>
 Number of Feedbacks Recieved:
-<%= @event.reviews.count %><br>
-  <% if @event.reviews.count > 0 %>
+<%= @event.count_reviews %><br>
+  <% if @event.count_reviews > 0 %>
 Average Rating: 
-    <% @event.reviews.each do |feedback| %>
-       <% @all_ratings << feedback.rating %>
-       <% @feedback_comments << feedback.feedback_comments %>
-    <% end %>
-    <% review_total = @all_ratings.inject(0) { |sum, review| sum += review } %>
-    <%= (review_total/@event.reviews.count).round(2) %><br>
-    All Reviews<br>
-    <% @feedback_comments.each do |feedback| %>
-    <% if feedback != '' %>
-      <%= feedback %><br>
+    <%= @event.calculate_average_rating %><br>
+  <% end %>
+All Reviews<br>
+  <% @event.reviews.each do |review| %>
+    <% if review.feedback_comments != '' %>
+      <%= review.feedback_comments %><br>
     <%end%>
   <%end%>
-<%end%>

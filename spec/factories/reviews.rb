@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :review do
     feedback_comments "MyString"
+    rating 10
   end
 end
