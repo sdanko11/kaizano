@@ -1,6 +1,9 @@
 <br>
 <%= image_tag @user.avatar.thumb.url%>
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<%= "You have #{@all_events.count} presentations." %><br> 
+Average Presentation Rating:
+<%= @user.get_each_presentation_average %>
 <%=flash[:edits_saved] %><br>
 <br>
 <table border="1"BORDERCOLOR="#01DFA5" >

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :review do
-    feedback_comments "MyString"
-    rating 10
+    sequence(:feedback_comments) { |n| "good presentation#{n} man" }
+    rating 1
   end
 end

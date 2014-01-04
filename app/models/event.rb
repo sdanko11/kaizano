@@ -8,19 +8,17 @@ class Event < ActiveRecord::Base
 
   def self.search(search)
     if search != nil
-      # search = search.join
       Event.where("event_password like ?", "#{search}")
-      # Event.find_by(event_password: search)
     end
   end
 
  def calculate_average_rating
     @all_reviews = []
-    review_count = reviews.count
-    reviews.each do |review|
-      @all_reviews << review.rating
-    end
-    ratings_total = @all_reviews.inject(0) { |sum, review| sum += review }
+    review_count = count_reviews
+      reviews.each do |review|
+        @all_reviews << review.rating.to_f
+      end
+    ratings_total = @all_reviews.inject(0) { |sum, rating| sum += rating }
     (ratings_total/review_count).round(2)
   end
 
@@ -28,6 +26,4 @@ class Event < ActiveRecord::Base
     reviews.count
   end
 
-
-  
 end
