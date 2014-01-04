@@ -17,23 +17,31 @@ class User < ActiveRecord::Base
     @each_event_average = []
     @all_events_from_each_review = []
     events.each do |event|
-      event.reviews.each do |review|
-        @all_events_from_each_review << review.rating.to_f
+      if event.reviews.count > 0 
+        event.reviews.each do |review|
+         @all_events_from_each_review << review.rating.to_f 
+        end
+        review_total = @all_events_from_each_review.inject(0) { |sum, review| sum+=review }
+        @each_event_average << (review_total/@all_events_from_each_review.count).round(2)
+        @all_events_from_each_review = []
       end
-      review_total = @all_events_from_each_review.inject(0) { |sum, review| sum+=review }
-      @each_event_average << review_total/@all_events_from_each_review.count
-      @all_events_from_each_review = []
     end
     calculate_all_presentations_average
   end
 
   def calculate_all_presentations_average
     average_total = @each_event_average.inject(0) { |sum, review| sum+=review }
-    (average_total/event_count).round(2)
+    (average_total/events_with_reviews_count).round(2)
   end
 
-  def event_count
-    events.count
+  def events_with_reviews_count
+   @count = 0
+    events.each do |event|
+      if event.reviews.count > 0
+        @count +=1
+      end
+    end
+    @count
   end
 
 end

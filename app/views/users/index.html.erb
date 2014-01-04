@@ -1,19 +1,42 @@
 <br>
 <%= image_tag @user.avatar.thumb.url%>
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-<%= "You have #{@all_events.count} presentations." %><br> 
-Average Presentation Rating:
-<%= @user.get_each_presentation_average %>
+<table style="float: left" width="220" padding-right:5px>
+  <tr>
+  <th>Total Presentations</th>
+  </tr>
+  <tr>
+  <td align="center"><%= "#{@all_events.count}" %></td>
+  </tr>
+</table>
+<table width="220", style="float: left">
+  <tr>
+  <th>Presentations with Reviews</th>
+  </tr>
+  <tr>
+  <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
+  </tr>
+</table>
+<%if @user.events.count > 0%>
+<table width="220", style="display: inline-block">
+  <tr>
+  <th>Average Presentation Rating</th>
+  </tr>
+  <tr>
+  <td align="center"><%= "#{@user.get_each_presentation_average}" %></td>
+  </tr>
+</table>
 <%=flash[:edits_saved] %><br>
 <br>
-<table border="1"BORDERCOLOR="#01DFA5" >
-<% @all_events.each do |event| %>
+  <table border="1"BORDERCOLOR="#01DFA5">
+    <% @all_events.each do |event| %>
 <tr>
-</tr>
-<tr>
-<td><%=event.name%></td>
-<td><%= link_to "Edit Event", edit_event_path(event)%></td>
-<td><%= link_to "View Reviews", event_path(event) %></td>
-</tr>
-<% end %>
+  </tr>
+    <tr>
+      <td><%=event.name%></td>
+      <td><%= link_to "Edit Event", edit_event_path(event)%></td>
+      <td><%= link_to "View Reviews", event_path(event) %></td>
+    </tr>
+    <%end%>
 </table>
+<%end%>
