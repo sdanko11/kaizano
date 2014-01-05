@@ -22,7 +22,7 @@ class EventsController < ApplicationController
         redirect_to user_session_path
       else
         flash.now[:notice] = "Please fill out all required fields."
-        redenr :new
+        render :new
     end
   end
 

@@ -14,7 +14,7 @@ context "check the profile page content" do
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'View All Events'
+      click_link 'Profile'
     
       expect(page).to have_content "Kaizano"
       expect(page).to have_link "Sign out"
@@ -42,9 +42,8 @@ context "check the profile page content" do
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'View All Events'
+      click_link 'Profile'
       click_link 'View Reviews'
-      save_and_open_page
 
       expect(page).to have_content "Kaizano"
       expect(page).to have_link "Sign out"
@@ -71,7 +70,7 @@ context "check the profile page content" do
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'View All Events'
+      click_link 'Profile'
     
       expect(page).to have_content "Kaizano"
       expect(page).to have_link "Sign out"
@@ -96,7 +95,7 @@ context "check the profile page content" do
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'View All Events'
+      click_link 'Profile'
       click_link 'Edit Event'
     
       expect(page).to have_content "Kaizano"
@@ -112,7 +111,6 @@ context "check the profile page content" do
     end
   end
 
-
   context "Flash message displays after saving edits" do
 
     it "it has the correct flash message" do
@@ -125,7 +123,8 @@ context "check the profile page content" do
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'View All Events'
+      click_link 'Profile'
+      save_and_open_page
       click_link 'Edit Event'
       click_button 'Save Changes'
      

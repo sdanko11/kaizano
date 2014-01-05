@@ -83,12 +83,12 @@ describe 'registed user attempts visits the home page' do
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'View All Events'
+      click_link 'Profile'
     
       expect(page).to have_content "Kaizano"
       expect(page).to have_link "Sign out"
       expect(page).to have_link "Edit Event"
-      expect(page).to have_link "View Reviews"
+      expect(page).to have_link "Profile"
       expect(page).to have_content user.first_name
       expect(page).to have_content user.last_name
       expect(page).to have_content event.name

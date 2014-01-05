@@ -1,6 +1,9 @@
 <br>
-<%= image_tag @user.avatar.thumb.url%>
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<%= image_tag @user.avatar.thumb.url%><br>
+<br>
+<%= link_to "Edit Profile", edit_user_path(@user) %><br><br>
+<%=flash[:saved_changes] %>
+<h1><%= @user.format_speaker_name %></h1>  
 <table style="float: left" width="220" padding-right:5px>
   <tr>
   <th>Total Presentations</th>
@@ -17,13 +20,21 @@
   <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
   </tr>
 </table>
-<%if @user.events.count > 0%>
+
 <table width="220", style="display: inline-block">
   <tr>
   <th>Average Presentation Rating</th>
   </tr>
   <tr>
-  <td align="center"><%= "#{@user.get_each_presentation_average}" %></td>
+  <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.get_each_presentation_average)}" %></td>
+  </tr>
+</table>
+<table width="220", style="display: inline-block">
+  <tr>
+  <th>Highest Rated Presentation</th>
+  </tr>
+  <tr>
+  <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.get_each_presentation_average)}" %></td>
   </tr>
 </table>
 <%=flash[:edits_saved] %><br>
@@ -39,4 +50,3 @@
     </tr>
     <%end%>
 </table>
-<%end%>

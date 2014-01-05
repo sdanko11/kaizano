@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="large-">
+    <div class="row">
+      <div class="large-6 columns"><br>
+<br>
+<b><font size="6">Edit Profile Information</font></b><br>
+<br>
+<br>
+<%= simple_form_for(@user) do |f| %>
+        <%= f.input :first_name %><br/>
+        <%= f.input :last_name%><br/>
+        <%= f.input :about_me%><br/>
+        <%= f.input :twitter_handle, label: 'Twitter Url'%><br/>
+        <%= f.input :linked_in_url, label: 'LinkedIn Url'%><br/>
+        <%= f.input :phone_number, label: 'Phone Number'%><br/>
+<%= f.submit 'Save Changes',class: "button" %>
+<%= link_to "Cancel", users_path, class: "button" %>
+<% end %>
+    </div>
+    </div>
+  </div>
+</div>

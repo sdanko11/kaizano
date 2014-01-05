@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :event_password
+  validates :event_password, uniqueness: true
   belongs_to :user
   has_many :reviews, :dependent => :destroy
   validates_length_of :event_password, :maximum => 8
@@ -24,6 +25,10 @@ class Event < ActiveRecord::Base
 
   def count_reviews
     reviews.count
+  end
+
+  def format_speaker_name
+    "#{user.first_name} #{user.last_name}"
   end
 
 end
