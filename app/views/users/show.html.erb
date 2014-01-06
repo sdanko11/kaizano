@@ -1,19 +1,52 @@
 <br>
-<%= image_tag @user.avatar.thumb.url %><br>
+<%= image_tag @user.avatar.thumb.url%><br>
 <br>
-<%= @user.first_name %> <%= @user.last_name %><br>
+<%= link_to "Edit Profile", edit_user_path(@user) %><br><br>
+<%=flash[:saved_changes] %>
+<h1><%= @user.format_speaker_name %></h1>  
+<table style="float: left" width="220" padding-right:5px>
+  <tr>
+  <th>Total Presentations</th>
+  </tr>
+  <tr>
+  <td align="center"><%= "#{@all_events.count}" %></td>
+  </tr>
+</table>
+<table width="220", style="float: left">
+  <tr>
+  <th>Presentations with Reviews</th>
+  </tr>
+  <tr>
+  <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
+  </tr>
+</table>
+
+<table width="220", style="display: inline-block">
+  <tr>
+  <th>Average Presentation Rating</th>
+  </tr>
+  <tr>
+  <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.get_each_presentation_average)}" %></td>
+  </tr>
+</table>
+<table width="220", style="display: inline-block">
+  <tr>
+  <th>Highest Rated Presentation</th>
+  </tr>
+  <tr>
+  <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.get_each_presentation_average)}" %></td>
+  </tr>
+</table>
+<%=flash[:edits_saved] %><br>
 <br>
-  <% @all_events.each do |event| %>
-Event Title:
-    <%= event.name %><br>
-Event Description:
-    <%= event.description %><br>
-      <% if event.reviews.count > 0 %>
-Reviews<br>
-        <% event.reviews.each do |review| %>
-      <% if review.feedback_comments.length > 0 %> 
-          <%= review.feedback_comments %><br>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
+  <table border="1"BORDERCOLOR="#01DFA5">
+    <% @all_events.each do |event| %>
+<tr>
+  </tr>
+    <tr>
+      <td><%=event.name%></td>
+      <td><%= link_to "Edit Event", edit_event_path(event)%></td>
+      <td><%= link_to "View Reviews", event_path(event) %></td>
+    </tr>
+    <%end%>
+</table>

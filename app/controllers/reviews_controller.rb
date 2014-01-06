@@ -20,7 +20,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    binding.pry
+    @review = Review.find(params[:id])
   end
 
   protected

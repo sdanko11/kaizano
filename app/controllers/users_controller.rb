@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :validate_user, :only => :show
 
-  def index
-    @all_events = current_user.events
-    @user = current_user
-  end
+  # def index
+  #   @all_events = current_user.events
+  #   @user = current_user
+  # end
 
   def edit
     @user = current_user
@@ -18,6 +18,15 @@ class UsersController < ApplicationController
     else
       render action: 'edit'
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @all_events = current_user.events
+  end
+
+  def validate_user
+    redirect_to root_path unless current_user.id.to_s == params[:id]
   end
 
   private

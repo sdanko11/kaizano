@@ -28,9 +28,6 @@ class User < ActiveRecord::Base
       end
     end
     @each_event_average
-    # if @each_event_average.count > 0
-    #   calculate_all_presentations_average
-    # end
   end
 
   def calculate_all_presentations_average(all_averages)
@@ -44,13 +41,6 @@ class User < ActiveRecord::Base
     else
       "Make Some Events!"
     end
-
-    # event_average_totals =[]
-    # @each_event_average.each do |event|
-    #   event_average_totals << event.values.join.to_f
-    # end
-    # average_total = event_average_totals.inject(0) { |sum, review| sum+=review }
-    # (average_total/events_with_reviews_count).round(2)
   end
 
   def events_with_reviews_count
@@ -72,12 +62,6 @@ class User < ActiveRecord::Base
       "You have no Events!"
     end
   end
-
-  # def get_highest_rated_presentation_rating(all_averages)
-  #   events_sorted_by_average = all_averages.sort_by { |k| k.values}
-  #   highest_rated = events_sorted_by_average.last
-  #   "#{highest_rated.values.join}"
-  # end
 
   def format_speaker_name
     "#{first_name} #{last_name}"

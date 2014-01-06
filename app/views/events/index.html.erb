@@ -25,7 +25,7 @@
     <%= link_to "Follow me on Twitter", @event.user.twitter_handle, target: '_blank' %><br>
   <%end%>
   <%if @event.user.linked_in_url != '' %>
-    <%= link_to "Connect on Linked In", @event.user.linked_in_url, target: '_blank' %><br>
+    <%= link_to "Connect on Linked In", @event.user.linked_in_url %><br>
   <%end%>
   About this Event<br>
   <br>

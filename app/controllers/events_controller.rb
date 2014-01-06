@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index]
+  before_filter :does_user_own_event, :only => [:show, :edit]
 
   def index
     @events = Event.all
@@ -30,10 +31,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  def show
-    @event = Event.find(params[:id])
-  end
-
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
@@ -44,11 +41,23 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
+  def does_user_own_event
+    all_event_ids = []
+    current_user.events.each do |event|
+      all_event_ids << event.id.to_s
+    end
+    redirect_to root_path unless all_event_ids.include?(params[:id])
+  end
+
   protected
 
   def event_params
     params.require(:event).permit(:name, :user_id, :event_password, :location, :event_date, 
-    :event_url, :description, :time, :user_id)
+    :event_url, :description, :time)
   end
 
 end
