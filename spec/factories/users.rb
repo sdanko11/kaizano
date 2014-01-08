@@ -7,6 +7,6 @@ FactoryGirl.define do
    password "12345678"
    password_confirmation "12345678"
    last_name "Danko"
-   twitter_handle "@sdanko11"
+   twitter_handle "www.twitter.com"
   end
 end

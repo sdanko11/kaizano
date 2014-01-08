@@ -17,4 +17,6 @@ describe Event do
 
   it { should have_many(:reviews)}
 
+  it { should have_many(:questions) }
+
 end

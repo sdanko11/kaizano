@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   before_filter :validate_user, :only => :show
 
-  # def index
-  #   @all_events = current_user.events
-  #   @user = current_user
-  # end
-
   def edit
     @user = current_user
   end
@@ -13,8 +8,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:saved_changes]="Changes Saved"
-      redirect_to users_path 
+      flash[:saved]="Saved"
+      redirect_to  user_path
     else
       render action: 'edit'
     end
@@ -33,7 +28,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :twitter_handle,
-    :linked_in_url, :phone_numer, :about_me)
+    :linked_in_url, :phone_numer, :about_me, :avatar)
   end
 
 

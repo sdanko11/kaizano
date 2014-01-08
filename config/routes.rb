@@ -5,9 +5,14 @@ Kaizano::Application.routes.draw do
 
   resources :events do
     resources :reviews
+    resources :questions
   end
 
-  resources :users
+  resources :questions do
+    resources :question_votes
+  end
+
+  resources :users, :thanks, :messages
 
   #  get "blog_post/index"
 

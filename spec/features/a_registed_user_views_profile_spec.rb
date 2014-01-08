@@ -124,7 +124,6 @@ context "check the profile page content" do
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
       click_link 'Profile'
-      save_and_open_page
       click_link 'Edit Event'
       click_button 'Save Changes'
      

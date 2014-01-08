@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index]
-  before_filter :does_user_own_event, :only => [:show, :edit]
+  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :does_user_own_event, :only => [:edit]
 
   def index
     @events = Event.all
@@ -9,6 +9,8 @@ class EventsController < ApplicationController
       if @event == nil
         flash[:could_not_find_event_notice] = "Password does not match any events"
         redirect_to events_path
+      else
+        redirect_to event_path(@event)
       end
     end
   end
@@ -34,14 +36,16 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
-      flash[:edits_saved] = "Saved Changes"
-      redirect_to users_path
+      flash[:saved] = "Saved Changes"
+      redirect_to user_path(current_user)
     else
        render :edit
     end
   end
 
   def show
+    @question_vote = QuestionVote.new
+    @question = Question.new
     @event = Event.find(params[:id])
   end
 
@@ -50,7 +54,7 @@ class EventsController < ApplicationController
     current_user.events.each do |event|
       all_event_ids << event.id.to_s
     end
-    redirect_to root_path unless all_event_ids.include?(params[:id])
+    redirect_to user_path(current_user) unless all_event_ids.include?(params[:id])
   end
 
   protected

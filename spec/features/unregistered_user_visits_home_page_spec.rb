@@ -17,19 +17,18 @@ describe 'a unregisted user vistits the home page' do
       expect(page).to have_link "Create New Event"
       expect(page).to have_link "Give Feedback"
       expect(page).to have_link "Sign in"
+      expect(page).to_not have_content "Profile"
     end
   end
 
-  context "Password Page" do
-    it "user has the option to leave a review" do
+  context " check content on find the enter event password page" do
+    it "should have a field for password and a find event button" do
 
       visit root_path
       click_link 'Give Feedback'
 
       expect(page).to have_content "Enter Event Password"
       page.should have_button "Find Event"
-      page.should have_link "Sign in"
-      page.should have_link "Sign up"
     end
   end
 
@@ -43,11 +42,9 @@ describe 'a unregisted user vistits the home page' do
       expect(page).to have_content "Email"
       expect(page).to have_content "Password"
       expect(page).to have_button "Sign in"
-      page.should have_link "Sign up"
-      expect(page).to have_link "Forgot your password?"
+      expect(page).to have_field("Email")
+      expect(page).to have_field("Password")
     end
   end
 
-
-  context 
 end

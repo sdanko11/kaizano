@@ -13,27 +13,27 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, ImageUploader
 
 
-  def get_each_presentation_average
-    @each_event_average = []
-    @all_events_from_each_review = []
+  def each_event_rating_average
+    @each_event_rating_average = []
+    @all_ratings_from_an_event = []
     events.each do |event|
       if event.reviews.count > 0 
         event.reviews.each do |review|
-         @all_events_from_each_review << review.rating.to_f 
+         @all_ratings_from_an_event << review.rating.to_f 
         end
-        review_total = @all_events_from_each_review.inject(0) { |sum, review| sum+=review }
-        @each_event_average << {event.name => (review_total/
-        @all_events_from_each_review.count).round(2) }
-        @all_events_from_each_review = []
+        review_total = @all_ratings_from_an_event.inject(0) { |sum, review| sum+=review }
+        @each_event_rating_average << {event.name => (review_total/
+        @all_ratings_from_an_event.count).round(2) }
+        @all_ratings_from_an_event = []
       end
     end
-    @each_event_average
+    @each_event_rating_average
   end
 
-  def calculate_all_presentations_average(all_averages)
-    if all_averages.count > 0
+  def calculate_all_presentations_average(all_event_averages)
+    if all_event_averages.count > 0
       event_average_totals =[]
-      all_averages.each do |event|
+      all_event_averages.each do |event|
         event_average_totals << event.values.join.to_f
       end
       average_total = event_average_totals.inject(0) { |sum, review| sum+=review }
@@ -53,9 +53,9 @@ class User < ActiveRecord::Base
     @count
   end
 
-  def get_highest_rated_presentation(all_averages)
-    if all_averages.count > 0
-      events_sorted_by_average = all_averages.sort_by { |k| k.values}
+  def get_highest_rated_presentation(all_event_averages)
+    if all_event_averages.count > 0
+      events_sorted_by_average = all_event_averages.sort_by { |k| k.values}
       highest_rated = events_sorted_by_average.last
       "#{highest_rated.keys.join}, #{highest_rated.values.join}"
     else 

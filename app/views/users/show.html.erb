@@ -1,10 +1,14 @@
-<br>
-<%= image_tag @user.avatar.thumb.url%><br>
-<br>
-<%= link_to "Edit Profile", edit_user_path(@user) %><br><br>
-<%=flash[:saved_changes] %>
-<h1><%= @user.format_speaker_name %></h1>  
-<table style="float: left" width="220" padding-right:5px>
+<div class="small-2 columns" style="PADDING-LEFT: 50px; PADDING-TOP: 50px;">
+  <%= image_tag @user.avatar.thumb.url %>
+</div>
+<%=flash[:saved]%>
+<%=flash[:edits_saved]%><br>
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+<h1><%= @user.format_speaker_name %></h1> 
+</div>
+<ul class="small-block-grid-5">
+<li style="PADDING-LEFT: 650px; PADDING-TOP: -350px;">
+<table width="220", height="100">
   <tr>
   <th>Total Presentations</th>
   </tr>
@@ -12,7 +16,10 @@
   <td align="center"><%= "#{@all_events.count}" %></td>
   </tr>
 </table>
-<table width="220", style="float: left">
+</li>
+<li style="PADDING-LEFT: 200px; PADDING-TOP: -350px">
+ <div class="small- large-4 columns">
+<table width="220", height="100" style="float: left">
   <tr>
   <th>Presentations with Reviews</th>
   </tr>
@@ -20,25 +27,32 @@
   <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
   </tr>
 </table>
-
-<table width="220", style="display: inline-block">
+</ul>
+<ul class="small-block-grid-5">
+</li>
+<li style="PADDING-LEFT: 650px">
+<table width="220", height="100" style="display: inline-block">
   <tr>
   <th>Average Presentation Rating</th>
   </tr>
   <tr>
-  <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.get_each_presentation_average)}" %></td>
+  <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.each_event_rating_average)}" %></td>
   </tr>
 </table>
-<table width="220", style="display: inline-block">
+</li>
+<li style="PADDING-LEFT: 218px">
+<table width="220", height="100" style="display: inline-block;">
   <tr>
   <th>Highest Rated Presentation</th>
   </tr>
   <tr>
-  <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.get_each_presentation_average)}" %></td>
+  <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.each_event_rating_average)}" %></td>
   </tr>
 </table>
-<%=flash[:edits_saved] %><br>
+</li>
+</ul>
 <br>
+<div style="PADDING-LEFT: 50px; PADDING-TOP: -500px">
   <table border="1"BORDERCOLOR="#01DFA5">
     <% @all_events.each do |event| %>
 <tr>
@@ -50,3 +64,4 @@
     </tr>
     <%end%>
 </table>
+</div>

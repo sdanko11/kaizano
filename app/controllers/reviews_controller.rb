@@ -20,7 +20,6 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    binding.pry
     @review = Review.find(params[:id])
   end
 

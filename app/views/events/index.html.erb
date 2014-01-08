@@ -2,9 +2,7 @@
   <div class="large-">
     <div class="row">
       <div class="large-6 columns"><br>
-
 <br>
-<% if @event == nil %>
 <b><font size="6">Enter Event Password</font></b>
 <br>
   <%= form_for :search, action: events_path, method: "get" do |f| %><br>
@@ -14,28 +12,7 @@
     <%= submit_tag "Find Event", class: "button" %><br>
     <%= flash[:could_not_find_event_notice] %>
   <% end %>
-<% end %>
-<% if @event != nil %>
-  Event Name: <%= @event.name %> <br>
-  Speaker: <%= @event.format_speaker_name %><br>
-  <% if @event.user.about_me != '' %>
-    <%= @event.user.about_me %><br>
-  <%end%>
-  <%if @event.user.twitter_handle != '' %>
-    <%= link_to "Follow me on Twitter", @event.user.twitter_handle, target: '_blank' %><br>
-  <%end%>
-  <%if @event.user.linked_in_url != '' %>
-    <%= link_to "Connect on Linked In", @event.user.linked_in_url %><br>
-  <%end%>
-  About this Event<br>
-  <br>
-  <%= @event.description %><br>
-  <br>
-<%= link_to 'Give Feedback', new_event_review_path(@event) %>
-  <br>
-
-<% end %>
-    </div>
+     </div>
     </div>
   </div>
 </div>
