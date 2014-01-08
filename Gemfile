@@ -57,6 +57,7 @@ end
 
 group :development do
   gem 'quiet_assets'
+  gem "rails-erd"
 end
 
 # Use ActiveModel has_secure_password

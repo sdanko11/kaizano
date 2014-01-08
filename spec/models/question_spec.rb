@@ -8,4 +8,6 @@ describe Question do
 
   it { should have_many(:question_votes) }
 
+  it { should have_many(:question_comments) }
+
 end

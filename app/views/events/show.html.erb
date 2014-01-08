@@ -31,13 +31,20 @@
     <% end %>
     <%if @event.questions.count > 0%>
       <%@event.questions.order(question_votes_count: :desc).each do |question|%>
-        <%=question.question_votes_count%>, <%=question.body%>
-          <%=simple_form_for ([question, @question_vote]) do |f|%>
-          <%=f.submit "Up Vote"%><br>
+        <%=simple_form_for ([question, @question_vote]) do |f|%>
+          <%=f.submit "Up Vote"%><%=question.question_votes_count%>, <%=question.body%><br>
+        <%end%>
+          <%question.question_comments.each do |comment|%>
+            <%=comment.body%><br>
+          <%end%>
+            <%=simple_form_for ([question, @question_comment]) do |f|%>
+              <%= f.input :body, label: "Comment" %>
+          <%=f.submit "Comment"%>
         <%end%>
       <%end%>
     <%end%>
-    </div>
+    
+      </div>
     </div>
   </div>
 </div>

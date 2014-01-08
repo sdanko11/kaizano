@@ -44,6 +44,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @question_comment = QuestionComment.new
     @question_vote = QuestionVote.new
     @question = Question.new
     @event = Event.find(params[:id])

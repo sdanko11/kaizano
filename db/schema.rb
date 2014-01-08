@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108205116) do
+ActiveRecord::Schema.define(version: 20140108214711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20140108205116) do
   end
 
   add_index "events", ["event_password"], name: "index_events_on_event_password", unique: true, using: :btree
+
+  create_table "question_comments", force: true do |t|
+    t.string   "body",        null: false
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "question_votes", force: true do |t|
     t.integer  "question_id"
