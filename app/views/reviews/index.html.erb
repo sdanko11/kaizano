@@ -1,0 +1,25 @@
+<br>
+Event Title: 
+<%= @event.name %><br>
+Event Description: 
+<%= @event.description%><br>
+Number of Feedbacks Recieved:
+<%= @event.count_reviews %><br>
+  <% if @event.count_reviews > 0 %>
+Average Rating: 
+<%=@event.calculate_average_rating%><br>
+  <% end %>
+All Reviews<br>
+    <%@event.reviews.each do |review|%>
+      <%if review.feedback_comments != ''%>
+        <%=review.feedback_comments%><br>
+    <%end%>
+  <%end%>
+Questions
+  <%if @event.questions != nil%>
+    <%@event.questions.each do |question|%>
+      <%=question.body%><br>
+    <%end%>
+  <%else%>
+    No Questions were left for this event
+  <%end%>

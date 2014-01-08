@@ -10,10 +10,9 @@ class MessagesController < ApplicationController
       MessageMailer.contact_us(@message)
       redirect_to root_url, notice: "Message sent! Thank you for contacting us."
     else
-      render "new"
+      render :new
     end
   end
-
 
   def message_parmas
     params.require(:message).permit(:email, :subject, :message)

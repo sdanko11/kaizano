@@ -4,8 +4,8 @@ Kaizano::Application.routes.draw do
   root to: "home#index"
 
   resources :events do
-    resources :reviews
-    resources :questions
+    resources :reviews, only: [:index, :new, :create, :show]
+    resources :questions 
   end
 
   resources :questions do

@@ -60,7 +60,7 @@
     <tr>
       <td><%=event.name%></td>
       <td><%= link_to "Edit Event", edit_event_path(event)%></td>
-      <td><%= link_to "View Reviews", event_path(event) %></td>
+      <td><%= link_to "View Reviews", event_reviews_path(event) %></td>
     </tr>
     <%end%>
 </table>
