@@ -2,48 +2,60 @@
   <div class="large-">
     <div class="row">
       <div class="large-8 columns"><br>
-
-  Event Title: <%= @event.name %> <br>
-  Speaker: <%= @event.format_speaker_name %><br>
-    <%if @event.user.about_me != ''%>
-      <%= @event.user.about_me %><br>
-    <%end%>
-    <%if @event.user.twitter_handle != '' %>
-      <%= link_to "Follow me on Twitter", @event.user.twitter_handle, target: '_blank' %><br>
-    <%end%>
-    <%if @event.user.linked_in_url != '' %>
-      <%= link_to "Connect on Linked In", @event.user.linked_in_url, target: '_blank' %><br>
-    <%end%>
-    About this Event<br>
-    <br>
-    <%=@event.description%><br>
-    <br>
-    <%= link_to 'Give Feedback', new_event_review_path(@event) %>
-    <br>
-    <%=simple_form_for ([@event, @question]) do |f|%>
-    <br>
-      <%= f.input :body, label: "Ask a Question"%>
-      <div = flash messages><br>
+        Event Title: <%= @event.name %> <br>
+        Speaker: <%= @event.format_speaker_name %><br>
+        <%if @event.user.about_me != ''%>
+          <%= @event.user.about_me %><br>
+        <%end%>
+        <%if @event.user.twitter_handle != '' %>
+          <%= link_to "Follow me on Twitter", @event.user.twitter_handle, target: '_blank' %><br>
+        <%end%>
+        <%if @event.user.linked_in_url != '' %>
+          <%= link_to "Connect on Linked In", @event.user.linked_in_url, target: '_blank' %><br>
+        <%end%>
+        About this Event<br>
+        <br>
+        <%=@event.description%><br>
+        <br>
+        <%=link_to 'Give Feedback', new_event_review_path(@event)%>
+        <br>
+        <%=simple_form_for ([@event, @question]) do |f|%>
+        <br>
+        <%= f.input :body, label: "Ask a Question"%>
+        <div = flash messages><br>
         <%=flash[:question_can_not_be_blank]%>
         <%=flash[:question_added]%>
-      </div>
-      <%=f.submit "Ask Question",class: "button" %>
-    <% end %>
-    <%if @event.questions.count > 0%>
-      <%@event.questions.order(question_votes_count: :desc).each do |question|%>
-        <%=simple_form_for ([question, @question_vote]) do |f|%>
-          <%=f.submit "Up Vote"%><%=question.question_votes_count%>, <%=question.body%><br>
+        </div>
+        <%=f.submit "Ask Question",class: "button" %>
         <%end%>
-          <%question.question_comments.each do |comment|%>
-            <%=comment.body%><br>
-          <%end%>
-            <%=simple_form_for ([question, @question_comment]) do |f|%>
+        <%if @event.questions.count > 0%>
+          <%@event.questions.order(question_votes_count: :desc).each do |question|%>
+            <%=simple_form_for ([question, @question_vote]) do |f|%>
+            <%=f.submit"Up Vote"%><%=question.question_votes_count%>, <%=question.body%><br>
+        <%end%>
+
+        <div class="comment-feed">
+            <a class="show-comments" href="#">Comments</a>
+            <a class="add-comment" href="#">Add Comment</a>
+
+          <div class="comment-feed-comments hide">
+            <%question.question_comments.each do |comment|%>
+              <div class ="comment" style="text-indent:40px">
+                <li style="list-style:none;">
+                  <%=comment.body%>
+                </li>
+              </div>
+            <%end%>        
+          </div>
+        <div class ="comment-form hide">
+            <%= simple_form_for ([question, @question_comment]) do |f|%>
               <%= f.input :body, label: "Comment" %>
-          <%=f.submit "Comment"%>
+              <%= f.submit "Comment"%>
+            <%end%>
+        </div>
+      </div>
         <%end%>
-      <%end%>
-    <%end%>
-    
+        <%end%>
       </div>
     </div>
   </div>
