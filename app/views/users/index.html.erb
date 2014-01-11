@@ -4,7 +4,8 @@
 <%= link_to "Edit Profile", edit_user_path(@user) %><br><br>
 <%=flash[:saved_changes] %>
 <h1><%= @user.format_speaker_name %></h1>  
-<table style="float: left" width="220" padding-right:5px>
+<div class = "row">
+<table style="float: left" width="220">
   <tr>
   <th>Total Presentations</th>
   </tr>
@@ -20,6 +21,7 @@
   <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
   </tr>
 </table>
+</div>
 
 <table width="220", style="display: inline-block">
   <tr>

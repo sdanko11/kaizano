@@ -17,9 +17,9 @@
         <br>
         <%=@event.description%><br>
         <br>
-        <%=link_to 'Give Feedback', new_event_review_path(@event)%>
+        <%= link_to 'Give Feedback', new_event_review_path(@event) %>
         <br>
-        <%=simple_form_for ([@event, @question]) do |f|%>
+        <%= simple_form_for ([@event, @question]) do |f| %>
         <br>
         <%= f.input :body, label: "Ask a Question"%>
         <div = flash messages><br>
@@ -28,34 +28,47 @@
         </div>
         <%=f.submit "Ask Question",class: "button" %>
         <%end%>
-        <%if @event.questions.count > 0%>
-          <%@event.questions.order(question_votes_count: :desc).each do |question|%>
-            <%=simple_form_for ([question, @question_vote]) do |f|%>
-            <%=f.submit"Up Vote"%><%=question.question_votes_count%>, <%=question.body%><br>
-        <%end%>
+        
+        <% if @event.questions.count > 0 %>
+          <div class="question-feed">
+            <%@event.questions.order(question_votes_count: :desc).each do |question|%>
+              <div class="question-object">
+                
 
-        <div class="comment-feed">
-            <a class="show-comments" href="#">Comments</a>
-            <a class="add-comment" href="#">Add Comment</a>
+                <%=simple_form_for([question, @question_vote]) do |f|%>
+                  <%= f.submit "Up Vote" %>
+                  <span class="count"><%=question.question_votes_count%></span>
+                  <%=question.body%><br>
+                <%end%>
 
-          <div class="comment-feed-comments hide">
-            <%question.question_comments.each do |comment|%>
-              <div class ="comment" style="text-indent:40px">
-                <li style="list-style:none;">
-                  <%=comment.body%>
-                </li>
+                <div class="comment-feed">
+                  <%if question.question_comments.count > 0 %>
+                    <a class="show-comments" href="#"><%="Comments"%></a>
+                  <%end%>
+                  <a class="add-comment" href="#">Add Comment</a>
+
+                  <div class="comment-feed-comments hide">
+                    <%question.question_comments.each do |comment|%>
+                      <div class ="comment" style="text-indent:40px">
+                        <li style="list-style:none;">
+                          <%=comment.body%>
+                        </li>
+                      </div>
+                    <%end%>        
+                  </div>
+
+                  <div class ="comment-form hide">
+                    <%= simple_form_for ([question, @question_comment]) do |f|%>
+                      <%= f.input :body, label: "Comment" %>
+                      <%= f.submit "Comment"%>
+                    <%end%>
+                  </div>
+                </div>
               </div>
-            <%end%>        
-          </div>
-        <div class ="comment-form hide">
-            <%= simple_form_for ([question, @question_comment]) do |f|%>
-              <%= f.input :body, label: "Comment" %>
-              <%= f.submit "Comment"%>
+              <%end%>
             <%end%>
+          </div>
         </div>
-      </div>
-        <%end%>
-        <%end%>
       </div>
     </div>
   </div>

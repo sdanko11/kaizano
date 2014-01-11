@@ -6,9 +6,9 @@
 <%= link_to "Edit Profile", edit_user_path(@user) %>
 <h1><%= @user.format_speaker_name %></h1> 
 </div>
-<ul class="small-block-grid-5">
-<li style="PADDING-LEFT: 650px; PADDING-TOP: -350px;">
-<table width="220", height="100">
+<div class = "row">
+  <ul class="small-2 large-4 columns">
+    <table width="220", height="100">
   <tr>
   <th>Total Presentations</th>
   </tr>
@@ -16,11 +16,11 @@
   <td align="center"><%= "#{@all_events.count}" %></td>
   </tr>
 </table>
-</li>
-<li style="PADDING-LEFT: 200px; PADDING-TOP: -350px">
+<li>
  <div class="small- large-4 columns">
 <table width="220", height="100" style="float: left">
   <tr>
+
   <th>Presentations with Reviews</th>
   </tr>
   <tr>
@@ -33,6 +33,7 @@
 <li style="PADDING-LEFT: 650px">
 <table width="220", height="100" style="display: inline-block">
   <tr>
+</div>
   <th>Average Presentation Rating</th>
   </tr>
   <tr>
