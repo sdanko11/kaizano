@@ -23,7 +23,6 @@ $(document).ready(function() {
         $convertToInteger = parseFloat(($count.text()));
         $updatedCount = ($convertToInteger + 1)
         $count.text($updatedCount);
-
         sortQuestions();
       }
     });

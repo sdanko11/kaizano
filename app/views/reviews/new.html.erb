@@ -1,16 +1,18 @@
-<div class="row">
-  <div class="large-">
-    <div class="row">
-      <div class="large-6 columns">
-<br>
-  <%= simple_form_for ([@event, @review]) do |f| %>
-  <br>
-  <%= f.input :rating, label: false, 
-  :collection => 1..10, :include_blank => "Rate this Presesntation, 10 being really good and 1 not good"  %><br>
-  <%= f.input :feedback_comments, label: "Feedback" %><br />
-  <%= f.submit "Give Review",class: "button" %>
-<% end %>
-    </div>
+<%= simple_form_for ([@event, @review]) do |f| %>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.input :rating, label: false,
+      :collection => 1..10, :include_blank => "Rate this Presesntation, 10 being really good and 1 not good"  %>
     </div>
   </div>
-</div>
+  <div class="row">
+    <div class="large-8 columns">
+      <%= f.input :feedback_comments, label: "Feedback" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.submit "Give Review",class: "button" %>
+    </div>
+  </div>
+<% end %>

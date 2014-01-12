@@ -1,21 +1,37 @@
 <div class="row">
-  <div class="large-">
-    <div class="row">
-      <div class="large-6 columns"><br>
-<br>
-<b><font size="6">Create a New Event</font></b><br>
-<br>
-   <%=flash[:notice]%><br>
-<br>
-  <%=simple_form_for(@event) do |f|%>
-    <%= f.input :name %><br />
-    <%= f.input :event_password %><br />
-    <%= f.input :location%><br />
-    <%= f.input :event_url%><br />
-    <%= f.input :description%><br />
-  <%=f.submit 'Create Event',class: "button"%>
-  <% end %>
-      </div>
-    </div>
+  <div class="large-4 columns">
+    <b><font size="6">Create a New Event</font></b>
   </div>
 </div>
+<%=simple_form_for(@event) do |f|%>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.input :name, label: "Event Name" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.input :event_password %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.input :location%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.input :event_url%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-8 columns">
+      <%= f.input :description%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-8 columns">
+      <%=f.submit 'Create Event',class: "button"%>
+    </div>
+  </div>
+<% end %>

@@ -1,10 +1,28 @@
 <div class="row">
- <div class="small-6 large-centered columns">
-  <h1> Welcome to Kaizano <h1>
-    <%= link_to 'Create New Event', new_event_path %><br>
-    <%= link_to 'Give Feedback', events_path %><br>
-    <% if user_signed_in? %>
-      <%= link_to 'Profile', user_path(@user) %><br>
-    <% end %>
+  <div class="large-12 columns">
+    <h1>Welcome to Kaizano</h1>
+  <div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+      <h3>Hone your presentation skills</h3>
   </div>
 </div>
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Kaizano makes it easy to get instant feedback from your audence</h3>
+  </div>
+</div>
+<div class="row">
+  <ul class="button-group [radius round]">
+    <%= link_to 'Create New Event', new_event_path, class: "button" %>
+    <%= link_to 'Give Feedback', events_path, class: "button" %>
+  </ul>
+</div>
+      <% if user_signed_in? %>
+          <h1 align="center"><%= link_to 'Profile', user_path(@user), class: "button" %></h1>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
