@@ -1,68 +1,84 @@
-<div class="large-12 columns" style="PADDING-LEFT: 50px; PADDING-TOP: 50px;">
-  <%= image_tag @user.avatar.thumb.url %>
-</div>
-<%=flash[:saved]%>
-<%=flash[:edits_saved]%><br>
-<%= link_to "Edit Profile", edit_user_path(@user) %>
-<h1><%= @user.format_speaker_name %></h1> 
-</div>
-<div class = "row">
-  <div class="large-12 columns">
-    <table width="220", height="100">
-  <tr>
-  <th>Total Presentations</th>
-  </tr>
-  <tr>
-  <td align="center"><%= "#{@all_events.count}" %></td>
-  </tr>
-</table>
-<li>
- <div class="large-12 columns">
-<table width="220", height="100" style="float: left">
-  <tr>
-
-  <th>Presentations with Reviews</th>
-  </tr>
-  <tr>
-  <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
-  </tr>
-</table>
-</ul>
-<ul class="small-block-grid-5">
-</li>
-<li style="PADDING-LEFT: 650px">
-<table width="220", height="100" style="display: inline-block">
-  <tr>
-</div>
-  <th>Average Presentation Rating</th>
-  </tr>
-  <tr>
-  <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.each_event_rating_average)}" %></td>
-  </tr>
-</table>
-</li>
-<li style="PADDING-LEFT: 218px">
-<table width="220", height="100" style="display: inline-block;">
-  <tr>
-  <th>Highest Rated Presentation</th>
-  </tr>
-  <tr>
-  <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.each_event_rating_average)}" %></td>
-  </tr>
-</table>
-</li>
-</ul>
 <br>
-<div style="PADDING-LEFT: 50px; PADDING-TOP: -500px">
-  <table border="1"BORDERCOLOR="#01DFA5">
-    <% @all_events.each do |event| %>
-<tr>
-  </tr>
-    <tr>
-      <td><%=event.name%></td>
-      <td><%= link_to "Edit Event", edit_event_path(event)%></td>
-      <td><%= link_to "View Reviews", event_reviews_path(event) %></td>
-    </tr>
+<div class="row">
+  <div class="small-5 columns">
+    <%= image_tag @user.avatar.thumb.url %>
+    <h1><%= @user.format_speaker_name %></h1>
+  </div>
+  <ul class="small-block-grid-">
+    <li>
+      <table class="right", width="220", height="100", display="inline-block">
+        <thead align="center">
+          <th>Total Presentations</th>
+        </thead>
+          <tr>
+          <td align="center"><%= "#{@all_events.count}" %></td>
+          </tr>
+      </table>
+    </li>
+    <li>
+      <table class="right", width="220", height="100", display="inline-block">
+        <thead align="center">
+          <th>Presentations with Reviews</th>
+        </thead>
+          <tr>
+          <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
+          </tr>
+      </table>
+    </li>
+     <li>
+      <table class="right", width="220", height="100", display="inline-block">
+        <thead align="center">
+          <th>Average Presentation Rating</th>
+        </thead>
+          <tr>
+          <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.each_event_rating_average)}" %></td>
+      </table>
+    </li>
+    <li>
+      <table class="right", width="220", height="100", display="inline-block">
+        <thead align="center">
+          <th>Highest Rated Presentation</th>
+        </thead>
+          <tr>
+          <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.each_event_rating_average)}" %></td>
+          </tr>
+      </table>
+    </li>
+  </ul>
+</div>
+<div class="row">
+  <div class="small-5 columns">
+    <%= link_to "Edit Profile", edit_user_path(@user) %><br><br>
+    <%= link_to "Create New Speaking Event", new_event_path %><br>
+    <%=flash[:saved]%>
+    <%=flash[:edits_saved]%>
+  </div>
+</div><br>
+<div class="row">
+  <div class="small-10 columns">
+    <table>
+      <thead>
+        <th>Presentation Name</th>
+        <th>Number of Reviews</th>
+        <th>Presentation Rating</th>
+        <th></th>
+        <th></th>
+      </thead>
+      <% @all_events.each do |event| %>
+        <tr>
+        </tr>
+        <tr>
+          <td><%=event.name%></td>
+          <% if event.count_reviews != 0 %>
+            <td><%= event.count_reviews %></td>
+            <td><%= event.calculate_average_rating %></td>
+          <% else %>
+            <td><%= "No Reviews" %></td>
+            <td><%= "No Reviews" %></td>
+          <% end %>
+          <td><%= link_to "Edit Event", edit_event_path(event)%></td>
+        <td><%= link_to "View Reviews", event_reviews_path(event) %></td>
+      </tr>
     <%end%>
-</table>
+  </table>
 </div>

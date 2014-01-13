@@ -30,6 +30,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :twitter_handle,
     :linked_in_url, :phone_numer, :about_me, :avatar)
   end
-
-
+  
 end
