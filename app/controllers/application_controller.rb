@@ -9,7 +9,11 @@ before_filter :update_sanitized_params, if: :devise_controller?
   end
 
   def after_sign_in_path_for(resource)
-    user_path(current_user)
+    if current_user.sign_in_count > 1
+      user_path(current_user)
+    else
+      root_path
+    end
   end
-  
+
 end

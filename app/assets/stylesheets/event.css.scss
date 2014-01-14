@@ -1,3 +1,20 @@
 // Place all the styles related to the event controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.field-for-password {
+  #search_event_password {
+    width:345px;
+  }
+}
+.password-title {
+  padding-top: 150px;
+}
+
+.submit-button {
+  .button {
+    background-color: #D11975;
+    width:345px;
+  }
+}

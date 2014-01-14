@@ -1,25 +1,32 @@
 <% if @event == nil %>
+<div class="password-title">
   <div class="row">
-    <div class="large-6 columns">
+    <div class="small-5 large-centered columns">
       <b><font size="6">Enter Event Password</font></b>
     </div>
   </div>
+</div>
     <%= form_for :search, action: events_path, method: "get" do |f| %><br>
+<div class="field-for-password">
   <div class="row">
-    <div class="large-6 columns">
-      <%= f.label "Event Password" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-4 columns">
+    <div class="small-5 large-centered columns">
       <%= f.text_field :event_password %>
     </div>
   </div>
+</div>
+<div class="submit-button">
   <div class="row">
-    <div class="large-4 columns">
+    <div class="small-5 large-centered columns">
       <%= submit_tag "Find Event", class: "button" %><br>
+    </div>
+  </div>
+</div>
+<div class="flash-message">
+  <div class="row">
+    <div class="small-5 large-centered columns">
       <%= flash[:could_not_find_event_notice] %>      
     </div>
   </div>
-  <% end %>
+</div>
+    <% end %>
 <% end %>

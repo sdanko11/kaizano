@@ -10,6 +10,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
+   def default_url
+     "/assets/fallback/default_profile.png/"
+      # "/assets/fallback/" + [:thumb, "default.png"].compact.join('_')
+   end
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -21,9 +26,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-   def default_url
-    [:thumb, "http://www.faithlineprotestants.org/wp-content/uploads/2010/12/facebook-default-no-profile-pic.jpg"].compact.join('_')
-   end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -41,6 +43,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
   # def extension_white_list
   #   %w(jpg jpeg gif png)
+  # end
+
+  # def filename
+  #   super.chomp(File.extname(super)) + '.png' if original_filename.present?
   # end
 
   # Override the filename of the uploaded files:
