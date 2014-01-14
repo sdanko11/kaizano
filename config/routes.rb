@@ -13,7 +13,7 @@ Kaizano::Application.routes.draw do
     resources :question_comments
   end
 
-  resources :users, :thanks, :messages
+  resources :users, :thanks, :messages, :how_it_works
 
   #  get "blog_post/index"
 

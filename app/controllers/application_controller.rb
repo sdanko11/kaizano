@@ -12,7 +12,7 @@ before_filter :update_sanitized_params, if: :devise_controller?
     if current_user.sign_in_count > 1
       user_path(current_user)
     else
-      root_path
+      how_it_works_path
     end
   end
 

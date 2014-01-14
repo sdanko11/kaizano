@@ -46,12 +46,14 @@
     </li>
   </ul>
 </div>
-<div class="row">
-  <div class="small-5 columns">
-    <%= link_to "Edit Profile", edit_user_path(@user) %><br><br>
-    <%= link_to "Create New Speaking Event", new_event_path %><br>
-    <%=flash[:saved]%>
-    <%=flash[:edits_saved]%>
+<div class="add-new-event-button">
+  <div class="row">
+    <div class="small-5 columns">
+      <%= link_to "Edit Profile", edit_user_path(@user) %><br><br>
+      <%= link_to "Add Speaking Event", new_event_path, class: "button" %><br>
+      <%=flash[:saved]%>
+      <%=flash[:edits_saved]%>
+    </div>
   </div>
 </div><br>
 <div class="row">
@@ -77,7 +79,7 @@
             <td><%= "No Reviews" %></td>
           <% end %>
           <td><%= link_to "Edit Event", edit_event_path(event)%></td>
-        <td><%= link_to "View Reviews", event_reviews_path(event) %></td>
+          <td><%= link_to "View Reviews", event_reviews_path(event) %></td>
       </tr>
     <%end%>
   </table>

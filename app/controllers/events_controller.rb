@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     if params[:search]
       @event = Event.find_by(event_password: params[:search][:event_password])
       if @event == nil
-        flash[:could_not_find_event_notice] = "Password does not match any events"
+        flash[:could_not_find_event_notice] = "Password does not match any events."
         redirect_to events_path
       else
         redirect_to event_path(@event)
