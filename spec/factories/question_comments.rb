@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :question_comment do
-    sequence(:body) { |n| "Heres #{n}sss question for yas" } 
+    sequence(:body) { |n| "Heres #{n}sss question for yas" }
   end
 end

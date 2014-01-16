@@ -19,4 +19,11 @@ describe Event do
 
   it { should have_many(:questions) }
 
+  it { should_not have_valid(:description).when('This is a sting that is longer that 500 characeters
+   isasdfkljdsafkjhsadfkjlsahdfkjlsadfhaslkdfjhsdalkfjhasdflkjhasdfjklahsdfkjlsadhfsakjldfhaskljdfha
+   jskldfhasdkjlfhasdlkjfhsadflksajdhfaslkdjfhsadkjfhsadlkjfhasdlkfjhsadflkasdfkljsadfklasdfjaklsdfh
+   jasjkldfhasdlkjfhasdlkfjhasdjklfhadsfkljhasdflkasdjhfalksdfjhasldkjfhaslkdjfhasdklfjhasdflkjsahdfl
+   kasdjfhasldfjhasdlfjkhasdflsadkjfhasldkjfhasldkjfhsadkljfhasdflkjhsadfljksadfsdfkljsadfkjhsadfljkh
+   asdflaskdjfhsadlkfjhasdflkasdjfhasldkfjhsadlkjfhasdlfkjhsadfklsadfj') }
+
 end

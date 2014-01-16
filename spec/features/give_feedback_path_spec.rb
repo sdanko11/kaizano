@@ -13,15 +13,16 @@ describe 'a site visitor wants to leave feedback for a presentation' do
     it "it has a link to give feedback" do
 
       visit root_path
-      expect(page).to have_link "Give Feedback"
+      expect(page).to have_link "Find Event"
       
     end
 
-    it "it should lead to a page where they enter the password" do
+    it "should lead to a page where they enter the password" do
 
       visit root_path
-      click_link "Give Feedback"
+      click_link "Find Event"
       expect(page).to have_content "Enter Event Password"
+      expect(page).to have_field "search_event_password"
       expect(page).to have_button "Find Event"
     end
 
@@ -37,8 +38,7 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       expect(page).to have_content user.first_name
       expect(page).to have_content user.last_name
       expect(page).to have_link "Twitter"
-      save_and_open_page
-      expect(page).to_not have_link "Connect on Linked In"
+      expect(page).to have_link "Connect on Linked In"
       expect(page).to have_content event.description
       expect(page).to have_link "Give Feedback"
     end
@@ -89,7 +89,7 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       expect(page).to have_content "Please Give a Review"
     end
 
-    it "should leave record feedback comments if they are added" do
+    it "should record feedback comments if they are added" do
 
       user = FactoryGirl.create(:user)
       event = FactoryGirl.create(:event, user: user)

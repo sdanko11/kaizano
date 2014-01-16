@@ -45,6 +45,7 @@
   padding-top: 40px;
   .button {
     width: 470px;
+    background-color: #4d78d0;
   }
 }
 
@@ -72,5 +73,23 @@
 
 .no-comments-message {
   padding-bottom: 10px;
+}
+
+.cancel-button {
+  .button {
+  background-color: #D11975;
+  width: 225px;
+}
+}
+.save-button {
+  .button {
+  background-color: #D11975;
+  width: 225px;
+}
+}
+
+.edit-title {
+  text-align: center;
+  padding-top: 10000px;
 }
 

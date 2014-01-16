@@ -5,6 +5,6 @@ FactoryGirl.define do
    association :user
    sequence(:name) { |n| "pe#{n}ssss" } 
    description "this is a talk on rails"
-   event_password "steve"
+   sequence(:event_password) { |n| "ste#{n}s" } 
   end
 end

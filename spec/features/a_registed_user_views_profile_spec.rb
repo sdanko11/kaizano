@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe 'registed user views audience feedback' do
+describe 'registed user signs in to kaizano' do
 
-context "check the profile page content" do
+  context "user has events created but no reviews on the events" do
 
-    it "it has all available options to create an event" do
+    it "has all the correct information on the profile page" do
 
       user = FactoryGirl.create(:user)
       event = FactoryGirl.create(:event, user: user)  
@@ -22,13 +22,13 @@ context "check the profile page content" do
       expect(page).to have_content user.first_name
       expect(page).to have_content user.last_name
       expect(page).to have_content event.name
-    
+      expect(page).to have_content "No Reviews"
     end
   end
 
-  context "Check the event review page" do
+  context "user has events with reviews" do
 
-     it "has all the correct event information" do
+     it "has all the correct content on the page" do
 
       user = FactoryGirl.create(:user)
       event = FactoryGirl.create(:event, user: user)
@@ -41,16 +41,10 @@ context "check the profile page content" do
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'View Reviews'
 
-      expect(page).to have_content "Kaizano"
-      expect(page).to have_link "Sign out"
-      expect(page).to have_content "Presentation Name"
       expect(page).to have_content event.name
-      expect(page).to have_content event.description
-      expect(page).to have_content review1.feedback_comments
-      expect(page).to have_content review2.feedback_comments
-      expect(page).to have_content "Average Rating"
+      expect(page).to have_content 3
+      expect(page).to_not have_content "No Reviews"
       expect(page).to have_content (review2.rating + review1.rating + review3.rating)/3
       expect(page).to have_content 5.33
     end
@@ -79,38 +73,11 @@ context "check the profile page content" do
       expect(page).to have_content user.first_name
       expect(page).to have_content user.last_name
       expect(page).to have_content event.name
-      expect(page).to have_button "Add Speaking Event"
+      expect(page).to have_link "Add Speaking Event"
       expect(page).to have_link "Edit Profile"
       expect(page).to have_content "Presentation Name"
       expect(page).to have_content "Number of Reviews"
-      expect(page).to have_content "Presentation Ratings"    
-    end
-  end
-
-   context "check the edit page content" do
-
-    it "it has all the availabel options to edit an event" do
-
-      user = FactoryGirl.create(:user)
-      event = FactoryGirl.create(:event, user: user)  
-
-      visit root_path
-      click_link 'Sign In'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
-      click_button 'Sign in'
-      click_link 'Edit Event'
-    
-      expect(page).to have_content "Kaizano"
-      expect(page).to have_link "Sign out"
-      expect(page).to have_content "Name"
-      expect(page).to have_content "Event url"
-      expect(page).to have_content "Edit Event Details"
-      expect(page).to have_content "Description"
-      find_field('Name').value.should eq event.name
-      find_field('Description').value.should eq event.description
-      expect(page).to have_button "Save Changes"
-    
+      expect(page).to have_content "Presentation Rating"    
     end
   end
 

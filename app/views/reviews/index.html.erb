@@ -12,7 +12,7 @@
         <% if @event.count_reviews > 0 %>
           <td align="center"><%= @event.count_reviews %></td>
         <% else %>
-          <td>No Ratings Recieved</td>
+          <td>No Ratings Received</td>
         </tr>
         <% end %>
       </table>
@@ -28,7 +28,7 @@
         <% if @event.count_reviews > 0 %>
           <td align="center"><%= @event.calculate_average_rating %></td>
         <% else %>
-          <td>No Reviews Left</td>
+          <td>No Ratings Received</td>
         <% end %>
         </tr>
       </table>

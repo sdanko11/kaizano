@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :events
   belongs_to :event
   mount_uploader :avatar, ImageUploader
+  validates_length_of :about_me, :maximum => 500
 
 
   def each_event_rating_average

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-    describe 'a event attende or user wants to leave a comment for a pre-existing comment
+    describe 'a event attende or user wants to leave a comment for a pre-existing question
     so they can help those who have questions better understand' do
 
     # ACCEPTANCE CRITERIA
@@ -26,7 +26,7 @@ require 'spec_helper'
 
       event = FactoryGirl.create(:event)
       question = FactoryGirl.create(:question, event: event)
-      comment = FactoryGirl.create(:question_comment, question: question)
+      comment = FactoryGirl.create(:question_comment)
 
 
       visit root_path
@@ -41,7 +41,7 @@ require 'spec_helper'
     it "should not add a comment if a valid comment is not added" do
 
       event = FactoryGirl.create(:event)
-      question = FactoryGirl.create(:question_comment, event: event)
+      question = FactoryGirl.create(:question, event: event)
 
       visit root_path
       visit events_path
@@ -51,4 +51,5 @@ require 'spec_helper'
       expect(page).to have_content "Can't be blank"
 
     end
+
   end

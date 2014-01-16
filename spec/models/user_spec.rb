@@ -17,4 +17,13 @@ describe User do
 
   it { should have_many(:events) }
 
+  it { should have_valid(:about_me).when("My name is steve") }
+
+  it { should_not have_valid(:about_me).when('This is a sting that is longer that 500 characeters
+   isasdfkljdsafkjhsadfkjlsahdfkjlsadfhaslkdfjhsdalkfjhasdflkjhasdfjklahsdfkjlsadhfsakjldfhaskljdfha
+   jskldfhasdkjlfhasdlkjfhsadflksajdhfaslkdjfhsadkjfhsadlkjfhasdlkfjhsadflkasdfkljsadfklasdfjaklsdfh
+   jasjkldfhasdlkjfhasdlkfjhasdjklfhadsfkljhasdflkasdjhfalksdfjhasldkjfhaslkdjfhasdklfjhasdflkjsahdfl
+   kasdjfhasldfjhasdlfjkhasdflsadkjfhasldkjfhasldkjfhsadkljfhasdflkjhsadfljksadfsdfkljsadfkjhsadfljkh
+   asdflaskdjfhsadlkfjhasdflkasdjfhasldkfjhsadlkjfhasdlfkjhsadfklsadfj') }
+
 end

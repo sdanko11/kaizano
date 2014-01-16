@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :validate_user, :only => :show
 
   def edit
@@ -21,7 +22,9 @@ class UsersController < ApplicationController
   end
 
   def validate_user
-    redirect_to root_path unless current_user.id.to_s == params[:id]
+    if !current_user.nil?
+      redirect_to root_path unless current_user.id.to_s == params[:id]
+    end
   end
 
   private

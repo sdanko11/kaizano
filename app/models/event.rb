@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
+  validates_length_of :description, :maximum => 500
+
   validates_presence_of :event_password
   validates :event_password, uniqueness: true
   belongs_to :user
