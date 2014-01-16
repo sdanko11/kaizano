@@ -10,11 +10,10 @@ context "check the profile page content" do
       event = FactoryGirl.create(:event, user: user)  
 
       visit root_path
-      click_link 'Sign in'
+      click_link 'Sign In'
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'Profile'
     
       expect(page).to have_content "Kaizano"
       expect(page).to have_link "Sign out"
@@ -38,16 +37,15 @@ context "check the profile page content" do
       review3 = FactoryGirl.create(:review, rating: 10, event: event)
 
       visit root_path
-      click_link 'Sign in'
+      click_link 'Sign In'
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'Profile'
       click_link 'View Reviews'
 
       expect(page).to have_content "Kaizano"
       expect(page).to have_link "Sign out"
-      expect(page).to have_content "Event Title"
+      expect(page).to have_content "Presentation Name"
       expect(page).to have_content event.name
       expect(page).to have_content event.description
       expect(page).to have_content review1.feedback_comments
@@ -60,26 +58,33 @@ context "check the profile page content" do
 
   context "check the profile page content" do
 
-    it "it has all available options to create an event" do
+    it "it has all the correct content" do
 
       user = FactoryGirl.create(:user)
       event = FactoryGirl.create(:event, user: user)  
 
       visit root_path
-      click_link 'Sign in'
+      click_link 'Sign In'
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'Profile'
     
-      expect(page).to have_content "Kaizano"
       expect(page).to have_link "Sign out"
       expect(page).to have_link "Edit Event"
       expect(page).to have_link "View Reviews"
+      expect(page).to have_content "Total Presentations"
+      expect(page).to have_content "Presentations with Reviews"
+      expect(page).to have_content "Highest Rated Presentation"
+      expect(page).to have_content "Average Presentation Rating"
       expect(page).to have_content user.first_name
       expect(page).to have_content user.last_name
       expect(page).to have_content event.name
-    
+      expect(page).to have_button "Add Speaking Event"
+      expect(page).to have_link "Edit Profile"
+      save_and_open_page
+      expect(page).to have_content "Presentation Name"
+      expect(page).to have_content "Number of Reviews"
+      expect(page).to have_content "Presentation Ratings"    
     end
   end
 
@@ -91,11 +96,10 @@ context "check the profile page content" do
       event = FactoryGirl.create(:event, user: user)  
 
       visit root_path
-      click_link 'Sign in'
+      click_link 'Sign In'
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'Profile'
       click_link 'Edit Event'
     
       expect(page).to have_content "Kaizano"
@@ -119,11 +123,10 @@ context "check the profile page content" do
       event = FactoryGirl.create(:event, user: user)  
 
       visit root_path
-      click_link 'Sign in'
+      click_link 'Sign In'
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'Profile'
       click_link 'Edit Event'
       click_button 'Save Changes'
      

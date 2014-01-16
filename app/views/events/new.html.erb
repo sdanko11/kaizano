@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="large-4 columns">
-    <b><font size="6">Create a New Event</font></b>
+  <div class="large-5 columns">
+    <p class="new-event-title">Create New Speaking Event</p>
   </div>
 </div>
 <%=simple_form_for(@event) do |f|%>
@@ -26,12 +26,14 @@
   </div>
   <div class="row">
     <div class="large-8 columns">
-      <%= f.input :description%>
+      <%= f.input :description, label: "Event Description" %>
     </div>
   </div>
   <div class="row">
     <div class="large-8 columns">
-      <%=f.submit 'Create Event',class: "button"%>
+      <div class="create-event-button">
+        <%=f.submit 'Create Event',class: "button"%>
+      </div>
     </div>
   </div>
 <% end %>

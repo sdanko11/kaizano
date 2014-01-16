@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .field-for-password {
   #search_event_password {
     width:345px;
@@ -18,3 +17,60 @@
     width:345px;
   }
 }
+
+#new_question {
+  text-align: right;
+  .button {
+    background-color: #D11975;
+    width :200px;
+  }
+}
+
+.question-form {
+  .question-header{
+    text-align: center;
+  #new_question {
+    padding-top: 0px;
+  }
+}
+}
+
+.title {
+  .question-form {
+  padding-top: 150px;
+}
+}
+
+.feedback-button {
+  padding-top: 40px;
+  .button {
+    width: 470px;
+  }
+}
+
+.new-event-title {
+  padding-top: 25px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.create-event-button {
+  .button {
+    background-color: #D11975;
+    width: 200px;
+  }
+}
+
+.comment-object {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.comment-body {
+  padding-bottom: 13px;
+}
+
+.no-comments-message {
+  padding-bottom: 10px;
+}
+

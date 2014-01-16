@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @event = Event.find(params[:event_id])
     @review = @event.reviews.build(review_params)
     if @review.save
-       redirect_to root_path
+       redirect_to event_path(@event)
     else
       render :new
     end

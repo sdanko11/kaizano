@@ -26,7 +26,7 @@ and leave feedback for the presentation to further there undestading of presenta
       
       expect(page).to have_content user.first_name
       expect(page).to have_content user.last_name
-      expect(page).to have_link "Follow me on Twitter"
+      expect(page).to have_link "Twitter"
       expect(page).to have_content event.description
       expect(page).to have_link "Give Feedback"
       expect(page).to have_field("Question")
@@ -52,55 +52,4 @@ and leave feedback for the presentation to further there undestading of presenta
       expect(page).to have_content question3.body
     end
 
-    it "should allow for users to up vote questions they want answered" do
-
-      event = FactoryGirl.create(:event)
-      question1 = FactoryGirl.create(:question, event: event)
-      question2 = FactoryGirl.create(:question, event: event)
-      question3 = FactoryGirl.create(:question, event: event)
-
-
-      visit root_path
-      visit events_path
-      fill_in "search_event_password", :with => event.event_password
-      click_button "Find Event"
-
-      expect(page).to have_button "Up Vote"
-    end
-
-    it "should increase the event vote count when up vote is clicked" do
-
-    event = FactoryGirl.create(:event)
-    question1 = FactoryGirl.create(:question, event: event)
-
-
-    visit root_path
-    visit events_path
-    fill_in "search_event_password", :with => event.event_password
-    click_button "Find Event"
-
-    expect(question1.question_votes.count).to eql(0)
-    click_button "Up Vote"
-    click_button "Up Vote"
-
-    expect(page).to have_content("2")
-    expect(question1.question_votes.count).to eql(2)
-
-    end
-
-    it "should sort questions by most votes first" do
-
-    event = FactoryGirl.create(:event)
-    question1 = FactoryGirl.create(:question, event: event)
-
-
-    visit root_path
-    visit events_path
-    fill_in "search_event_password", :with => event.event_password
-    click_button "Find Event"
-    click_button "Up Vote"
-    click_button "Up Vote"
-
-
-    end
   end

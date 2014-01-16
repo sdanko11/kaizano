@@ -1,19 +1,12 @@
 <div class="row">
-   <div class="small-7 columns">
-     <h1><%= @event.name %><h1>
-  </div>
-</div>
-<div class="row">
   <div class="small-4 columns">
-    <%= @event.description%>
+    <h1 class="title"><%= @event.name %><h1>
   </div>
-</div>
-<div class="row">
-  <ul class="small-block-grid-">
-    <li>
-      <table width="220", height="100", display="inline-block">
+  <div class="small-3 small-push-1 columns">
+    <div class="ratings-recieved">
+      <table width="220", height="100">
         <thead align="center">
-        <th>Ratings Recieved</th>
+          <th>Ratings Recieved</th>
         </thead>
         <tr>
         <% if @event.count_reviews > 0 %>
@@ -23,59 +16,71 @@
         </tr>
         <% end %>
       </table>
-    </li>
-    <li>
+    </div>
+  </div>
+  <div class="small-5 small-push-1 columns">
+    <div class="rating-table">
       <table width="220", height="100", display="inline-block">
         <thead align="center">
           <th>Average Rating</th>
         </thead>
           <tr>
-          <% if @event.count_reviews > 0 %>
-            <td align="center"><%= @event.calculate_average_rating %></td>
-          <% else %>
-            <td>No Reviews Left</td>
-          <% end %>
-          </tr>
-      </table>
-    </li>
-  </ul>
-</div>
-<div class="row">
-  <div class="small-11 small-centered columns">
-    <table class="center", width="800", height="50", display="inline-block">
-      <thead>
-        <th>Audience Feedback Comments</th>
-      </thead>
-        <tbody>
-          <% if @event.reviews.count > 0 %>
-            <% @event.reviews.each do |review| %>
-              <% if review.feedback_comments != '' %>
-              <tr>
-                <td><%= review.feedback_comments %></td>
-              </tr>
-              <% end %>
-            <% end %>
-          <% else %>
-            <tr>
-              <td>Audience Members left no feedback</td>
-            </tr>
+        <% if @event.count_reviews > 0 %>
+          <td align="center"><%= @event.calculate_average_rating %></td>
+        <% else %>
+          <td>No Reviews Left</td>
         <% end %>
-      </tbody>
-    </table>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
 <div class="row">
-  <div class="small-11 small-centered columns">
-    <table class="center", width="800", height="50", display="inline-block">
+  <div class="small-11 columns">
+    <%= @event.description%></p>
+  </div>
+</div>
+<div class="row">
+  <div class="small-11 columns">
+    <div class="feedback-table">
+      <table class="center", width="880", height="50", display="inline-block">
+        <thead>
+          <th class="table-header">
+            <span>Audience Feedback Comments</span>
+            <a class="feedback-link" href="#">View Feedback</a>
+          </th>
+        </thead>
+          <tbody class="feedback-table-content hide">
+            <% if @event.reviews.count > 0 %>
+              <% @event.reviews.each do |review| %>
+                <% if review.feedback_comments != '' %>
+                <tr>
+                  <td><%= review.feedback_comments %></td>
+                </tr>
+                <% end %>
+              <% end %>
+            <% else %>
+              <tr>
+                <td>Audience Members left no feedback</td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="small-11 columns">
+    <table class="question-table", width="880", height="50", display="inline-block">
       <thead>
-        <th>
+        <th class="table-header">
           <span>Audience Questions</span>
-          <span><%=link_to "View Questions" %></span>
+          <a class="question-link" href="#">View Questions</a>
         </th>
         <th>
-        </th>
+        </th> 
       </thead>
-        <tbody>
+        <tbody class="question-table-content hide">
         <% if @event.questions.count > 0 %>
           <% @event.questions.each do |question| %>
           <tr>

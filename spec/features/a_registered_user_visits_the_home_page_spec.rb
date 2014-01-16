@@ -13,7 +13,7 @@ describe 'registed user attempts visits the home page' do
 
       user = FactoryGirl.create(:user)
       visit root_path
-      click_link 'Sign in'
+      click_link 'Sign In'
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
@@ -22,7 +22,7 @@ describe 'registed user attempts visits the home page' do
       expect(page).to_not have_link "Sign up"
       expect(page).to have_link "Create New Event"
       expect(page).to have_link "Give Feedback"
-      expect(page).to_not have_link "Sign in"
+      expect(page).to_not have_link "Sign In"
       expect(page).to have_link "Sign out"
     end
   end
@@ -32,7 +32,7 @@ describe 'registed user attempts visits the home page' do
 
       user = FactoryGirl.create(:user)
       visit root_path
-      click_link 'Sign in'
+      click_link 'Sign In'
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
@@ -48,15 +48,16 @@ describe 'registed user attempts visits the home page' do
   end
 
      context "check content on create event page" do
-    it "it has all available options to create an event" do
+      
+     it "it has all available options to create an event" do
 
       user = FactoryGirl.create(:user)
       visit root_path
-      click_link 'Sign in'
+      click_link 'Sign In'
       fill_in 'Email', :with => user.email
       fill_in 'Password', :with => user.password
       click_button 'Sign in'
-      click_link 'Create New Event'
+      click_link 'Add Speaking Event'
     
       expect(page).to have_content "Kaizano"
       expect(page).to have_link "Sign out"
@@ -69,29 +70,6 @@ describe 'registed user attempts visits the home page' do
       expect(page).to have_field "Description"
       expect(page).to have_field "Location"
       expect(page).to have_field "Event url"
-    end
-  end
-
-    context "check content on create event page" do
-    it "it has all available options to create an event" do
-
-      user = FactoryGirl.create(:user)
-      event = FactoryGirl.create(:event, user: user)  
-
-      visit root_path
-      click_link 'Sign in'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
-      click_button 'Sign in'
-      click_link 'Profile'
-    
-      expect(page).to have_content "Kaizano"
-      expect(page).to have_link "Sign out"
-      expect(page).to have_link "Edit Event"
-      expect(page).to have_link "Profile"
-      expect(page).to have_content user.first_name
-      expect(page).to have_content user.last_name
-      expect(page).to have_content event.name
     end
   end
 

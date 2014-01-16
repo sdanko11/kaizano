@@ -51,7 +51,7 @@
 
 // We use these as default colors throughout
 // $primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
+// $secondary-color: red;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 
@@ -839,11 +839,11 @@
 
 // These control the table cell border style
 // $table-border-style: solid;
-// $table-border-size: 1px;
+$table-border-size: 3px;
 // $table-border-color: #ddd;
 
 // These control the table head styles
-// $table-head-bg: #f5f5f5  ;
+// $table-head-bg: ;
 // $table-head-font-size: rem-calc(14);
 // $table-head-font-color: #222;
 // $table-head-font-weight: bold;
@@ -927,25 +927,24 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: #01DFA5;
 
 // Height and margin
-// $topbar-height: 45px;
-// $topbar-margin-bottom: 0;
+$topbar-height: 60px;
+// $topbar-margin-bottom: 100px;
 
 // Control Input height for top bar
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: normal;
-// $topbar-title-font-size: rem-calc(17);
+$topbar-title-font-size: rem-calc(0);
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: #333;
 // $topbar-dropdown-link-color: #fff;
 // $topbar-dropdown-link-bg: #333;
 // $topbar-dropdown-toggle-size: 5px;
-// $topbar-dropdown-toggle-color: #fff;
+// $topbar-dropdown-toggle-color: red;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
@@ -953,11 +952,11 @@
 // $topbar-link-color-hover: #fff;
 // $topbar-link-color-active: #fff;
 // $topbar-link-weight: normal;
-// $topbar-link-font-size: rem-calc(13);
-// $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg-hover: #272727  ;
+$topbar-link-font-size: rem-calc(0);
+// $topbar-link-hover-lightness: 100%; // Darken by 10%
+$topbar-link-bg-hover: #01936d;
 // $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: darken($primary-color, 5%);
+// $topbar-link-bg-active-hover: darken(#01936d, 25%);
 // $topbar-link-font-family: $body-font-family;
 
 // $topbar-button-font-size: 0.75rem;
@@ -991,3 +990,15 @@
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
 @import 'foundation';
+
+.home-button-group {
+  text-align: center;
+
+  .button {
+    margin-right: 20px;
+  }
+
+  .button:last-child {
+    margin-right: 0; 
+  }
+}

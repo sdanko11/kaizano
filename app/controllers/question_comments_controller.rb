@@ -8,10 +8,14 @@ class QuestionCommentsController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @question_comment = @question.question_comments.build(question_comment_params)
-    if @question_comment.save
-      redirect_to :back
-    else
-      redirect_to :back
+    respond_to do |format|
+      if @question_comment.save
+        format.html { redirect_to :back }
+        format.json { render json: @question_votes }
+      else
+        format.html { redirect_to :back }
+        format.json { render json: @question_votes.errors, status: :unprocessable_entity }
+      end
     end
   end
 

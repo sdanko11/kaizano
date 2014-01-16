@@ -1,36 +1,44 @@
-<div class="row">
-  <div class="large-4 columns">
-    <h2>Sign up</h2>
-    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
-    :html => {:multipart => true}) do |f| %>
-      <%= f.input :email, label: "E-mail", :autofocus => true %>
+<div class="small-11 small-centered columns">
+  <div class="row">
+    <div class="large-6 large-centered columns">
+      <h2 class="sign-up-title">Sign up</h2>
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
+      :html => {:multipart => true}) do |f| %>
+        <%= f.input :email, label: "E-mail", :autofocus => true %>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="large-5 columns">
-    <div class="password">
-      <%= f.input :password, label: "Password" %>
-      <%= f.input :password_confirmation, label: "Confirm Password" %>
+  <div class="row">
+    <div class="small-3 small-push-3 columns">
+      <div class="password">
+        <%= f.label :password, label: "Password" %>
+        <%= f.password_field :password %>
+      </div>
+    </div>
+    <div class="small-3 small-pull-3 columns">
+      <div class="password">
+        <%= f.label :password_confirmation, label: "Confirm Password" %>
+        <%= f.password_field :password %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-3 small-push-3 columns">
+      <%= f.input :last_name, label: "First Name" %>
+    </div>
+    <div class="small-3 small-pull-3 columns">
+      <%= f.input :first_name, label: "Last Name" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 large-centered columns">
+      <div class="sign-up">
+        <%= f.label "Profile Photo" %><br>
+        <%= f.file_field :avatar, label: "Profile Photo" %>
+        <%= f.input :twitter_handle, label: "Twitter Url" %>
+        <%= f.input :linked_in_url, label: "Linked In Url" %>
+        <%= f.submit "Sign up", class: "button" %>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="large-10 columns">
-    <div class="name">
-      <%= f.input :last_name, label: "Password" %>
-      <%= f.input :first_name, label: "Confirm Password" %>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="large-5 columns">
-    <div class="sign-up">
-      <%= f.label "Profile Photo" %><br>
-      <%= f.file_field :avatar, label: "Profile Photo" %>
-      <%= f.input :twitter_handle, label: "Twitter Url" %>
-      <%= f.input :linked_in_url, label: "Linked In Url" %>
-      <%= f.submit "Sign up", class: "button" %>
-    </div>
-  </div>
-</div>
-<% end %>

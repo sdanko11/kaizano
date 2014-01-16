@@ -70,17 +70,18 @@
         <tr>
         </tr>
         <tr>
-          <td><%=event.name%></td>
-          <% if event.count_reviews != 0 %>
-            <td><%= event.count_reviews %></td>
-            <td><%= event.calculate_average_rating %></td>
-          <% else %>
-            <td><%= "No Reviews" %></td>
-            <td><%= "No Reviews" %></td>
-          <% end %>
-          <td><%= link_to "Edit Event", edit_event_path(event)%></td>
-          <td><%= link_to "View Reviews", event_reviews_path(event) %></td>
+        <td><%=event.name%></td>
+        <% if event.count_reviews != 0 %>
+          <td><%= event.count_reviews %></td>
+          <td><%= event.calculate_average_rating %></td>
+        <% else %>
+          <td><%= "No Reviews" %></td>
+          <td><%= "No Reviews" %></td>
+        <% end %>
+        <td><%= link_to "Edit Event", edit_event_path(event)%></td>
+        <td><%= link_to "View Reviews", event_reviews_path(event) %></td>
       </tr>
-    <%end%>
-  </table>
+      <%end%>
+    </table>
+  </div>
 </div>

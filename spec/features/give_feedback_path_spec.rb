@@ -36,7 +36,8 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       
       expect(page).to have_content user.first_name
       expect(page).to have_content user.last_name
-      expect(page).to have_link "Follow me on Twitter"
+      expect(page).to have_link "Twitter"
+      save_and_open_page
       expect(page).to_not have_link "Connect on Linked In"
       expect(page).to have_content event.description
       expect(page).to have_link "Give Feedback"

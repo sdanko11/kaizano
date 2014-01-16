@@ -5,23 +5,32 @@
   }
 }
 
-.name {
-  display: inline-block;
-}
-
-.password {
-  display: inline-block;
-}
-
 .sign-up-button {
   .button {
     background-color: #D11975;
-    width: 200px;
+    width: 0px;
   }
 }
 
 .sign-up {
   .button {
     background-color: #D11975;
+    width: 470px;
   }
 }
+
+.sign-in {
+  .button {
+    background-color: #D11975;
+    width: 303px;
+  }
+}
+
+.title-sign-up {
+  text-align: center;
+}
+
+.sign-up-title {
+  text-align: center;
+}
+
