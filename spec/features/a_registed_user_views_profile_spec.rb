@@ -81,7 +81,6 @@ context "check the profile page content" do
       expect(page).to have_content event.name
       expect(page).to have_button "Add Speaking Event"
       expect(page).to have_link "Edit Profile"
-      save_and_open_page
       expect(page).to have_content "Presentation Name"
       expect(page).to have_content "Number of Reviews"
       expect(page).to have_content "Presentation Ratings"    

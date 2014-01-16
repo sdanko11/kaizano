@@ -4,7 +4,6 @@
 
 .header {
   padding-top: 25px;
-  padding-right: 50px;
   text-decoration: underline;
   text-align: center;
   font-weight: bold;
@@ -26,6 +25,7 @@
 .welcome {
   text-align: center;
   padding-right: 50px;
+  font-size: 100px;
 }
 
 #step-3 {
@@ -37,8 +37,16 @@
 .get-started {
   text-align: center;
   padding-top: 25px;
+  padding-left: 135px;
   .button {
     background-color: #D11975;
+    width: 200px;
 
   }
+}
+
+
+.welocome-message {
+  padding-top: 25px;
+  text-align: center;
 }

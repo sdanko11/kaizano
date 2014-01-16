@@ -8,7 +8,7 @@ describe 'a unregisted user vistits the home page' do
   # Must have the company name
 
   context "check content on home page" do
-    it "it has options to create an event and register" do
+    it "has options to create an event and register" do
 
       visit root_path
 
@@ -46,5 +46,21 @@ describe 'a unregisted user vistits the home page' do
       expect(page).to have_field("Password")
     end
   end
+
+    it "should direct new users to the how it works page after regstering" do
+
+      visit root_path
+      click_link 'Sign Up'
+      fill_in "E-mail", :with => "steve@aol.com"
+      fill_in "Password", :with => "ssteve11"
+      fill_in "Confirm Password", :with => "ssteve11"
+      fill_in "First Name", :with => "Steve"
+      fill_in "Last Name", :with => "Danko"
+      click_button "Sign up"
+
+      expect(page).to have_content "How it Works"
+      expect(page).to have_button "Get Started"
+
+    end
 
 end
