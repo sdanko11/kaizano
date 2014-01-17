@@ -13,14 +13,14 @@ describe 'a site visitor wants to leave feedback for a presentation' do
     it "it has a link to give feedback" do
 
       visit root_path
-      expect(page).to have_link "Find Event"
+      expect(page).to have_link "Join a Presentation"
       
     end
 
     it "should lead to a page where they enter the password" do
 
       visit root_path
-      click_link "Find Event"
+      click_link "Join a Presentation"
       expect(page).to have_content "Enter Event Password"
       expect(page).to have_field "search_event_password"
       expect(page).to have_button "Find Event"

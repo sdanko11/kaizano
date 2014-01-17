@@ -10,9 +10,9 @@
       <div class="stats-tables">
         <ul class="small-block-grid-2 columns">
           <li class="table-data">
-            <table class="right", width="222", height="100">
-              <thead align="center">
-                <th>Total Presentations</th>
+            <table class="right" width="222" height="100">
+              <thead >
+                <th align="center">Total Presentations</th>
               </thead>
                 <tr>
                 <td align="center"><%= "#{@all_events.count}" %></td>
@@ -20,7 +20,7 @@
             </table>
           </li>
           <li>
-            <table class="right", width="222", height="100">
+            <table class="right" width="222" height="100">
               <thead align="center">
                 <th>Presentations with Reviews</th>
               </thead>
@@ -30,7 +30,7 @@
             </table>
           </li>
            <li>
-            <table class="right", width="222", height="100">
+            <table class="right" width="222" height="100">
               <thead align="center">
                 <th>Average Presentation Rating</th>
               </thead>
@@ -39,7 +39,7 @@
             </table>
           </li>
           <li>
-            <table class="right", width="222", height="100">
+            <table class="right" width="222" height="100">
               <thead align="center">
                 <th>Highest Rated Presentation</th>
               </thead>
@@ -53,19 +53,21 @@
     </div>
   </div>
 </div>
-<div class="add-new-event-button">
-  <div class="row">
-    <div class="small-5 columns">
-      <%= link_to "Edit Profile", edit_user_path(@user) %><br><br>
-      <%= link_to "Add Speaking Event", new_event_path, class: "button" %><br>
+<div class="row">
+  <div class="small-5 columns">
+    <div class="edit-pofile">
+      <%= link_to "Edit Profile", edit_user_path(@user) %>
+    </div>
+    <div class="add-new-event-button">
+      <%= link_to "Add Speaking Event", new_event_path, class: "button" %>
       <%=flash[:saved]%>
       <%=flash[:edits_saved]%>
     </div>
   </div>
-</div><br>
+</div>
 <div class="row">
-  <div class="small-10 columns">
-    <table>
+  <div class="small-12 columns">
+    <table class="event-table">
       <thead>
         <th>Presentation Name</th>
         <th>Number of Reviews</th>

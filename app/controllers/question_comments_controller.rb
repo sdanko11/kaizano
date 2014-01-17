@@ -11,10 +11,10 @@ class QuestionCommentsController < ApplicationController
     respond_to do |format|
       if @question_comment.save
         format.html { redirect_to :back }
-        format.json { render json: @question_votes }
+        format.json { render json: @question_comment }
       else
         format.html { redirect_to :back }
-        format.json { render json: @question_votes.errors, status: :unprocessable_entity }
+        format.json { render json: @question_comment.errors, status: :unprocessable_entity }
       end
     end
   end

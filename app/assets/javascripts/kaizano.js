@@ -1,10 +1,24 @@
+$(document).ready(function() {
 $('.question-object').on('click', '.comment-link', function(event) {
   event.preventDefault();
   $showCommentsLink = $(event.target);
   $comments = $showCommentsLink.parent().find('.comment-object');
   $comments.toggle(300);
-});
+ });
 
+$('.new_question_comment').on('submit', function(event) {
+  event.preventDefault();
+  $form = $(event.currentTarget);
+  $.ajax({
+    type: "POST",
+    url: $form.attr('action'),
+    data: $form.serialize(),
+    dataType: "json",
+    success: function(data) {
+    $form.siblings().first().append("<div class=comment-body>"+ data.body + "</div>")
+    }
+  });
+});
 
 $(".question-link").click(function(event){
   event.preventDefault();
@@ -14,4 +28,6 @@ $(".question-link").click(function(event){
 $(".feedback-link").click(function(event){
   event.preventDefault();
   $(".feedback-table-content").toggle(300);
+});
+
 });

@@ -15,7 +15,7 @@ describe 'a unregisted user vistits the home page' do
       expect(page).to have_content "Kaizano"
       expect(page).to have_link "Sign Up"
       expect(page).to have_link "Create a Event"
-      expect(page).to have_link "Find Event"
+      expect(page).to have_link "Join a Presentation"
       expect(page).to have_link "Sign In"
     end
   end
@@ -23,7 +23,7 @@ describe 'a unregisted user vistits the home page' do
     it "should have a field for password and a find event button" do
 
       visit root_path
-      click_link 'Find Event'
+      click_link 'Join a Presentation'
 
       expect(page).to have_content "Enter Event Password"
       page.should have_button "Find Event"

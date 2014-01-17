@@ -19,7 +19,7 @@ describe 'a register user wants to sign in' do
 
       expect(page).to have_link "Add Speaking Event"
       expect(page).to have_link "Sign out"
-      expect(page).to have_link "View a Presentation"
+      expect(page).to have_link "Join a Presentation"
       expect(page).to have_content "Total Presentations"
       expect(page).to have_content "Presentations with Reviews"
       expect(page).to have_content "Average Presentation Rating"
