@@ -13,3 +13,7 @@
 
  *= require_tree .
  */
+
+ .page-body{
+  padding-bottom: 50px;
+ }

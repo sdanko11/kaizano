@@ -1,16 +1,25 @@
 <div class="row">
   <div class="small-6 small-centered columns">
     <h1>Edit Event Details</h1>
-      <%= simple_form_for(@event) do |f| %>
-        <%= f.input :name %><br />
-        <%= f.input :location%><br />
-        <%= f.input :event_url%><br />
-        <%= f.input :description%><br />
-        <ul class="small-block-grid-2">
-          <li class="save-button"><%= f.submit 'Save Changes',class: "button" %></li>
-          <li class="cancel-button"><%= link_to "Cancel", users_path, class: "button" %></li>
-        <div>
-      </div>
-    <% end %>
+    <%= simple_form_for(@event) do |f| %>
+      <%= f.input :name %><br />
+      <%= f.input :location%><br />
+      <%= f.input :event_url%><br />
+      <%= f.input :description%><br />
   </div>
 </div>
+<div class="row">
+  <div class="small-3 small-push-3 columns">
+    <div class="save-button">
+      <%= f.submit 'Save Changes',class: "button" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-3 small-push-3 columns">
+      <div class="cancel-button">
+        <%= link_to "Cancel", user_path, class: "button" %>
+      </div>
+    </div>
+  </div>
+</div>
+    <% end %>

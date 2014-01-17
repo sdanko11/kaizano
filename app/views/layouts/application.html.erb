@@ -9,7 +9,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body style="background-color:#F2F2F2">
+  <body class="page-body" style="background-color:#F2F2F2">
   <nav class="top-bar" style="background-color:#01DFA5">
     <ul class="title-area">
       <li class="name">
@@ -25,12 +25,13 @@
       <section class="top-bar-section">
         <ul class="right">
           <% if user_signed_in? %>
-          <li><%= link_to "View a Presentation", events_path %></li>
+          <li><%= link_to "Join a Presentation", events_path %></li>
+          <li><%= link_to "Learn More", learn_mores_path %></li>
           <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           <%else %>
+          <li><%= link_to "Learn More", learn_mores_path %></li>
           <li><%= link_to "Sign Up",new_user_registration_path %></li>
           <li><%= link_to "Sign In",new_user_session_path %></li>
-          <li><%= link_to "Learn More", learn_mores_path %></li>
           <% end %>
         </ul>
     </nav>
