@@ -1,50 +1,57 @@
-<br>
 <div class="row">
-  <div class="small-5 columns">
-    <%= image_tag @user.avatar.thumb.url %>
-    <h1><%= @user.format_speaker_name %></h1>
+  <div class="small-4 columns">
+    <div class="photo">
+      <%= image_tag @user.avatar.thumb.url %>
+      <h1><%= @user.format_speaker_name %></h1>
+    </div>
   </div>
-  <ul class="small-block-grid-">
-    <li>
-      <table class="right", width="222", height="100", display="inline-block">
-        <thead align="center">
-          <th>Total Presentations</th>
-        </thead>
-          <tr>
-          <td align="center"><%= "#{@all_events.count}" %></td>
-          </tr>
-      </table>
-    </li>
-    <li>
-      <table class="right", width="222", height="100", display="inline-block">
-        <thead align="center">
-          <th>Presentations with Reviews</th>
-        </thead>
-          <tr>
-            <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
-          </tr>
-      </table>
-    </li>
-     <li>
-      <table class="right", width="222", height="100", display="inline-block">
-        <thead align="center">
-          <th>Average Presentation Rating</th>
-        </thead>
-          <tr>
-          <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.each_event_rating_average)}" %></td>
-      </table>
-    </li>
-    <li>
-      <table class="right", width="222", height="100", display="inline-block">
-        <thead align="center">
-          <th>Highest Rated Presentation</th>
-        </thead>
-          <tr>
-          <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.each_event_rating_average)}" %></td>
-          </tr>
-      </table>
-    </li>
-  </ul>
+  <div class="row">
+    <div class="small-7 columns">
+      <div class="stats-tables">
+        <ul class="small-block-grid-2 push-small-1 columns">
+          <li class="table-data">
+            <table class="right", width="222", height="100", display="inline-block">
+              <thead align="center">
+                <th>Total Presentations</th>
+              </thead>
+                <tr>
+                <td align="center"><%= "#{@all_events.count}" %></td>
+                </tr>
+            </table>
+          </li>
+          <li>
+            <table class="right", width="222", height="100", display="inline-block">
+              <thead align="center">
+                <th>Presentations with Reviews</th>
+              </thead>
+                <tr>
+                  <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
+                </tr>
+            </table>
+          </li>
+           <li>
+            <table class="right", width="222", height="100", display="inline-block">
+              <thead align="center">
+                <th>Average Presentation Rating</th>
+              </thead>
+                <tr>
+                <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.each_event_rating_average)}" %></td>
+            </table>
+          </li>
+          <li>
+            <table class="right", width="222", height="100", display="inline-block">
+              <thead align="center">
+                <th>Highest Rated Presentation</th>
+              </thead>
+                <tr>
+                <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.each_event_rating_average)}" %></td>
+                </tr>
+            </table>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="add-new-event-button">
   <div class="row">
