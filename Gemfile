@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
+ruby '2.0.0'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -59,6 +61,8 @@ group :development do
   gem 'quiet_assets'
   gem "rails-erd"
 end
+
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
