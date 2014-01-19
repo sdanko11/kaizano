@@ -22,8 +22,13 @@
 <div class="row">
   <div class="small-7 small-centered columns">
     <div class="home-button-group">
-      <%= link_to 'Create a Event', new_event_path, class: "button" %>
-      <%= link_to 'Join a Presentation', events_path, class: "button" %>
+      <% if user_signed_in? %>
+        <%= link_to 'Create a Event', new_event_path, class: "button" %>
+        <%= link_to 'Join a Presentation', events_path, class: "button" %>
+      <% else %>
+        <%= link_to 'Create a Event', new_user_registration_path, class: "button" %>
+        <%= link_to 'Join a Presentation', events_path, class: "button" %>
+      <% end %>
     </ul>
   </div>
 </div>

@@ -72,7 +72,7 @@
             <%= simple_form_for ([question, @question_comment]) do |f|%>
               <%= f.input :body, label: "Comment", as: :text %>
               <div class="comment-button">
-                <%= f.submit "Comment"%>
+                <%= f.submit "Comment", class: "button tiny"%>
               </div>
             <% end %>
           </div>

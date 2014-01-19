@@ -1,34 +1,68 @@
-<div class="header">
+<% if !user_signed_in? %>
+  <div class="header">
+    <div class="row">
+      <div class="small-8 small-centered columns">
+        <h1>Welcome!<h1>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="header2">
   <div class="row">
-    <div class="small-11 small-centered columns">
-      <h1>How it Works<h1>
+    <div class="small-8 small-centered columns">
+      <% if user_signed_in? %>
+        <h1>How it Works<h1>
+      <% else %>
+        <h1>Here's how it Works.<h1>
+      <% end %>
     </div>
   </div>
 </div>
 <div id="step-1">
   <div class="row">
-    <div class="small-6 small-push-3 columns">
-      <h3>1) Create a Speaking Event.</h3>
+    <div class="small-6 small-centered columns">
+      <h4>1) Create a Speaking Event.</h4>
+    </div>
+  </div>
+</div>
+<div class="sub-text">
+  <div class="row">
+    <div class="small-7 small-push-3 columns">
+      <h6>-The next time your speaking in public, create an event on Kaizano.</h6>
     </div>
   </div>
 </div>
 <div id="step-2">
   <div class="row">
     <div class="small-6 small-centered columns">
-      <h3>2) Give your Event Password to your Audience.</h3>
+      <h4>2) Give your Event Password to your Audience.</h4>
+    </div>
+  </div>
+</div>
+<div class="sub-text">
+  <div class="row">
+    <div class="small-7 small-push-3 columns">
+      <h6>-Each event is created with a unique access password, give this password to your audience before your speaking event.</h6>
     </div>
   </div>
 </div>
 <div id="step-3">
   <div class="row">
     <div class="small-6 small-centered columns">
-      <h3>3) Recieve Feedback and Questions from your Audience.</h3>
+      <h4>3) Recieve Feedback and Questions from your Audience.</h4>
+    </div>
+  </div>
+</div>
+<div class="sub-text">
+  <div class="row">
+    <div class="small-7 small-push-3 columns">
+      <h6>-Your audience can give you feedback, rate the effectieness of your presentation, and ask you questions though Kaizano.</h6>
     </div>
   </div>
 </div>
 <div class="get-started">
   <div class="row">
-    <div class="small-6 small-push-2 columns">
+    <div class="small-7 small-centered columns">
       <%= link_to "Get Started", user_path(current_user), class: "button" %>
     </div>
   </div>

@@ -3,34 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .header {
-  padding-top: 25px;
-  text-decoration: underline;
+  padding-top: 20px;
   text-align: center;
   font-weight: bold;
 }
 
 #step-1 {
-  padding-top: 25px;
+  padding-top: 10px;
 }
 
 #step-2 {
-  padding-top: 25px;
-}
-
-.welcome {
-  text-align: center;
-  padding-right: 50px;
-  font-size: 100px;
+  padding-top: 10px;
 }
 
 #step-3 {
-  padding-top: 25px;
+  padding-top: 10px;
 }
 
 .get-started {
   text-align: center;
   padding-top: 25px;
-  padding-left: 135px;
   .button {
     background-color: #D11975;
     width: 200px;
@@ -40,5 +32,10 @@
 
 .welocome-message {
   padding-top: 25px;
+  text-align: center;
+}
+
+.header2 {
+  padding-top: 10px;
   text-align: center;
 }
