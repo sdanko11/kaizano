@@ -12,8 +12,10 @@
  *= require foundation_and_overrides
 
  *= require_tree .
+  *= require font-awesome
  */
 
  .page-body{
   padding-bottom: 50px;
  }
+
