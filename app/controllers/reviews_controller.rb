@@ -4,7 +4,6 @@ class ReviewsController < ApplicationController
   def index
     @event = Event.find(params[:event_id])
     @reviews = @event.reviews
-    #look into includes
   end
 
   def new
@@ -16,6 +15,7 @@ class ReviewsController < ApplicationController
     @event = Event.find(params[:event_id])
     @review = @event.reviews.build(review_params)
     if @review.save
+       flash[:review_saved] = "Thanks for your Review."
        redirect_to event_path(@event)
     else
       render :new

@@ -1,23 +1,29 @@
+<% if flash[:review_saved] %>
+  <div data-alert class="alert-box">
+      <%= flash[:review_saved] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
 <div class="row">
   <div class="small-6 columns">
     <div class="title">
-    <h1><%= @event.name %></h1>
+    <h1 class="event-header"><%= @event.name %></h1>
       <h4>Speaker: <%= @event.format_speaker_name %></h4>
       <%if @event.user.about_me != ''%>
-        <h5>About <%= @event.user.first_name %>:</h5> 
-        <%= @event.user.about_me %><br>
+        <h5 class="event-header">About <%= @event.user.first_name %>:</h5> 
+        <h6><%= @event.user.about_me %></h6>
       <%end%>
-      <%if @event.user.twitter_handle != '' %>
+      <% if @event.user.twitter_handle != '' %>
         <%= link_to "Twitter", @event.user.twitter_handle, target: '_blank' %><br>
-      <%end%>
+      <% end %>
       <%if @event.user.linked_in_url != '' %>
-        <%= link_to "Connect on Linked In", @event.user.linked_in_url, target: '_blank' %>
+        <%=link_to "Connect on Linked In", @event.user.linked_in_url, target: '_blank'%><br>
       <%end%>
     </div>
     <div class="row">
-      <div class="small-6 columns">
-        <h5>Presentation Description</h5>
-        <h><%= @event.description %></h6>
+      <div class="small-7 columns">
+        <h5 class="event-header"> Presentation Description </h5>
+        <h6><%=@event.description%></h6>
       </div>
     </div>
   </div>
@@ -31,23 +37,23 @@
       <h4 class="question-header">Ask a Question</h4>
         <%= simple_form_for ([@event, @question]) do |f| %>
           <%= f.input :body, label: false, as: :text %>
-          <%=flash[:question_can_not_be_blank]%>
           <%=f.submit "Ask Question",class: "button" %><br>
           <%=flash[:question_added]%>
+           <%=flash[:question_can_not_be_blank]%>
         <% end %>
     </div>
   </div>
 </div>                
 <div class="row">
   <div class="4-small columns">
-    <h1>Audience Questions</h1>
+    <h1 class="event-header">Audience Questions</h1>
   </div>
 </div>
 <div class="question-object">
   <% @event.questions.each do |question| %>
   <div class="row">
     <div class="small-6 columns">
-    <h5><%= question.body %></h5>
+    <h5><%=question.body%></h5>
    </div>
   </div>
   <div class="row">
@@ -60,7 +66,7 @@
               <% if question.question_comments.count > 0 %>
                 <% question.question_comments.each do |comment| %>
                   <div class="comment-body">
-                   <%= comment.body %><br>
+                   <h5><%="- #{comment.body}"%></h5>
                   </div>
                 <% end %>
               <% else %>

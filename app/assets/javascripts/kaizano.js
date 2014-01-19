@@ -15,7 +15,7 @@ $('.new_question_comment').on('submit', function(event) {
     data: $form.serialize(),
     dataType: "json",
     success: function(data) {
-    $form.siblings().first().append("<div class=comment-body>"+ data.body + "</div>")
+    $form.siblings().first().append("<h6>"+ "-" + data.body + "</h6><br>")
     }
   });
 });
