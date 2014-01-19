@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
     current_user.events.each do |event|
       all_event_ids << event.id.to_s
     end
-    redirect_to user_path(current_user) unless all_event_ids.include?(params[:event_id]
+    redirect_to user_path(current_user) unless all_event_ids.include?(params[:event_id])
   end
 
   protected
