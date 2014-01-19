@@ -35,6 +35,7 @@
         <%= f.label "Profile Photo" %><br>
         <%= f.file_field :avatar, label: "Profile Photo" %>
         <%= f.input :twitter_handle, label: "Twitter Url" %>
+        <%= f.input :about_me, label: "About You (500 character max)" %>
         <%= f.input :linked_in_url, label: "Linked In Url" %>
         <%= f.submit "Sign up", class: "button" %>
       <% end %>

@@ -35,10 +35,10 @@ describe 'a unregisted user vistits the home page' do
       visit root_path
       click_link 'Create a Event'
 
-      expect(page).to have_content "Email"
+      expect(page).to have_content "E-mail"
       expect(page).to have_content "Password"
-      expect(page).to have_button "Sign in"
-      expect(page).to have_field("Email")
+      expect(page).to have_button "Sign up"
+      expect(page).to have_field("E-mail")
       expect(page).to have_field("Password")
     
     end
