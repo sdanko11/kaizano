@@ -2,24 +2,22 @@
   <div class="small-6 small-centered columns">
     <h2>Edit Event Details</h2>
     <%= simple_form_for(@event) do |f| %>
-      <%= f.input :name %><br />
-      <%= f.input :location%><br />
-      <%= f.input :event_url%><br />
-      <%= f.input :description%><br />
-  </div>
-</div>
-<div class="row">
-  <div class="small-3 small-push-3 columns">
-    <div class="save-button">
-      <%= f.submit 'Save Changes',class: "button" %>
+      <%= f.input :name %><br>
+      <%= f.input :location %><br>
+      <%= f.input :event_url %><br>
+      <%= f.input :description %><br>
     </div>
   </div>
-  <div class="row">
-    <div class="small-3 small-push-3 columns">
-      <div class="cancel-button">
-        <%= link_to "Cancel", user_path, class: "button" %>
+  <div class="small-11 small-centered columns">
+    <div class="row">
+      <div class="large-6 large-centered columns">
+        <div class="save-changes-button">
+          <%= f.submit 'Save Changes',class: "button" %>
+          <%= link_to "Cancel", user_path(current_user), class: "button" %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-    <% end %>
+
+  

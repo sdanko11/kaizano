@@ -26,7 +26,6 @@ and leave feedback for the presentation to further there undestading of presenta
       
       expect(page).to have_content user.first_name
       expect(page).to have_content user.last_name
-      expect(page).to have_link "Twitter"
       expect(page).to have_content event.description
 
     end
