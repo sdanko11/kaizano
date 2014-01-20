@@ -14,8 +14,16 @@
  *= require_tree .
   *= require font-awesome
  */
- 
+
  .page-body{
   padding-bottom: 50px;
  }
 
+ .title-font {
+  font-family: 'Nunito';
+ }
+.link {
+  .text {
+  font-family: 'Nunito';
+}
+}

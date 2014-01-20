@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   validates_presence_of :encrypted_password
   validates_presence_of :sign_in_count
   has_many :events, dependent: :destroy
-  belongs_to :event
   mount_uploader :avatar, ImageUploader
   validates_length_of :about_me, :maximum => 500
 
@@ -20,9 +19,9 @@ class User < ActiveRecord::Base
     events.each do |event|
       if event.reviews.count > 0 
         event.reviews.each do |review|
-         @all_ratings_from_an_event << review.rating.to_f 
+          @all_ratings_from_an_event << review.rating.to_f 
         end
-        review_total = @all_ratings_from_an_event.inject(0) { |sum, review| sum+=review }
+        review_total = @all_ratings_from_an_event.inject(0) { |sum, review| sum += review }
         @each_event_rating_average << {event.name => (review_total/
         @all_ratings_from_an_event.count).round(2) }
         @all_ratings_from_an_event = []

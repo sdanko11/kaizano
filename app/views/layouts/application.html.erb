@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Kaizano" %></title>
 
@@ -14,9 +15,9 @@
       <li class="name">
         <div>
           <% if user_signed_in? %>
-            <h1><%= link_to "Kaizano", user_path(current_user) %></h1>
+            <h1 class="title-font"><%= link_to "Kaizano", user_path(current_user) %></h1>
           <% else %> 
-            <h1><%= link_to "Kaizano", root_path %></h1>
+            <h1 class="title-font"><%= link_to "Kaizano", root_path %></h1>
           <% end %>
         </div>
       </li>
@@ -28,6 +29,7 @@
             <li><%= link_to "How it Works", how_it_works_path %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           <%else %>
+            <li><%= link_to "Join a Presentation", events_path %></li>
             <li><%= link_to "Learn More", learn_mores_path %></li>
             <li><%= link_to "Sign Up",new_user_registration_path %></li>
             <li><%= link_to "Sign In",new_user_session_path %></li>
@@ -37,7 +39,7 @@
   </nav>
 
         <%= yield %>
-
+    <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

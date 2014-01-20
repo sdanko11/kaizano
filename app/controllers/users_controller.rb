@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:saved]="Saved"
+      flash[:saved]="Saved Changes"
       redirect_to  user_path
     else
       render action: 'edit'
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+
     @user = User.find(params[:id])
     @all_events = current_user.events
   end

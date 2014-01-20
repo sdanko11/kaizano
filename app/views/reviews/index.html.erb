@@ -12,7 +12,7 @@
         <% if @event.count_reviews > 0 %>
           <td align="center"><%= @event.count_reviews %></td>
         <% else %>
-          <td>No Ratings Received</td>
+          <td>No Ratings Recieved</td>
         </tr>
         <% end %>
       </table>
@@ -28,7 +28,7 @@
         <% if @event.count_reviews > 0 %>
           <td align="center"><%= @event.calculate_average_rating %></td>
         <% else %>
-          <td>No Ratings Received</td>
+          <td>No Ratings Recieved</td>
         <% end %>
         </tr>
       </table>
@@ -50,20 +50,20 @@
             <a class="feedback-link" href="#">View Feedback</a>
           </th>
         </thead>
-          <tbody class="feedback-table-content hide">
-            <% if @event.reviews.count > 0 %>
-              <% @event.reviews.each do |review| %>
-                <% if review.feedback_comments != '' %>
-                <tr>
-                  <td><%= review.feedback_comments %></td>
-                </tr>
-                <% end %>
-              <% end %>
-            <% else %>
+        <tbody class="feedback-table-content hide">
+          <% if @event.reviews.count > 0 %>
+            <% @event.reviews.each do |review| %>
+            <% if review.feedback_comments != '' %>
               <tr>
-                <td>Audience Members left no feedback</td>
+              <td><%= review.feedback_comments %></td>
               </tr>
-          <% end %>
+            <% end %>
+            <% end %>
+          <% else %>
+          <tr>
+          <td>Audience Members left no feedback</td>
+          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
@@ -85,9 +85,11 @@
           <% @event.questions.each do |question| %>
           <tr>
             <td><%= question.body %></td>
-            <td class="comment-button" align="center">
+            <td align="center">
             <br>
+            <div class="comment-button">
               <%= link_to "Comment", event_path(@event), class: "button tiny" %>
+            </div>
             </td>
           </tr>
           <% end %>
