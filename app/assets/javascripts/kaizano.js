@@ -16,6 +16,7 @@ $('.new_question_comment').on('submit', function(event) {
     dataType: "json",
     success: function(data) {
     $form.siblings().first().append("<h6>"+ "-" + data.body + "</h6><br>")
+    $form.each (function() { this.reset(); });
     }
   });
 });
