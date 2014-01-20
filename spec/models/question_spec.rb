@@ -6,8 +6,6 @@ describe Question do
 
   it { should belong_to(:event) }
 
-  it { should have_many(:question_votes) }
-
   it { should have_many(:question_comments) }
 
 end
