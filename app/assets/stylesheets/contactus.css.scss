@@ -1,3 +1,15 @@
 // Place all the styles related to the contactus controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.contact-form-header {
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
+.submit-message-button {
+  .button {
+    background-color: #D11975;
+    width: 470px;
+  }
+}

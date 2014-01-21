@@ -52,10 +52,12 @@ group :test, :development do
   gem "capybara"
   gem "binding_of_caller"
   gem "rspec-rails"
+  gem "email_spec"
   gem "valid_attribute"
   gem "pry-rails"
   gem "dotenv"
   gem "launchy"
+  gem "mailcatcher"
 end
 
 
