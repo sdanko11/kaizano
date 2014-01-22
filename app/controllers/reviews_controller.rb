@@ -15,8 +15,9 @@ class ReviewsController < ApplicationController
     @event = Event.find(params[:event_id])
     @review = @event.reviews.build(review_params)
     if @review.save
-       flash[:review_saved] = "Review Added, Thanks."
-       redirect_to event_path(@event)
+      @event.event_sessions.create(signed_in: "true")
+      flash[:review_saved] = "Review Added, Thanks."
+      redirect_to event_path(@event)
     else
       render :new
     end

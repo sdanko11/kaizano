@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20140122010939) do
   create_table "event_sessions", force: true do |t|
     t.integer "event_id"
     t.string  "signed_in"
-    t.string  "event_key", null: false
   end
 
   create_table "events", force: true do |t|

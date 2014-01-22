@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
- def new
+  def new
     @event = Event.find(params[:event_id])
     @review = @event.questions.build
   end
@@ -9,9 +9,11 @@ class QuestionsController < ApplicationController
     @event = Event.find(params[:event_id])
     @question = @event.questions.build(question_params)
     if @question.save
+      @event.event_sessions.create(signed_in: "true")
       flash[:question_added] = "Question Added"
       redirect_to event_path(@event)
     else
+      @event.event_sessions.create(signed_in: "true")
       flash[:question_can_not_be_blank] = "Add a valid question to submit"
       redirect_to event_path(@event)
     end
