@@ -6,11 +6,11 @@
     </div>
   </div>
 </div>
-    <%= form_for :search, action: events_path, method: "get" do |f| %><br>
+    <% form_for @event_session do |f| %><br>
 <div class="field-for-password">
   <div class="row">
     <div class="small-5 large-centered columns">
-      <%= f.text_field :event_password %>
+      <%= f.text_field :event_key %>
     </div>
   </div>
 </div>

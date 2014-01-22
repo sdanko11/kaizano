@@ -9,6 +9,7 @@ class Event < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   validates_length_of :event_password, :maximum => 8
   has_many :questions
+  has_many :event_sessions
 
   def self.search(search)
     if search != nil

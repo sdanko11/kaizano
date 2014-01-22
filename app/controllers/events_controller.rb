@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_filter :does_user_own_event, :only => [:edit]
 
   def index
+    @event_session = EventSession.new
     @events = Event.all
     if params[:search]
       @event = Event.find_by(event_password: params[:search][:event_password])
@@ -21,11 +22,11 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-      if @event.save
-        redirect_to user_path(current_user)
-      else
-        flash.now[:notice] = "Please fill out all required fields."
-        render :new
+    if @event.save
+      redirect_to user_path(current_user)
+    else
+      flash.now[:notice] = "Please fill out all required fields."
+      render :new
     end
   end
 
