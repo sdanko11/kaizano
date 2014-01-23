@@ -11,8 +11,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :fog
 
    def default_url
-     "/assets/fallback/default_profile.png"
-      # "/assets/fallback/" + [:thumb, "default.png"].compact.join('_')
+      ActionController::Base.helpers.asset_path("fallback/default_profile.png")
    end
 
   # Override the directory where uploaded files will be stored.
