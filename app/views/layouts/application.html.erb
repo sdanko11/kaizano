@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Kaizano" %></title>
+    <title>
+      <%= content_for?(:title) ? yield(:title) : "Kaizano" %>
+    </title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-  <body class="page-body" style="background-color:#F2F2F2">
-  <nav class="top-bar" style="background-color:#01DFA5">
-    <ul class="title-area">
-      <li class="name">
-        <div>
-          <% if user_signed_in? %>
-            <h1 class="title-font"><%= link_to "Kaizano", user_path(current_user) %></h1>
-          <% else %> 
+  <body class="page-body">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
             <h1 class="title-font"><%= link_to "Kaizano", root_path %></h1>
-          <% end %>
-        </div>
-      </li>
-    </ul>
-    <section class="top-bar-section">
-      <ul class="right">
-        <% if user_signed_in? %>
-          <li><%= link_to "Join a Presentation", events_path %></li>
-          <li><%= link_to "How it Works", how_it_works_path %></li>
-          <li><%= link_to "Me", user_path(current_user) %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-        <%else %>
-          <li><%= link_to "Join a Presentation", events_path %></li>
-          <li><%= link_to "Learn More", learn_mores_path %></li>
-          <li><%= link_to "Sign Up",new_user_registration_path %></li>
-          <li><%= link_to "Sign In",new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </section>
-  </nav>
-  <%= yield %>
-  <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
-  <%= javascript_include_tag "application" %>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <ul class="right">
+              <% if user_signed_in? %>
+                <li><%= link_to "Join a Presentation", events_path %></li>
+                <li><%= link_to "Me", user_path(current_user) %></li>
+                <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                <li class="has-dropdown">
+                  <a href="#">More</a>
+                  <ul class="dropdown">
+                    <li><%= link_to "Contact Us",new_contact_form_path %></a></li>
+                    <li><%= link_to "How it Works", how_it_works_path %></li>
+                    <li><%= link_to "Learn More", learn_mores_path %></li>
+                  </ul>
+                </li>
+              <%else %>
+                <li><%= link_to "Join a Presentation", events_path %></li>
+                <li><%= link_to "Learn More", learn_mores_path %></li>
+                <li><%= link_to "Sign Up",new_user_registration_path %></li>
+                <li><%= link_to "Sign In",new_user_session_path %></li>
+                <li class="has-dropdown">
+                  <a href="#">More</a>
+                  <ul class="dropdown">
+                    <li><%= link_to "How it Works",how_it_works_path %></li>
+                    <li><%= link_to "Contact Us",new_contact_form_path %></a></li>
+                  </ul>
+                </li>
+              <% end %>
+            </ul>
+          </ul>
+        </section>
+      </nav>
+    <%= yield %>
+    <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>

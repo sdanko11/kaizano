@@ -1,13 +1,4 @@
-<% if !user_signed_in? %>
-  <div class="header">
-    <div class="row">
-      <div class="small-8 small-centered columns">
-        <h1>Welcome!<h1>
-      </div>
-    </div>
-  </div>
-<% end %>
-<div class="header2">
+<div class="header">
   <div class="row">
     <div class="small-8 small-centered columns">
       <% if user_signed_in? %>
@@ -63,7 +54,9 @@
 <div class="get-started">
   <div class="row">
     <div class="small-7 small-centered columns">
-      <%= link_to "Get Started", user_path(current_user), class: "button" %>
+      <% if user_signed_in? %>
+        <%= link_to "Get Started", user_path(current_user), class: "button" %>
+      <% end %>
     </div>
   </div>
 </div>
