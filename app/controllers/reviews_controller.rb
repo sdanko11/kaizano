@@ -15,7 +15,6 @@ class ReviewsController < ApplicationController
     @event = Event.find(params[:event_id])
     @review = @event.reviews.build(review_params)
     if @review.save
-      @event.event_sessions.create(signed_in: "true")
       flash[:review_saved] = "Review Added, Thanks."
       redirect_to event_path(@event)
     else
@@ -31,7 +30,7 @@ class ReviewsController < ApplicationController
     if user_signed_in?
       all_event_ids = []
       current_user.events.each do |event|
-      all_event_ids << event.id.to_s
+        all_event_ids << event.id.to_s
       end
       redirect_to user_path(current_user) unless all_event_ids.include?(params[:event_id])
     else

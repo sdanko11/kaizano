@@ -127,6 +127,7 @@ require 'spec_helper'
     click_link "View Reviews"
     click_link "Comment"
 
+
     current_path.should == event_path(event5)
 
   end

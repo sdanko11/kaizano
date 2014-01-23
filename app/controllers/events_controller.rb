@@ -5,13 +5,14 @@ class EventsController < ApplicationController
   before_filter :did_they_enter_password?, only: [:show]
 
   def index
+    session[:events_authenticated] = [] if session[:events_authenticated].nil?
     if params[:search]
       @event = Event.find_by(event_password: params[:search][:event_password])
       if @event == nil
         flash[:could_not_find_event_notice] = "Password does not match any events."
         redirect_to events_path
       else
-        @event.event_sessions.create(signed_in: "true")
+        session[:events_authenticated] << @event.id.to_s
         redirect_to event_path(@event)
       end
     end
@@ -60,21 +61,14 @@ class EventsController < ApplicationController
   end
 
   def did_they_enter_password?
-    if EventSession.count > 0 || user_signed_in?
-      if user_signed_in? == false
-        redirect_to events_path unless (EventSession.last.signed_in == "true")
-        EventSession.last.delete
-      else
-        if EventSession.last != nil
-          redirect_to events_path unless (EventSession.last.signed_in == "true")
-          EventSession.last.delete
-        else
-          event = Event.find(params[:id])
-          redirect_to events_path unless current_user.id == event.user_id
-        end
-      end
-    else
-      redirect_to events_path
+    if !session[:events_authenticated].present?
+      session[:events_authenticated] = []
+    end
+    if current_user.nil?
+      redirect_to events_path unless session[:events_authenticated].include?(params[:id])
+    else 
+      event = Event.find(params[:id])
+      redirect_to events_path unless current_user.id == event.user_id || session[:events_authenticated].include?(params[:id])
     end
   end
 
