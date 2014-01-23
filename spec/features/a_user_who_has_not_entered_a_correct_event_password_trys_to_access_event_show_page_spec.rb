@@ -14,8 +14,6 @@ describe 'site visitor who has not entered correct event password can not view e
       visit root_path
       visit event_path(event)
       
-      expect(page).to have_button "Find Event"
-      expect(page).to have_content "Enter Event Password"
     end
 
     it "does not allow signed in users to visit the event show page if 

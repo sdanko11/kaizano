@@ -7,8 +7,11 @@ describe 'a site visitor wants to leave feedback for a presentation' do
   # They must be able to enter in a password to access a event
   # They must give a rating for a presentation
   # They must have the option to leave general feedback for a presentation
-  # They must be directed to the home page after feedback is left and be notified
+  # They must be directed to the event page and notified that there feedback was left
   #there feedback was given
+  # They should not be able to leave feedback if they already left feedback
+  # They should be notified that they can not leave feedback if it was already left if they
+  #try to leave feedback twice
 
     it "it has a link to give feedback" do
 
@@ -102,7 +105,57 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       fill_in "Feedback", :with => review
       click_button "Give Review"
 
+      expect(page).to have_content user.last_name
+      expect(page).to have_content user.last_name
+      expect(page).to have_content event.name
+      expect(page).to have_content "Review Added, Thanks."
+      expect(event.reviews.count).to eql(1)
+      expect(event.reviews.first.feedback_comments).to eql(review)
+      expect(event.reviews.first.rating).to eql(rating)
+    end
 
+    it "does not allow for attendees to leave feedback more than once" do
+
+      user = FactoryGirl.create(:user)
+      event = FactoryGirl.create(:event, user: user)
+      review = "this was just awesome"
+      rating = 3
+
+      visit events_path
+      fill_in "search_event_password", :with => event.event_password
+      click_button "Find Event"
+      click_link "Give Feedback"
+      page.select(rating, :from => "review_rating")
+      fill_in "Feedback", :with => review
+      click_button "Give Review"
+      click_link "Give Feedback"
+
+      expect(page).to have_content "Opps...Looks like you already left Feedback."
+      expect(page).to have_link "Back to Event Page"
+    end
+
+
+    it "directs event attendees to the event page if they click the back to event button after 
+    trying to leave feedback more than once" do
+
+      user = FactoryGirl.create(:user)
+      event = FactoryGirl.create(:event, user: user)
+      review = "this was just awesome"
+      rating = 3
+
+      visit events_path
+      fill_in "search_event_password", :with => event.event_password
+      click_button "Find Event"
+      click_link "Give Feedback"
+      page.select(rating, :from => "review_rating")
+      fill_in "Feedback", :with => review
+      click_button "Give Review"
+      click_link "Give Feedback"
+      click_link "Back to Event Page"
+
+      expect(page).to have_content user.last_name
+      expect(page).to have_content user.last_name
+      expect(page).to have_content event.name
       expect(event.reviews.count).to eql(1)
       expect(event.reviews.first.feedback_comments).to eql(review)
       expect(event.reviews.first.rating).to eql(rating)

@@ -2,12 +2,10 @@
 <html>
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Kaizano" %></title>
-
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-
   <body class="page-body" style="background-color:#F2F2F2">
   <nav class="top-bar" style="background-color:#01DFA5">
     <ul class="title-area">
@@ -21,28 +19,24 @@
         </div>
       </li>
     </ul>
-    
-      <section class="top-bar-section">
-        <ul class="right">
-          <% if user_signed_in? %>
-            <li><%= link_to "Join a Presentation", events_path %></li>
-            <li><%= link_to "How it Works", how_it_works_path %></li>
-            <li><%= link_to "Me", user_path(current_user) %></li>
-            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-          <%else %>
-            <li><%= link_to "Join a Presentation", events_path %></li>
-            <li><%= link_to "Learn More", learn_mores_path %></li>
-            <li><%= link_to "Sign Up",new_user_registration_path %></li>
-            <li><%= link_to "Sign In",new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </section>
-
+    <section class="top-bar-section">
+      <ul class="right">
+        <% if user_signed_in? %>
+          <li><%= link_to "Join a Presentation", events_path %></li>
+          <li><%= link_to "How it Works", how_it_works_path %></li>
+          <li><%= link_to "Me", user_path(current_user) %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        <%else %>
+          <li><%= link_to "Join a Presentation", events_path %></li>
+          <li><%= link_to "Learn More", learn_mores_path %></li>
+          <li><%= link_to "Sign Up",new_user_registration_path %></li>
+          <li><%= link_to "Sign In",new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </section>
   </nav>
-
-
-      <%= yield %>
-    <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
-    <%= javascript_include_tag "application" %>
+  <%= yield %>
+  <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag "application" %>
   </body>
 </html>

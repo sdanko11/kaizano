@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     session[:events_authenticated] = [] if session[:events_authenticated].nil?
     if params[:search]
       @event = Event.find_by(event_password: params[:search][:event_password])
-      if @event == nil
+      if @event.nil?
         flash[:could_not_find_event_notice] = "Password does not match any events."
         redirect_to events_path
       else
@@ -65,12 +65,14 @@ class EventsController < ApplicationController
       session[:events_authenticated] = []
     end
     if current_user.nil?
-      redirect_to events_path unless session[:events_authenticated].include?(params[:id])
+      render status: 404 unless session[:events_authenticated].include?(params[:id])
     else 
       event = Event.find(params[:id])
-      redirect_to events_path unless current_user.id == event.user_id || session[:events_authenticated].include?(params[:id])
+      render status: 404 unless current_user.id == event.user_id || 
+      session[:events_authenticated].include?(params[:id])
     end
   end
+
 
   protected
 

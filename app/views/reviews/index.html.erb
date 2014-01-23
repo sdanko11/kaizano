@@ -55,21 +55,21 @@
             <a class="feedback-link" href="#">View Feedback</a>
           </th>
         </thead>
-        <tbody class="feedback-table-content hide">
-          <% if @event.reviews.count > 0 %>
-            <% @event.reviews.each do |review| %>
-            <% if review.feedback_comments != '' %>
-              <tr>
-              <td><%= review.feedback_comments %></td>
-              </tr>
+          <tbody class="feedback-table-content hide">
+            <% if @event.reviews.count > 0 %>
+              <% @event.reviews.each do |review| %>
+                <% if review.feedback_comments != '' %>
+                  <tr>
+                    <td><%= review.feedback_comments %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            <% else %>
+            <tr>
+            <td>Audience Members left no feedback</td>
+            </tr>
             <% end %>
-            <% end %>
-          <% else %>
-          <tr>
-          <td>Audience Members left no feedback</td>
-          </tr>
-        <% end %>
-        </tbody>
+          </tbody>
       </table>
     </div>
   </div>

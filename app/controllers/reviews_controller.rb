@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   before_filter :does_user_own_event, :only => [:index]
+  before_filter :have_they_entered_password?, only: [:new]
+
 
   def index
     @event = Event.find(params[:event_id])
@@ -15,6 +17,8 @@ class ReviewsController < ApplicationController
     @event = Event.find(params[:event_id])
     @review = @event.reviews.build(review_params)
     if @review.save
+      event_id = params[:event_id]
+      session["#{event_id}"] = "added review"
       flash[:review_saved] = "Review Added, Thanks."
       redirect_to event_path(@event)
     else
@@ -35,6 +39,18 @@ class ReviewsController < ApplicationController
       redirect_to user_path(current_user) unless all_event_ids.include?(params[:event_id])
     else
       redirect_to root_path
+    end
+  end
+
+  def have_they_entered_password?
+    if session[:events_authenticated].present?
+      render status: 404 unless session[:events_authenticated].include?(params[:event_id])
+      event_id = params[:event_id]
+      if session["#{event_id}"].present?
+        redirect_to left_feedbacks_path
+      end
+    else
+      render status: 404
     end
   end
 
