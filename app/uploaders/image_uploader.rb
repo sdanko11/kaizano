@@ -11,7 +11,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :fog
 
    def default_url
-     "/assets/fallback/default_profile.png/"
+     "/assets/fallback/default_profile.png"
       # "/assets/fallback/" + [:thumb, "default.png"].compact.join('_')
    end
 
