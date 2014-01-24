@@ -43,14 +43,27 @@ class ReviewsController < ApplicationController
   end
 
   def have_they_entered_password?
-    if session[:events_authenticated].present?
+    if session[:events_authenticated].present? && !user_signed_in?
       render status: 404 unless session[:events_authenticated].include?(params[:event_id])
       event_id = params[:event_id]
       if session["#{event_id}"].present?
         redirect_to left_feedbacks_path
       end
+    elsif user_signed_in?
+      signed_in_user_authentication
     else
       render status: 404
+    end
+  end
+
+  def signed_in_user_authentication
+    event_id = params[:event_id]
+    if session["#{event_id}"].present?
+      redirect_to left_feedbacks_path
+    else
+      event = Event.find(params[:event_id])
+      render status: 404 unless current_user.id == event.user_id ||
+      session[:events_authenticated].include?(params[:event_id])
     end
   end
 
