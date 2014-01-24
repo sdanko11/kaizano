@@ -14,7 +14,7 @@ Kaizano::Application.routes.draw do
     resources :question_comments
   end
 
-  resources :users, :thanks, :messages, :how_it_works, :learn_mores, :contact_forms, :left_feedbacks
+  resources :users, :thanks, :messages, :how_it_works, :learn_mores, :contact_forms, :left_feedbacks, :about_us
 
   #  get "blog_post/index"
 
