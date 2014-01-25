@@ -1,62 +1,120 @@
-<div class="header">
-  <div class="row">
-    <div class="small-6 small-centered columns">
-      <% if user_signed_in? %>
-        <h1>How it Works<h1>
-      <% else %>
-        <h1>Here's how it Works.<h1>
-      <% end %>
+<!-- <div class="container">
+  <div class="panel small-5 small-centered columns">
+    <div class="header">
+      <div class="row">
+        <div class="how-it-works-header">
+          <% if user_signed_in? %>
+            <h1>How it Works<h1>
+          <% else %>
+            <h1>Here's how it Works.<h1>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div id="step-1">
+      <div class="row">
+        <h4>1) Create a Speaking Event.</h4>
+      </div>
+    </div>
+    <div class="sub-text">
+      <div class="row">
+        <h6>-The next time your speaking in public, create an event on Kaizano.</h6>
+      </div>
+    </div>
+    <div id="step-2">
+      <div class="row">
+        <h4>2) Give your Event Password to your Audience.</h4>
+      </div>
+    </div>
+    <div class="sub-text">
+      <div class="row">
+        <h6>-Each event is created with a unique access password, give this password to your audience before your speaking event.</h6>
+      </div>
+    </div>
+    <div id="step-3">
+      <div class="row">
+        <h4>3) Receive Feedback and Questions from your Audience.</h4>
+      </div>
+    </div>
+    <div class="sub-text">
+      <div class="row">
+        <h6>-Your audience can give you feedback, rate the effectiveness of your presentation, and ask you questions though Kaizano.</h6>
+      </div>
+    </div>
+    <div class="get-started">
+      <div class="row">
+        <div class="small-7 small-centered columns">
+          <% if user_signed_in? %>
+            <%= link_to "Get Started", user_path(current_user), class: "button" %>
+          <% else %>
+             <%= link_to "Get Started", new_user_registration_path, class: "button" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div id="step-1">
-  <div class="row">
-    <div class="small-6 small-centered columns">
-      <h4>1) Create a Speaking Event.</h4>
+</div> -->
+<div class="how-it-works-body">
+  <div class="header">
+    <div class="row">
+      <div class="small-6 small-centered columns">
+        <% if user_signed_in? %>
+          <h1>How it Works<h1>
+        <% else %>
+          <h1>Here's how it works.<h1>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="sub-text">
-  <div class="row">
-    <div class="small-7 small-push-3 columns">
-      <h6>-The next time your speaking in public, create an event on Kaizano.</h6>
+  <div id="step-1">
+    <div class="row">
+      <div class="small-6 small-centered columns">
+        <h4>1) Create a Speaking Event.</h4>
+      </div>
     </div>
   </div>
-</div>
-<div id="step-2">
-  <div class="row">
-    <div class="small-6 small-centered columns">
-      <h4>2) Give your Event Password to your Audience.</h4>
+  <div class="sub-text">
+    <div class="row">
+      <div class="small-7 small-push-3 columns">
+        <h6>-The next time your speaking in public, create an event on Kaizano.</h6>
+      </div>
     </div>
   </div>
-</div>
-<div class="sub-text">
-  <div class="row">
-    <div class="small-7 small-push-3 columns">
-      <h6>-Each event is created with a unique access password, give this password to your audience before your speaking event.</h6>
+  <div id="step-2">
+    <div class="row">
+      <div class="small-6 small-centered columns">
+        <h4>2) Give your Event Password to your Audience.</h4>
+      </div>
     </div>
   </div>
-</div>
-<div id="step-3">
-  <div class="row">
-    <div class="small-6 small-centered columns">
-      <h4>3) Recieve Feedback and Questions from your Audience.</h4>
+  <div class="sub-text">
+    <div class="row">
+      <div class="small-7 small-push-3 columns">
+        <h6>-Each event is created with a unique access password, give this password to your audience before your speaking event.</h6>
+      </div>
     </div>
   </div>
-</div>
-<div class="sub-text">
-  <div class="row">
-    <div class="small-7 small-push-3 columns">
-      <h6>-Your audience can give you feedback, rate the effectieness of your presentation, and ask you questions though Kaizano.</h6>
+  <div id="step-3">
+    <div class="row">
+      <div class="small-6 small-centered columns">
+        <h4>3) Recieve Feedback and Questions from your Audience.</h4>
+      </div>
     </div>
   </div>
-</div>
-<div class="get-started">
-  <div class="row">
-    <div class="small-7 small-centered columns">
-      <% if user_signed_in? %>
-        <%= link_to "Get Started", user_path(current_user), class: "button" %>
-      <% end %>
+  <div class="sub-text">
+    <div class="row">
+      <div class="small-7 small-push-3 columns">
+        <h6>-Your audience can give you feedback, rate the effectieness of your presentation, and ask you questions though Kaizano.</h6>
+      </div>
+    </div>
+  </div>
+  <div class="get-started">
+    <div class="row">
+      <div class="small-7 small-centered columns">
+        <% if !user_signed_in? %>
+          <%= link_to "Get Started", new_user_registration_path, class: "button" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

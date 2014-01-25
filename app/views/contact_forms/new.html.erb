@@ -5,19 +5,21 @@
   </div>
 <% end %>
 <div class="row">
-  <div class="small-6 small-centered columns">
-    <div class="contact-form-header">
-      <h2>Contact Us</h2>
-      <h5>Let us Know how were doing.</h5>
-    </div>
-    <%= simple_form_for (@contact_form) do |f| %>
-      <%= f.input :name, label: "Name" %>
-      <%= f.input :email_address, label: "Email Address" %>
-      <%= f.input :subject, label: "Subject" %>
-      <%= f.input :message, label: "Message", as: :text %>
-      <div class="submit-message-button">
-        <%= f.submit "Send Message", class: "button" %>
+  <div class="container">
+    <div class="panel small-6 small-centered columns">
+      <div class="contact-form-header">
+        <h2>Contact Us</h2>
+        <h5>Let us Know how were doing.</h5>
       </div>
-    <% end %>
+      <%= simple_form_for (@contact_form) do |f| %>
+        <%= f.input :name, label: "Name" %>
+        <%= f.input :email_address, label: "Email Address" %>
+        <%= f.input :subject, label: "Subject" %>
+        <%= f.input :message, label: "Message", as: :text %>
+        <div class="submit-message-button">
+          <%= f.submit "Send Message", class: "button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

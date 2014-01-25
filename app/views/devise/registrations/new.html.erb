@@ -1,52 +1,43 @@
-<div class="small-11 small-centered columns">
-  <div class="row">
-    <div class="large-6 large-centered columns">
-      <h2 class="sign-up-title">Sign Up</h2>
+<div class="container">
+  <div class="panel small-5 small-centered columns">
+    <div class="row">
+      <h2>Sign Up</h2>
       <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
       :html => {:multipart => true}) do |f| %>
         <%= f.input :email, label: "E-mail", :autofocus => true %>
     </div>
-  </div>
-  <div class="row">
-    <div class="small-3 small-push-3 columns">
-      <div class="password">
-        <%= f.label :password, label: "Password" %>
-        <%= f.password_field :password %>
+    <div class="row">
+      <div class="row">
+        <div class="small-6 columns">
+          <%= f.label :password, label: "Password" %>
+          <%= f.password_field :password %>
+        </div>
+        <div class="small-6 columns">
+          <%= f.label :password_confirmation, label: "Confirm Password" %>
+          <%= f.password_field :password %>
+        </div>
       </div>
     </div>
-    <div class="small-3 small-pull-3 columns">
-      <div class="password">
-        <%= f.label :password_confirmation, label: "Confirm Password" %>
-        <%= f.password_field :password %>
+    <div class="row">
+      <div class="row">
+        <div class="small-6 columns">
+          <%= f.input :last_name, label: "First Name" %>
+        </div>
+        <div class="small-6 columns">
+         <%= f.input :first_name, label: "Last Name" %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="small-3 small-push-3 columns">
-      <%= f.input :last_name, label: "First Name" %>
-    </div>
-    <div class="small-3 small-pull-3 columns">
-      <%= f.input :first_name, label: "Last Name" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-6 large-centered columns">
-      <div class="sign-up">
-        <%= f.label "Profile Photo" %><br>
-        <%= f.file_field :avatar, label: "Profile Photo" %>
-        <%= f.input :twitter_handle, label: "Twitter Url" %>
-        <%= f.input :about_me, label: "About You (500 character max)" %>
-        <%= f.input :linked_in_url, label: "Linked In Url" %>
+    <div class="row">
+        <div class="sign-up">
+          <%= f.label "Profile Photo" %><br>
+          <%= f.file_field :avatar, label: "Profile Photo" %>
+          <%= f.input :twitter_handle, label: "Twitter Url" %>
+          <%= f.input :linked_in_url, label: "Linked In Url" %>
+          <%= f.input :about_me, label: "About You (500 character max)" %>
         <%= f.submit "Sign up", class: "button" %>
       <% end %>
       </div>
-    </div>
-  </div>
-</div>
-<div class="small-11 small-centered columns">
-  <div class="row">
-    <div class="large-6 large-centered columns">
-      <%= link_to "Already Registered? Sign In", new_user_session_path %>
     </div>
   </div>
 </div>

@@ -2,26 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.field-for-password {
-  #search_event_password {
-    width:345px;
-  }
-}
-.password-title {
-  padding-top: 150px;
-}
 
+.find-event-container {
+  padding-top: 150px;
+  text-align: center;
+}
 .submit-button {
   .button {
-    background-color: #D11975;
-    width:345px;
+    width: 380px;
   }
 }
 
 #new_question {
   text-align: right;
   .button {
-    background-color: #D11975;
     width :200px;
   }
 }
@@ -45,7 +39,6 @@
   padding-top: 40px;
   .button {
     width: 470px;
-    background-color: #4d78d0;
   }
 }
 
@@ -55,8 +48,7 @@
 
 .create-event-button {
   .button {
-    background-color: #D11975;
-    width: 470px;
+    width: 491px;
   }
 }
 
@@ -75,23 +67,26 @@
 
 .cancel-button {
   .button {
-  background-color: #D11975;
   width: 217px;
 }
 }
 .save-button {
   .button {
-  background-color: #D11975;
   width: 217px;
 }
 }
+.save-changes-button-event{
+  .button {
+    width: 243px;
+  }
+}
+
 
 .event-header {
   font-weight: 500;
 }
 
 .alert-box {
-  background-color: #4d78d0;
   text-align: center;
   font-size: 18px;
 }

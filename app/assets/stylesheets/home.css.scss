@@ -3,10 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.title {
-  padding-top: 50px; 
-}
-
 .sub-header {
   text-align: center;
 }
@@ -15,13 +11,15 @@
   padding-left: 25px;
   .button{
   width: 200px;
-  background-color: #D11975;
 }
 }
 
 .home-button-group {
   .button {
-    width:250px;
-    background-color: #D11975;
+    width:270px;
   }
+}
+
+.container-home {
+  padding-top: 50px;
 }

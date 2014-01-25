@@ -1,33 +1,33 @@
-<div class="title">
-  <div class="row">
-    <div class="small-7 small-centered columns">
-      <h1 align="center">Welcome to Kaizano</h1>
+<div class="container-home">
+  <div class="panel small-6 small-centered columns"> 
+    <div class="row">
+      <div class="title-home">
+        <h1 align="center">Welcome to Kaizano</h1>
+      </div>
     </div>
-  </div>
-</div>
-<div class="sub-header">
-  <div class="row">
-    <div class="small-7 small-centered columns">
-      <h3>Hone your Presentation Skills</h3>
+    <div class="sub-header">
+      <div class="row">
+        <h3 align="center">Hone your Presentation Skills</h3>
+      </div>
+      <div class="row">
+        <h5>Kaizano Makes it Easy to Connect with your Audience and Improve your Presentation Skills.</h5>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="small-6 small-centered columns">
-      <h5>Kaizano Makes it Easy to Connect with your Audience and Improve your Presentation Skills.</h5>
+    <br>
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="home-button-group">
+          <% if user_signed_in? %>
+          <ul class="inline-list">
+            <li><%= link_to 'Create a Event', new_event_path, class: "button" %></li>
+            <li><%= link_to 'Join a Presentation', events_path, class: "button" %></li>
+          </ul>
+          <% else %>
+            <%= link_to 'Create a Event', new_user_registration_path, class: "button" %>
+            <%= link_to 'Join a Presentation', events_path, class: "button" %>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="small-7 small-centered columns">
-    <div class="home-button-group">
-      <% if user_signed_in? %>
-        <%= link_to 'Create a Event', new_event_path, class: "button" %>
-        <%= link_to 'Join a Presentation', events_path, class: "button" %>
-      <% else %>
-        <%= link_to 'Create a Event', new_user_registration_path, class: "button" %>
-        <%= link_to 'Join a Presentation', events_path, class: "button" %>
-      <% end %>
-    </ul>
   </div>
 </div>

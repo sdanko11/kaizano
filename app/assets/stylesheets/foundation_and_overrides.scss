@@ -37,7 +37,7 @@
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "Nunito", "Nunito", Helvetica, Arial, sans-seriftable;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -50,10 +50,11 @@
 // $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
-// $secondary-color: red;
-// $alert-color: #f04124;
-// $success-color: #43AC6A;
+$primary-color: #307cff;
+$secondary-color: #1437AD;
+$alert-color: #FE7276;
+// #f04124;
+$success-color: #FE7276;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -185,7 +186,7 @@ $block-grid-default-spacing: rem-calc(0);
 
 // We use these to set various text styles for breadcrumbs.
 // $crumb-font-size: rem-calc(11);
-// $crumb-font-color: $primary-color;
+// $crumb-font-color: $;
 // $crumb-font-color-current: #333;
 // $crumb-font-color-unavailable: #999;
 // $crumb-font-transform: uppercase;
@@ -237,7 +238,7 @@ $block-grid-default-spacing: rem-calc(0);
 // $include-html-button-classes: $include-html-classes;
 
 // We use these to controls height and width styles.
-$f-dropdown-max-width: 250px;
+// $f-dropdown-max-width: 250px;
 // $f-dropdown-height: auto;
 // $f-dropdown-max-height: none;
 // $f-dropdown-margin-top: 2px;
@@ -840,10 +841,10 @@ $f-dropdown-max-width: 250px;
 // These control the table cell border style
 // $table-border-style: solid;
 $table-border-size: 3px;
-// $table-border-color: #ddd;
+// $table-border-color: #FE7276;
 
 // These control the table head styles
-// $table-head-bg: ;
+// $table-head-bg: #FFB6A2;
 // $table-head-font-size: rem-calc(14);
 // $table-head-font-color: #222;
 // $table-head-font-weight: bold;
@@ -927,7 +928,8 @@ $table-border-size: 3px;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #01DFA5;
+$topbar-bg-color: #4D4D4D;
+// #01DFA5;
 
 // Height and margin
 $topbar-height: 60px;
@@ -942,7 +944,7 @@ $topbar-title-font-size: rem-calc(0);
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: #01DFA5;
 // $topbar-dropdown-link-color: #fff;
-$topbar-dropdown-link-bg: #01DFA5;
+// $topbar-dropdown-link-bg: #01DFA5;changed
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: red;
 // $topbar-dropdown-toggle-alpha: 0.4;
@@ -954,10 +956,10 @@ $topbar-dropdown-link-bg: #01DFA5;
 // $topbar-link-weight: normal;
 $topbar-link-font-size: rem-calc(0);
 // $topbar-link-hover-lightness: 100%; // Darken by 10%
-$topbar-link-bg-hover: #01936d;
+// $topbar-link-bg-hover: #01936d;changed
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: darken(#01936d, 25%);
-// $topbar-link-font-family: $body-font-family;
+$topbar-link-font-family: "Nunito";
 
 // $topbar-button-font-size: 0.75rem;
 

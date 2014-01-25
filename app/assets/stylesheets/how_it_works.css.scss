@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .header {
-  padding-top: 20px;
   font-weight: bold;
 }
 
@@ -23,9 +22,12 @@
   text-align: center;
   padding-top: 25px;
   .button {
-    background-color: #D11975;
     width: 200px;
   }
+}
+
+.how-it-works-body {
+  padding-top: 35px;
 }
 
 

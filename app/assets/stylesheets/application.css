@@ -19,15 +19,12 @@
   font-family: 'Nunito';
  }
 .link {
-  .text {
   font-family: 'Nunito';
-}
 }
 
 .page-body {
-  background-color: #F2F2F2;
   padding-bottom: 50px;
 }
-.top-bar {
-  background-color: #01DFA5;
+.container {
+  padding-top: 35px;
 }
