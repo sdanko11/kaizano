@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+// textarea {
+//   min-height: 10px;
+// }
 .find-event-container {
   padding-top: 150px;
   text-align: center;
@@ -12,12 +14,23 @@
     width: 380px;
   }
 }
+#event_description{
+  height: 200px;
+}
 
 #new_question {
   text-align: right;
   .button {
     width :200px;
   }
+}
+
+#question_body {
+  height: 200px;
+}
+
+#question_comment_body {
+  height: 150px;
 }
 
 .question-form {
@@ -40,10 +53,6 @@
   .button {
     width: 470px;
   }
-}
-
-.new-event-title {
-  padding-top: 25px;
 }
 
 .create-event-button {
@@ -80,7 +89,6 @@
     width: 243px;
   }
 }
-
 
 .event-header {
   font-weight: 500;

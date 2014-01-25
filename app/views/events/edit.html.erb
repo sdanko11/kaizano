@@ -3,6 +3,7 @@
     <h2>Edit Event Details</h2>
     <%= simple_form_for(@event) do |f| %>
       <%= f.input :name %>
+      <%= f.input :event_password, as: :text %>
       <%= f.input :location %>
       <%= f.input :event_url %>
       <%= f.input :description %>

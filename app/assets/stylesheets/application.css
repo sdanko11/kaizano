@@ -28,3 +28,7 @@
 .container {
   padding-top: 35px;
 }
+
+.page-body {
+  background-color: #fafafa;
+}

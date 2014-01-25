@@ -2,15 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-textarea {
-  min-height: 150px;
-}
+// textarea {
+//   min-height: 150px;
+// }
 .give-review-button {
   .button {
     width: 491px;
   }
 }
-
+#review_feedback_comments{
+  height: 200px;
+}
 .rate-presentation {
   padding-top: 20px;
   width: 250px;
