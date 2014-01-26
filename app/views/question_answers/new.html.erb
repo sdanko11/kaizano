@@ -14,9 +14,8 @@
     <% end %>
     <%= simple_form_for([@question, @question_answer]) do |f| %>
       <%= f.input :answer_body, label: "Answer" %>
-      <div class="save-changes-button-event">
+      <div class="save-answers-question-answers">
         <%= f.submit 'Answer Question',class: "button" %>
-        <%= link_to 'Cancel', :back, class: "button" %>
       </div>
     <% end %>
   </div>
