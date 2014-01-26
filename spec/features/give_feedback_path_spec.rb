@@ -20,15 +20,6 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       
     end
 
-    it "should lead to a page where they enter the password" do
-
-      visit root_path
-      click_link "Join a Presentation"
-      expect(page).to have_content "Enter Event Password"
-      expect(page).to have_field "search_event_password"
-      expect(page).to have_button "Find Event"
-    end
-
     it "should find an event if a valid password is given" do
 
       user = FactoryGirl.create(:user)

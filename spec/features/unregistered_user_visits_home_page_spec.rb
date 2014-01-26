@@ -23,8 +23,13 @@ describe 'a unregisted user vistits the home page' do
     it "should have a field for password and a find event button" do
 
       visit root_path
-      click_link 'Join a Presentation'
+      button = page.all(:link, "Join a Presentation")
+      button[0].click
 
+      expect(page).to have_content "Enter Event Password"
+      page.should have_button "Find Event"
+
+      button[1].click
       expect(page).to have_content "Enter Event Password"
       page.should have_button "Find Event"
 

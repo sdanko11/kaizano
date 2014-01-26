@@ -24,7 +24,9 @@
           </ul>
           <% else %>
             <%= link_to 'Create a Event', new_user_registration_path, class: "button" %>
-            <%= link_to 'Join a Presentation', events_path, class: "button" %>
+            <span id="join_presentation_button">
+              <%= link_to 'Join a Presentation', events_path, class: "button" %>
+            </span>
           <% end %>
         </ul>
       </div>

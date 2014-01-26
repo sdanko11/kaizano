@@ -32,3 +32,10 @@ $(".feedback-link").click(function(event){
 });
 
 });
+
+$('.answer-link').click(function(event) {
+  event.preventDefault();
+  $showAnswerLink = $(event.target);
+  $answer = $showAnswerLink.parent().find('.answer-feed');
+  $answer.toggle(300);
+ });

@@ -65,8 +65,9 @@
    </div>
   </div>
   <div class="row">
-    <div class="small-8 columns">
-      <a class="comment-link" href="#">Comments</a>
+    <div class="small-7 columns">
+    <a class="answer-link" href="#">Answer</a>
+    <a class="comment-link" href="#">Comments</a>
       <div class="row">
         <div class="small-12 columns">
           <div class="comment-object hide">
@@ -87,6 +88,23 @@
               <%= f.input :body, label: "Comment", as: :text %>
               <div class="comment-button">
                 <%= f.submit "Comment", class: "button tiny"%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+            <div class="answer-feed hide">
+            <% if question.question_answers.count > 0 %>
+              <% question.question_answers.each do |answer| %>
+                <div class="answer-body">
+                 <h5><%= answer.answer_body %></h5>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="no-answer-message">
+                <h5><%= "The Presentor has not Answered this Question yet." %></h5>
               </div>
             <% end %>
           </div>
