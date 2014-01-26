@@ -109,11 +109,11 @@ require 'spec_helper'
     click_button 'Sign in'
     click_link "View Reviews"
 
-    expect(page).to have_link "Comment"
+    expect(page).to have_link "Answer Question"
 
   end
 
-  it "should lead back to the event review page when a user clicks the views the comment for page" do
+  it "should lead to the answer question view when a user clicks answer question" do
 
     user = FactoryGirl.create(:user)
     event5 = FactoryGirl.create(:event, user: user)
@@ -125,10 +125,149 @@ require 'spec_helper'
     fill_in 'Password', :with => user.password
     click_button 'Sign in'
     click_link "View Reviews"
-    click_link "Comment"
+    click_link "Answer Question"
+
+    expect(page).to have_content("Answer Question")
+    expect(page).to have_button("Answer")
+    expect(page).to have_content question1.body
+    expect(page).to have_link("Cancel")
+
+  end
+
+  it "should show the question comments when a user goes to the answer question view if there
+  are comments for the question" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    question1 = FactoryGirl.create(:question, event: event5)
+    comment1 = FactoryGirl.create(:question_comment, question: question1)
+    comment2 = FactoryGirl.create(:question_comment, question: question1)
+    comment3 = FactoryGirl.create(:question_comment, question: question1)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+    click_link "Answer Question"
+
+    expect(page).to have_content comment1.body
+    expect(page).to have_content comment3.body
+    expect(page).to have_content comment2.body
+    expect(page).to have_content "Comment"
+
+  end
+
+  it "should have a comments header if there are not comments" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    question1 = FactoryGirl.create(:question, event: event5)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+    click_link "Answer Question"
+
+    expect(page).to_not have_content "Comment"
+
+  end
+
+  it "should save the answer if a valid answer is added" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    question1 = FactoryGirl.create(:question, event: event5)
+    comment1 = FactoryGirl.create(:question_comment, question: question1)
+    comment2 = FactoryGirl.create(:question_comment, question: question1)
+    comment3 = FactoryGirl.create(:question_comment, question: question1)
+    answer = FactoryGirl.build(:question_answer, question: question1)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+    click_link "Answer Question"
+    fill_in "Answer", with: answer.answer_body
+    click_button "Answer Question"
 
 
-    current_path.should == event_path(event5)
+    expect(QuestionAnswer.count).to eql(1)
+
+  end
+
+  it "should let the user know if there answer is saved succefully" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    question1 = FactoryGirl.create(:question, event: event5)
+    comment1 = FactoryGirl.create(:question_comment, question: question1)
+    comment2 = FactoryGirl.create(:question_comment, question: question1)
+    comment3 = FactoryGirl.create(:question_comment, question: question1)
+    answer = FactoryGirl.create(:question_answer, question: question1)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+    click_link "Answer Question"
+    fill_in "Answer", with: answer.answer_body
+    click_button "Answer Question"
+
+
+    expect(page).to have_content "Answer Saved Succesfully"
+
+  end
+
+  it "should alert the user that the question answer can not be blank if they attempt to 
+  submit a blank answer" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    question1 = FactoryGirl.create(:question, event: event5)
+    comment1 = FactoryGirl.create(:question_comment, question: question1)
+    comment2 = FactoryGirl.create(:question_comment, question: question1)
+    comment3 = FactoryGirl.create(:question_comment, question: question1)
+    answer = FactoryGirl.create(:question_answer, question: question1)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+    click_link "Answer Question"
+    fill_in "Answer", with: ''
+    click_button "Answer Question"
+
+    expect(page).to have_content "can't be blank"
+
+  end
+
+  it "should display the answer on the event page if after a presenter answers a question" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    question1 = FactoryGirl.create(:question, event: event5)
+    comment1 = FactoryGirl.create(:question_comment, question: question1)
+    comment2 = FactoryGirl.create(:question_comment, question: question1)
+    comment3 = FactoryGirl.create(:question_comment, question: question1)
+    answer = FactoryGirl.create(:question_answer, question: question1)
+
+    visit events_path
+    fill_in "search[event_password]", with: event5.event_password
+    click_button "Find Event"
+    click_link "Comments"
+
+    expect(page).to have_content answer.answer_body
 
   end
 

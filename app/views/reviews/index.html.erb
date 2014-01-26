@@ -1,3 +1,9 @@
+<% if flash[:answer_saved] %>
+  <div data-alert class="alert-box">
+      <%= flash[:answer_saved] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
 <div class="row">
   <div class="small-4 columns">
     <div class="back-button"><%= link_to "Back to Dashboard", user_path(current_user) %></div>
@@ -93,7 +99,7 @@
             <td align="center">
             <br>
             <div class="comment-button">
-              <%= link_to "Comment", event_path(@event), class: "button tiny" %>
+              <%= link_to "Answer Question", new_question_question_answer_path(question), class: "button tiny" %>
             </div>
             </td>
           </tr>

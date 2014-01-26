@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="panel small-6 small-centered columns">
+    <h2>Answer Question</h2>
+    <div class="answer-question-question-body">
+      <h3><%= @question.body %></h3>
+    </div>
+    <% if !@question.question_comments.first.nil? %>
+      <b><h5>Comments</h5></b>
+      <div class="answer-question-comments">
+        <% @question.question_comments.each do |comment| %>
+          <h6><%= "- #{comment.body}" %></h6>
+        <% end %>
+      </div>
+    <% end %>
+    <%= simple_form_for([@question, @question_answer]) do |f| %>
+      <%= f.input :answer_body, label: "Answer" %>
+    <%= f.submit 'Answer Question',class: "button" %>
+    <%= link_to 'Cancel', :back %>
+    <% end %>
+  </div>
+</div>

@@ -8,11 +8,11 @@
         </div>
       </div>
     </div>
-        <%= form_for :search, action: events_path, method: "get" do |f| %><br>
+        <%= simple_form_for :search, action: events_path, method: "get" do |f| %><br>
     <div class="field-for-password">
       <div class="row">
         <div class="centered">
-          <%= f.text_field :event_password %>
+           <%= f.input :event_password, label: false %>
         </div>
       </div>
     </div>

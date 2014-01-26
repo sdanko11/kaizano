@@ -12,6 +12,7 @@ Kaizano::Application.routes.draw do
   resources :questions do
     resources :question_votes 
     resources :question_comments
+    resources :question_answers
   end
 
   resources :users, :thanks, :messages, :how_it_works, :learn_mores, :contact_forms, :left_feedbacks, :about_us
