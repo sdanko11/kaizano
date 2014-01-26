@@ -127,7 +127,7 @@ require 'spec_helper'
     click_link "View Reviews"
     click_link "Answer Question"
 
-    expect(page).to have_content("Answer Question")
+    expect(page).to have_button("Answer Question")
     expect(page).to have_button("Answer")
     expect(page).to have_content question1.body
     expect(page).to have_link("Cancel")
@@ -210,7 +210,7 @@ require 'spec_helper'
     comment1 = FactoryGirl.create(:question_comment, question: question1)
     comment2 = FactoryGirl.create(:question_comment, question: question1)
     comment3 = FactoryGirl.create(:question_comment, question: question1)
-    answer = FactoryGirl.create(:question_answer, question: question1)
+    answer = FactoryGirl.build(:question_answer, question: question1)
 
     visit root_path
     click_link 'Sign In'
@@ -236,7 +236,7 @@ require 'spec_helper'
     comment1 = FactoryGirl.create(:question_comment, question: question1)
     comment2 = FactoryGirl.create(:question_comment, question: question1)
     comment3 = FactoryGirl.create(:question_comment, question: question1)
-    answer = FactoryGirl.create(:question_answer, question: question1)
+    answer = FactoryGirl.build(:question_answer, question: question1)
 
     visit root_path
     click_link 'Sign In'
@@ -251,6 +251,120 @@ require 'spec_helper'
     expect(page).to have_content "can't be blank"
 
   end
+
+  it "the answer button should change to a edit answer button after a question is answered by a user" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    question1 = FactoryGirl.create(:question, event: event5)
+    comment1 = FactoryGirl.create(:question_comment, question: question1)
+    comment2 = FactoryGirl.create(:question_comment, question: question1)
+    comment3 = FactoryGirl.create(:question_comment, question: question1)
+    answer = FactoryGirl.build(:question_answer, question: question1)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+    click_link "Answer Question"
+    fill_in "Answer", with: answer
+    click_button "Answer Question"
+
+    expect(page).to have_link "Edit Answer"
+
+  end
+
+    it "the edit answer button should lead to the edit answer view, and allow users to edit answers" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    question1 = FactoryGirl.create(:question, event: event5)
+    comment1 = FactoryGirl.create(:question_comment, question: question1)
+    comment2 = FactoryGirl.create(:question_comment, question: question1)
+    comment3 = FactoryGirl.create(:question_comment, question: question1)
+    answer = FactoryGirl.create(:question_answer, question: question1)
+    edited_answer = "this is a new answer"
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+    click_link "Edit Answer"
+
+    fill_in "Answer", with: edited_answer
+    click_button "Save Changes"
+    expect(page).to have_content "Answer Saved Succesfully"
+
+    visit event_path(event5)
+    expect(page).to have_content edited_answer
+
+
+  end
+
+  it "should not save the answer if a valid answer is not given" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    question1 = FactoryGirl.create(:question, event: event5)
+    comment1 = FactoryGirl.create(:question_comment, question: question1)
+    comment2 = FactoryGirl.create(:question_comment, question: question1)
+    comment3 = FactoryGirl.create(:question_comment, question: question1)
+    answer = FactoryGirl.create(:question_answer, question: question1)
+    edited_answer = "this is a new answer"
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+    click_link "Edit Answer"
+
+    fill_in "Answer", with: ''
+    click_button "Save Changes"
+    expect(page).to have_content "can't be blank"
+
+    visit event_path(event5)
+    expect(page).to have_content answer.answer_body
+
+
+  end
+
+  it "the cancel button on edit answer should lead back to the review page and not save edits" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    question1 = FactoryGirl.create(:question, event: event5)
+    comment1 = FactoryGirl.create(:question_comment, question: question1)
+    comment2 = FactoryGirl.create(:question_comment, question: question1)
+    comment3 = FactoryGirl.create(:question_comment, question: question1)
+    answer = FactoryGirl.create(:question_answer, question: question1)
+    edited_answer = "this is a new answer"
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+    click_link "Edit Answer"
+    click_link "Cancel"
+
+    expect(page).to have_content event5.name
+    expect(page).to have_content event5.description
+    expect(page).to have_link "View Questions"
+    expect(page).to have_link "Edit Answer"
+
+    visit event_path(event5)
+    expect(page).to have_content answer.answer_body
+
+
+  end
+
 
   it "should display the answer on the event page if after a presenter answers a question" do
 

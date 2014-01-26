@@ -1,14 +1,14 @@
 <div class="container">
   <div class="panel small-6 small-centered columns">
-    <h2>Answer Question</h2>
+    <h2>Edit Answer</h2>
     <div class="answer-question-question-body">
       <h3><%= @question.body %></h3>
     </div>
     <% if !@question.question_comments.first.nil? %>
-      <b><h5>Comments</h5></b>
+      <h5><b>Comments</b></h5>
       <div class="answer-question-comments">
         <% @question.question_comments.each do |comment| %>
-          <h6><%= "- #{comment.body}" %></h6>
+          <h6><i><%= "- #{comment.body}" %></i></h6>
         <% end %>
       </div>
     <% end %>

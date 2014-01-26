@@ -7,6 +7,6 @@ describe Question do
   it { should belong_to(:event) }
 
   it { should have_many(:question_comments).dependent(:destroy) } 
-  it { should have_many(:question_comments).dependent(:destroy) } 
+  it { should have_many(:question_answers).dependent(:destroy) } 
 
 end

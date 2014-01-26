@@ -5,7 +5,6 @@ class Question < ActiveRecord::Base
   has_many :question_answers, dependent: :destroy
 
   def format_comments
-    binding.pry
     question_comments.each do |comment|
       puts "#{comment.body}"
     end

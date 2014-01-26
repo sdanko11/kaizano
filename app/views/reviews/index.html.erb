@@ -99,7 +99,11 @@
             <td align="center">
             <br>
             <div class="comment-button">
-              <%= link_to "Answer Question", new_question_question_answer_path(question), class: "button tiny" %>
+              <% if question.question_answers.first.nil? %>
+                <%= link_to "Answer Question", new_question_question_answer_path(question), class: "button tiny" %>
+              <% else %>
+                <%= link_to "Edit Answer", edit_question_question_answer_path(question, question.question_answers.first), class: "button tiny" %>
+              <% end %>
             </div>
             </td>
           </tr>
