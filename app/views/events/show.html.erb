@@ -71,13 +71,11 @@
       <div class="row">
         <div class="small-12 columns">
             <div class="answer-feed hide">
-            <% if question.question_answers.count > 0 %>
-              <% question.question_answers.each do |answer| %>
-                <div class="answer-body">
-                 <h5><%= answer.answer_body %></h5>
-                 <h6><i><%="#{answer.updated_at.to_date.strftime("%m/%d/%Y")}" %></i></h6>
-                </div>
-              <% end %>
+            <% if !question.question_answer.nil? %>
+              <div class="answer-body">
+                <h5><%= question.question_answer.answer_body %></h5>
+                <h6><i><%="#{question.question_answer.updated_at.to_date.strftime("%m/%d/%Y")}" %></i></h6>
+              </div>
             <% else %>
               <div class="no-answer-message">
                 <h5><%= "The Presentor has not Answered this Question yet." %></h5>

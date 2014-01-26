@@ -49,17 +49,12 @@ and leave feedback for the presentation to further there undestading of presenta
      
       event = FactoryGirl.create(:event)
       question1 = FactoryGirl.create(:question, event: event)
-      question2 = FactoryGirl.create(:question, event: event)
-      question3 = FactoryGirl.create(:question, event: event)
-
 
       visit root_path
       visit events_path
       fill_in "search_event_password", :with => event.event_password
       click_button "Find Event"
       expect(page).to have_content question1.body
-      expect(page).to have_content question2.body
-      expect(page).to have_content question3.body
 
     end
 

@@ -3,13 +3,13 @@ class QuestionAnswersController < ApplicationController
 
   def new
     @question = Question.find(params[:question_id])
-    @question_answer = @question.question_answers.build
+    @question_answer = @question.build_question_answer
   end
 
   def create
     @question = Question.find(params[:question_id])
     @event = Event.find(@question.event_id)
-    @question_answer = @question.question_answers.build(question_answer_params)
+    @question_answer = @question.build_question_answer(question_answer_params)
     if @question_answer.save
       flash[:answer_saved] = "Answer Saved Succesfully"
       redirect_to event_reviews_path(@event)
