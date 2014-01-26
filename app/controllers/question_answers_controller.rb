@@ -1,4 +1,5 @@
 class QuestionAnswersController < ApplicationController
+  before_filter :does_user_own_event, :only => [:new, :create, :edit, :update]
 
   def new
     @question = Question.find(params[:question_id])
@@ -35,6 +36,20 @@ class QuestionAnswersController < ApplicationController
       render :edit
     end
 
+  end
+
+  def does_user_own_event
+    if user_signed_in?
+      all_questions = []
+      current_user.events.each do |event|
+        event.questions.each do |question|
+          all_questions << question.id.to_s
+        end
+      end
+      redirect_to user_path(current_user) unless all_questions.include?(params[:question_id])
+    else
+      redirect_to root_path
+    end
   end
 
   private

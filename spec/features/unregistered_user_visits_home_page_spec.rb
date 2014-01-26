@@ -54,12 +54,21 @@ describe 'a unregisted user vistits the home page' do
       fill_in "First Name", :with => "Steve"
       fill_in "Last Name", :with => "Danko"
       fill_in "E-mail", :with => "steve@aol.com"
-      fill_in "Password", :with => "password"
-      fill_in "Password confirmation", :with => "password"
+      password_field = page.all(:field, "Password")
+      fill_in "user_password", :with => "password"
+      fill_in "user_password_confirmation", :with => "password"
+
       click_button "Sign up"
-    
-      expect(page).to have_content "Here's how it works"
-      expect(page).to have_button "Get Started"
+  
+      expect(page).to have_content "How it Works"
+      expect(page).to have_link "Get Started"
+
+      click_link "Get Started"
+
+      expect(page).to have_content "Steve"
+      expect(page).to have_content "Danko"
+      expect(page).to have_content "You have no Events!"
+      expect(page).to have_content "Total Presentations"
 
     end
 

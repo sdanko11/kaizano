@@ -3,11 +3,10 @@
     <h2>Sign in</h2>
     <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <%= f.input :email, label: "Email", :autofocus => true %>
-      <%= f.label :password, "Password" %>
-      <%= f.password_field :password %>
-      <div class="sign-in">
-        <%= f.submit "Sign in", class: "button" %>
-      </div>
+      <%= f.input :password, required: true, label: "Password" %>
+        <div class="sign-in">
+          <%= f.submit "Sign in", class: "button" %>
+        </div>
     <% end %>
     <%= link_to "Sign up", new_user_registration_path %><br>
   </div>
