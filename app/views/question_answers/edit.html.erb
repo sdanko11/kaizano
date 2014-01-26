@@ -1,13 +1,15 @@
 <div class="container">
-  <div class="panel small-6 small-centered columns">
+  <div class="panel small-5 small-centered columns">
     <h2>Edit Answer</h2>
       <div class="answer-question-question-body">
         <h5><i><%= "Question: #{@question.body}" %></i></h5>
       </div>
     <%= simple_form_for([@question, @question_answer]) do |f| %>
       <%= f.input :answer_body, label: "Answer" %>
-    <%= f.submit 'Save Changes',class: "button" %>
-    <%= link_to 'Cancel', :back %>
+      <div class="save-changes-button-event">
+        <%= f.submit 'Save Changes',class: "button" %>
+        <%= link_to 'Cancel', :back, class: "button" %>
+      </div>
     <% end %>
   </div>
 </div>
