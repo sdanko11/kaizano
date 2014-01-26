@@ -130,7 +130,6 @@ require 'spec_helper'
     expect(page).to have_button("Answer Question")
     expect(page).to have_button("Answer")
     expect(page).to have_content question1.body
-    expect(page).to have_link("Cancel")
 
   end
 
