@@ -60,14 +60,32 @@
 <div class="question-object">
   <% @event.questions.each do |question| %>
   <div class="row">
-    <div class="small-6 columns">
-    <h5><%=question.body%></h5>
+    <div class="small-11 columns">
+    <h3><%=question.body%></h3>
    </div>
   </div>
   <div class="row">
-    <div class="small-7 columns">
-    <a class="answer-link" href="#">Answer</a>
+    <div class="small-11 columns">
+    <a class="answer-link" href="#">Speaker Answer</a><br><br>
     <a class="comment-link" href="#">Comments</a>
+      <div class="row">
+        <div class="small-12 columns">
+            <div class="answer-feed hide">
+            <% if question.question_answers.count > 0 %>
+              <% question.question_answers.each do |answer| %>
+                <div class="answer-body">
+                 <h5><%= answer.answer_body %></h5>
+                 <h6><i><%="#{answer.updated_at.to_date.strftime("%m/%d/%Y")}" %></i></h6>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="no-answer-message">
+                <h5><%= "The Presentor has not Answered this Question yet." %></h5>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="small-12 columns">
           <div class="comment-object hide">
@@ -75,7 +93,7 @@
               <% if question.question_comments.count > 0 %>
                 <% question.question_comments.each do |comment| %>
                   <div class="comment-body">
-                   <h5><%="- #{comment.body}"%></h5>
+                   <h6><%="- #{comment.body}"%></h6>
                   </div>
                 <% end %>
               <% else %>
@@ -88,23 +106,6 @@
               <%= f.input :body, label: "Comment", as: :text %>
               <div class="comment-button">
                 <%= f.submit "Comment", class: "button tiny"%>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-12 columns">
-            <div class="answer-feed hide">
-            <% if question.question_answers.count > 0 %>
-              <% question.question_answers.each do |answer| %>
-                <div class="answer-body">
-                 <h5><%= answer.answer_body %></h5>
-                </div>
-              <% end %>
-            <% else %>
-              <div class="no-answer-message">
-                <h5><%= "The Presentor has not Answered this Question yet." %></h5>
               </div>
             <% end %>
           </div>
