@@ -48,7 +48,7 @@ require 'spec_helper'
       fill_in "search_event_password", :with => event.event_password
       click_button "Find Event"
       click_button "Comment"
-      expect(page).to have_content "Can't be blank"
+      expect(QuestionComment.count).to eql(0)
 
     end
 

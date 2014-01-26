@@ -50,6 +50,12 @@ $body-font-family: "Nunito", "Nunito", Helvetica, Arial, sans-seriftable;
 // $default-float: left;
 
 // We use these as default colors throughout
+// $primary-color: #307cff;
+// $secondary-color: #1437AD;
+// $alert-color: #FE7276;
+// // #f04124;
+// $success-color: #FE7276;
+
 $primary-color: #307cff;
 $secondary-color: #1437AD;
 $alert-color: #FE7276;
@@ -928,7 +934,9 @@ $table-border-size: 3px;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #4D4D4D;
+// $topbar-bg-color: #4D4D4D;
+// $topbar-bg-color: #1a1a1a;
+$topbar-bg-color: #1a1a1a;
 // #01DFA5;
 
 // Height and margin
@@ -943,20 +951,20 @@ $topbar-title-font-size: rem-calc(0);
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: #01DFA5;
-// $topbar-dropdown-link-color: #fff;
-// $topbar-dropdown-link-bg: #01DFA5;changed
+// $topbar-dropdown-link-color: red;
+$topbar-dropdown-link-bg: #1a1a1a;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: red;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: #fff;
+$topbar-link-color: #f4f4f4;
 // $topbar-link-color-hover: #fff;
 // $topbar-link-color-active: #fff;
 // $topbar-link-weight: normal;
 $topbar-link-font-size: rem-calc(0);
 // $topbar-link-hover-lightness: 100%; // Darken by 10%
-// $topbar-link-bg-hover: #01936d;changed
+$topbar-link-bg-hover: #333333;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: darken(#01936d, 25%);
 $topbar-link-font-family: "Nunito";

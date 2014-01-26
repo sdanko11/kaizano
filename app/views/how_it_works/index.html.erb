@@ -113,6 +113,8 @@
       <div class="small-7 small-centered columns">
         <% if !user_signed_in? %>
           <%= link_to "Get Started", new_user_registration_path, class: "button" %>
+        <% else %>
+          <%= link_to "Get Started", user_path(current_user), class: "button" %>
         <% end %>
       </div>
     </div>

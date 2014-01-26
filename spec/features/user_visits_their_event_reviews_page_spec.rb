@@ -176,7 +176,7 @@ require 'spec_helper'
     click_button 'Sign in'
     click_link "View Reviews"
 
-    expect(page).to have_content "No Ratings Received"
+    expect(page).to have_content "No Ratings Recieved"
 
   end
 

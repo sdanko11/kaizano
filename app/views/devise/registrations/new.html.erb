@@ -13,8 +13,10 @@
           <%= f.password_field :password %>
         </div>
         <div class="small-6 columns">
-          <%= f.label :password_confirmation, label: "Confirm Password" %>
-          <%= f.password_field :password %>
+          <%= f.label :password_confirmation %>
+          <div id="password-confirm">
+            <%= f.password_field :password_confirmation %>
+          </div>
         </div>
       </div>
     </div>
