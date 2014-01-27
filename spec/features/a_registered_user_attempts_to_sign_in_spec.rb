@@ -8,7 +8,7 @@ describe 'a register user wants to sign in' do
   # Must be able to add a event description
   # Must be able to add a event password
 
-    it "directs the user to the profile page following sing up" do
+    it "directs the user to the profile page following sing in" do
 
       user = FactoryGirl.create(:user)
       visit root_path

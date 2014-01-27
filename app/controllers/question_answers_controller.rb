@@ -24,18 +24,15 @@ class QuestionAnswersController < ApplicationController
   end
 
   def update
-
     @question = Question.find(params[:question_id])
     @question_answer = QuestionAnswer.find(params[:id])
     event = Event.find(@question.event_id)
-
     if @question_answer.update_attributes(question_answer_params)
       flash[:answer_saved] = "Answer Saved Succesfully"
       redirect_to event_reviews_path(event)
     else
       render :edit
     end
-
   end
 
   def does_user_own_event

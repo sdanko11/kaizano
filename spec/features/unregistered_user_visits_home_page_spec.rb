@@ -73,4 +73,33 @@ describe 'a unregisted user vistits the home page' do
 
     end
 
+    it "should not create a user if they do not fill in all the correct signup information" do
+
+      visit new_user_registration_path
+
+      click_button "Sign up"
+  
+      expect(page).to have_content "can't be blank"
+      expect(page).to have_button "Sign up"
+
+    end
+
+    it "does not let a user register unless they specify a 8 character password" do
+
+      visit new_user_registration_path
+      fill_in "First Name", :with => "Steve"
+      fill_in "Last Name", :with => "Danko"
+      fill_in "E-mail", :with => "steve@aol.com"
+      password_field = page.all(:field, "pad")
+      fill_in "user_password", :with => "pad"
+      fill_in "user_password_confirmation", :with => "password"
+      fill_in "user_about_me", :with => "My name is steve."
+
+      click_button "Sign up"
+  
+      expect(page).to have_content "is too short (minimum is 8 characters)"
+      expect(page).to have_button "Sign up"
+
+    end
+
 end
