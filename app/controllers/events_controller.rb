@@ -25,9 +25,9 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
+      flash[:event_saved] = "Event Saved Successfully"
       redirect_to user_path(current_user)
     else
-      flash.now[:notice] = "Please fill out all required fields."
       render :new
     end
   end
