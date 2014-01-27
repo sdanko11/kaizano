@@ -15,9 +15,9 @@ describe 'a site visitor wants to send us a message to let us know how we are do
 
       contact = FactoryGirl.create(:contact_form)
       visit new_contact_form_path
-      fill_in 'Email', :with => contact.email_address
-      fill_in 'Message', :with => contact.message
-      fill_in 'Subject', :with => contact.subject
+      fill_in 'Email', with: contact.email_address
+      fill_in 'Message', with: contact.message
+      fill_in 'Subject', with: contact.subject
       click_button 'Send Message'
 
       expect(page).to have_content "Message Sent, Thanks"
@@ -34,9 +34,9 @@ describe 'a site visitor wants to send us a message to let us know how we are do
 
       contact = FactoryGirl.create(:contact_form)
       visit new_contact_form_path
-      fill_in 'Email', :with => "email"
-      fill_in 'Subject', :with => contact.subject
-      fill_in 'Message', :with => contact.message
+      fill_in 'Email', with: "email"
+      fill_in 'Subject', with: contact.subject
+      fill_in 'Message', with: contact.message
       click_button 'Send Message'
 
 
@@ -50,9 +50,9 @@ describe 'a site visitor wants to send us a message to let us know how we are do
 
       contact = FactoryGirl.create(:contact_form)
       visit new_contact_form_path
-      fill_in 'Email', :with => "email"
-      fill_in 'Subject', :with => contact.subject
-      fill_in 'Message', :with => ''
+      fill_in 'Email', with: "email"
+      fill_in 'Subject', with: contact.subject
+      fill_in 'Message', with: ''
       click_button 'Send Message'
 
 
@@ -67,9 +67,9 @@ describe 'a site visitor wants to send us a message to let us know how we are do
 
     contact = FactoryGirl.create(:contact_form)
     visit new_contact_form_path
-    fill_in 'Email', :with => "email"
-    fill_in 'Subject', :with => ''
-    fill_in 'Message', :with => contact.message
+    fill_in 'Email', with: "email"
+    fill_in 'Subject', with: ''
+    fill_in 'Message', with: contact.message
     click_button 'Send Message'
 
 

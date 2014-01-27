@@ -26,7 +26,7 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       event = FactoryGirl.create(:event, user: user)
 
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       
       expect(page).to have_content user.first_name
@@ -43,7 +43,7 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       event = FactoryGirl.create(:event, user: user)
 
       visit events_path
-      fill_in "search_event_password", :with => "not a password"
+      fill_in "search_event_password", with: "not a password"
       click_button "Find Event"
       expect(page).to have_content "Password does not match any events"
       expect(page).to have_field "search_event_password"
@@ -56,7 +56,7 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       event = FactoryGirl.create(:event, user: user)
 
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       click_link "Give Feedback"
       page.select(2, :from => "review_rating")
@@ -71,7 +71,7 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       event = FactoryGirl.create(:event, user: user)
 
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       click_link "Give Feedback"
       click_button "Give Review"
@@ -89,11 +89,11 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       rating = 3
 
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       click_link "Give Feedback"
       page.select(rating, :from => "review_rating")
-      fill_in "Feedback", :with => review
+      fill_in "Feedback", with: review
       click_button "Give Review"
 
       expect(page).to have_content user.last_name
@@ -113,11 +113,11 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       rating = 3
 
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       click_link "Give Feedback"
       page.select(rating, :from => "review_rating")
-      fill_in "Feedback", :with => review
+      fill_in "Feedback", with: review
       click_button "Give Review"
       click_link "Give Feedback"
 
@@ -135,11 +135,11 @@ describe 'a site visitor wants to leave feedback for a presentation' do
       rating = 3
 
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       click_link "Give Feedback"
       page.select(rating, :from => "review_rating")
-      fill_in "Feedback", :with => review
+      fill_in "Feedback", with: review
       click_button "Give Review"
       click_link "Give Feedback"
       click_link "Back to Event Page"

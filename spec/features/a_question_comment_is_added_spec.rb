@@ -16,7 +16,7 @@ require 'spec_helper'
 
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       expect(page).to have_field "Comment"
       expect(page).to have_button "Comment"
@@ -31,9 +31,9 @@ require 'spec_helper'
 
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
-      fill_in "Comment", :with => comment.body
+      fill_in "Comment", with: comment.body
       click_button "Comment"
       expect(page).to have_content comment.body
     end
@@ -45,7 +45,7 @@ require 'spec_helper'
 
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       click_button "Comment"
       expect(QuestionComment.count).to eql(0)

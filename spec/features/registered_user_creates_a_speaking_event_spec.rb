@@ -20,8 +20,8 @@ describe 'a registered user wants to create a speaking event' do
 
       visit root_path
       click_link 'Sign In'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
       click_button 'Sign in'
       visit user_path(user)
 
@@ -35,8 +35,8 @@ describe 'a registered user wants to create a speaking event' do
 
       visit root_path
       click_link 'Sign In'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
       click_button 'Sign in'
       visit user_path(user)
       click_link "Add Speaking Event"
@@ -62,8 +62,8 @@ describe 'a registered user wants to create a speaking event' do
 
       visit root_path
       click_link 'Sign In'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
       click_button 'Sign in'
       visit user_path(user)
       click_link "Add Speaking Event"
@@ -86,8 +86,8 @@ describe 'a registered user wants to create a speaking event' do
 
       visit root_path
       click_link 'Sign In'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
       click_button 'Sign in'
       visit user_path(user)
       click_link "Add Speaking Event"
@@ -115,8 +115,8 @@ describe 'a registered user wants to create a speaking event' do
 
       visit root_path
       click_link 'Sign In'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
       click_button 'Sign in'
       visit user_path(user)
       click_link "Add Speaking Event"

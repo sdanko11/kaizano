@@ -38,8 +38,8 @@ describe 'registed user signs in to kaizano' do
 
       visit root_path
       click_link 'Sign In'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
       click_button 'Sign in'
 
       expect(page).to have_content event.name
@@ -59,8 +59,8 @@ describe 'registed user signs in to kaizano' do
 
       visit root_path
       click_link 'Sign In'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
       click_button 'Sign in'
     
       expect(page).to have_link "Sign out"
@@ -90,8 +90,8 @@ describe 'registed user signs in to kaizano' do
 
       visit root_path
       click_link 'Sign In'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
       click_button 'Sign in'
       click_link 'Edit Event'
       click_button 'Save Changes'

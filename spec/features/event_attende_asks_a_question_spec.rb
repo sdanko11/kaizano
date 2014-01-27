@@ -14,9 +14,9 @@ presentation topic' do
       question = FactoryGirl.create(:question, event: event)
 
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
-      fill_in "question_body", :with => question.body
+      fill_in "question_body", with: question.body
       click_button "Ask Question"
       expect(Question.count).to eql(2)
       expect(page).to have_content "Question Added"
@@ -31,9 +31,9 @@ presentation topic' do
 
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
-      fill_in "question_body", :with => ''
+      fill_in "question_body", with: ''
       click_button "Ask Question"
       expect(page).to have_content "Add a valid question to submit"
 

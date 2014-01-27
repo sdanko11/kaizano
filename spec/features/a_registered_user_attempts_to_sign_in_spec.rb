@@ -13,8 +13,8 @@ describe 'a register user wants to sign in' do
       user = FactoryGirl.create(:user)
       visit root_path
       click_link 'Sign In'
-      fill_in 'Email', :with => user.email
-      fill_in 'Password', :with => user.password
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
       click_button 'Sign in'
 
       expect(page).to have_link "Add Speaking Event"

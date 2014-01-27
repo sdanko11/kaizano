@@ -24,8 +24,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
 
@@ -44,8 +44,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
 
@@ -64,8 +64,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
 
@@ -85,8 +85,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
 
@@ -104,8 +104,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
 
@@ -121,8 +121,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
     click_link "Answer Question"
@@ -145,8 +145,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
     click_link "Answer Question"
@@ -166,8 +166,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
     click_link "Answer Question"
@@ -188,8 +188,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
     click_link "Answer Question"
@@ -213,8 +213,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
     click_link "Answer Question"
@@ -239,8 +239,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
     click_link "Answer Question"
@@ -263,8 +263,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
     click_link "Answer Question"
@@ -288,8 +288,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
     click_link "Edit Answer"
@@ -317,8 +317,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
     click_link "Edit Answer"
@@ -346,8 +346,8 @@ require 'spec_helper'
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
     click_link "Edit Answer"
@@ -391,8 +391,8 @@ require 'spec_helper'
     event5 = FactoryGirl.create(:event, user: user)
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
 
@@ -407,8 +407,8 @@ require 'spec_helper'
     event5 = FactoryGirl.create(:event, user: user)
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
 
@@ -423,8 +423,8 @@ require 'spec_helper'
     event5 = FactoryGirl.create(:event, user: user)
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Sign in'
     click_link "View Reviews"
 

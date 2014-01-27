@@ -21,7 +21,7 @@ and leave feedback for the presentation to further there undestading of presenta
 
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       
       expect(page).to have_content user.first_name
@@ -36,7 +36,7 @@ and leave feedback for the presentation to further there undestading of presenta
       event = FactoryGirl.create(:event, user: user)
 
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       
 
@@ -52,7 +52,7 @@ and leave feedback for the presentation to further there undestading of presenta
 
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       expect(page).to have_content question1.body
 
@@ -64,7 +64,7 @@ and leave feedback for the presentation to further there undestading of presenta
 
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
 
       expect(page).to have_field "question_body"
@@ -81,7 +81,7 @@ and leave feedback for the presentation to further there undestading of presenta
 
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       
       expect(page).to have_content question1.body
@@ -97,7 +97,7 @@ and leave feedback for the presentation to further there undestading of presenta
 
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       
       expect(page).to have_link "Comments"
@@ -110,7 +110,7 @@ and leave feedback for the presentation to further there undestading of presenta
     
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       
       expect(page).to_not have_link "Comments"
@@ -127,7 +127,7 @@ and leave feedback for the presentation to further there undestading of presenta
     
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       
       expect(page).to_not have_content comment1.body
@@ -147,7 +147,7 @@ and leave feedback for the presentation to further there undestading of presenta
     
       visit root_path
       visit events_path
-      fill_in "search_event_password", :with => event.event_password
+      fill_in "search_event_password", with: event.event_password
       click_button "Find Event"
       click_link "Comments"
       

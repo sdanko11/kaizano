@@ -51,13 +51,13 @@ describe 'a unregisted user vistits the home page' do
     it "should direct new users to the how it works page after regstering" do
 
       visit new_user_registration_path
-      fill_in "First Name", :with => "Steve"
-      fill_in "Last Name", :with => "Danko"
-      fill_in "E-mail", :with => "steve@aol.com"
+      fill_in "First Name", with: "Steve"
+      fill_in "Last Name", with: "Danko"
+      fill_in "E-mail", with: "steve@aol.com"
       password_field = page.all(:field, "Password")
-      fill_in "user_password", :with => "password"
-      fill_in "user_password_confirmation", :with => "password"
-      fill_in "user_about_me", :with => "My name is steve."
+      fill_in "user_password", with: "password"
+      fill_in "user_password_confirmation", with: "password"
+      fill_in "user_about_me", with: "My name is steve."
 
       click_button "Sign up"
   
@@ -87,13 +87,13 @@ describe 'a unregisted user vistits the home page' do
     it "does not let a user register unless they specify a 8 character password" do
 
       visit new_user_registration_path
-      fill_in "First Name", :with => "Steve"
-      fill_in "Last Name", :with => "Danko"
-      fill_in "E-mail", :with => "steve@aol.com"
+      fill_in "First Name", with: "Steve"
+      fill_in "Last Name", with: "Danko"
+      fill_in "E-mail", with: "steve@aol.com"
       password_field = page.all(:field, "pad")
-      fill_in "user_password", :with => "pad"
-      fill_in "user_password_confirmation", :with => "password"
-      fill_in "user_about_me", :with => "My name is steve."
+      fill_in "user_password", with: "pad"
+      fill_in "user_password_confirmation", with: "password"
+      fill_in "user_about_me", with: "My name is steve."
 
       click_button "Sign up"
   
