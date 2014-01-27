@@ -5,71 +5,74 @@
   </div>
 <% end %>
 <div class="row">
-  <div class="small-6 columns">
+  <div class="small-11 medium-6 large-6 columns">
     <div class="title">
-    <h1 class="event-header"><%= @event.name %></h1>
+      <h1 class="event-header"><%= @event.name %></h1>
       <h4>Speaker: <%= @event.format_speaker_name %></h4>
       <%if @event.user.about_me != ''%>
-      <ul class="inline-list">
-      <% if @event.user.twitter_handle != '' %>
-        <li>
-        <%= link_to simple_format('<i class="fa fa-twitter fa-2x"></i>'),
-            @event.user.twitter_handle, target: '_blank' %>
-        </li>
-      <% end %>
-      <%if @event.user.linked_in_url != '' %>
-        <li>
-          <%= link_to simple_format('<i class="fa fa-linkedin-square fa-2x"></i>'),
-            @event.user.linked_in_url, target: '_blank' %>
-        </li>
-      <%end%>
-      </ul>
+        <ul class="inline-list">
+          <% if @event.user.twitter_handle != '' %>
+          <li>
+            <%= link_to simple_format('<i class="fa fa-twitter fa-2x"></i>'),
+              @event.user.twitter_handle, target: '_blank' %>
+          </li>
+          <% end %>
+          <%if @event.user.linked_in_url != '' %>
+          <li>
+            <%= link_to simple_format('<i class="fa fa-linkedin-square fa-2x"></i>'),
+              @event.user.linked_in_url, target: '_blank' %>
+          </li>
+          <%end%>
+        </ul>
         <h5 class="event-header">About <%= @event.user.first_name %>:</h5> 
         <h6><%= @event.user.about_me %></h6>
       <%end%>
     </div>
     <div class="row">
-      <div class="small-10 columns">
+      <div class="small-11 medium-6 large-12 columns">
         <h5 class="event-header"> Presentation Description </h5>
         <h6><%=@event.description%></h6>
       </div>
     </div>
   </div>
-  <div class="small-6 columns">
-    <div class="feedback-button">
-      <%= link_to 'Give Feedback', new_event_review_path(@event), class: "button" %>
-    </div>
-  </div>
-  <div class="small-6 columns">
-    <div class="question-form">
-      <h4 class="question-header">Ask a Question</h4>
-        <%= simple_form_for ([@event, @question]) do |f| %>
-          <%= f.input :body, label: false, as: :text %>
-          <%=f.submit "Ask Question",class: "button" %><br>
-          <%=flash[:question_added]%>
-           <%=flash[:question_can_not_be_blank]%>
-        <% end %>
+  <div class-"row">
+    <div class="small-12 medium-6 large-6 columns">
+      <div class="feedback-button">
+        <%= link_to 'Give Feedback', new_event_review_path(@event), class: "button" %>
+      </div>
+      <div class="row">
+        <div class="small-12 small-centered medium-6 medium-centered large-5 large-centered columns">
+          <h4 class="question-header">Ask a Question</h4>
+        </div>
+      </div>
+      <%= simple_form_for ([@event, @question]) do |f| %>
+        <%= f.input :body, label: false, as: :text %>
+        <%=f.submit "Ask Question",class: "button" %><br>
+        <%=flash[:question_added]%>
+        <%=flash[:question_can_not_be_blank]%>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>                
 <div class="row">
-  <div class="4-small columns">
+  <div class="small-11 medium-10 large-6 columns">
     <h1 class="event-header">Audience Questions</h1>
   </div>
 </div>
 <div class="question-object">
   <% @event.questions.each do |question| %>
   <div class="row">
-    <div class="small-11 columns">
-    <h3><%=question.body%></h3>
+    <div class="small-12 medium-11 large-12 columns">
+    <h4><%=question.body%></h4>
    </div>
   </div>
   <div class="row">
-    <div class="small-11 columns">
+    <div class="small-12 medium-12 large-12 columns">
     <a class="answer-link" href="#">Speaker Answer</a><br><br>
     <a class="comment-link" href="#">Comments</a>
       <div class="row">
-        <div class="small-12 columns">
+        <div class="small-12 medium-10 large-12 columns">
             <div class="answer-feed hide">
             <% if !question.question_answer.nil? %>
               <div class="answer-body">
@@ -85,7 +88,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="small-12 columns">
+        <div class="small-12 medium-8 large-9 columns">
           <div class="comment-object hide">
             <div class="comment-feed">
               <% if question.question_comments.count > 0 %>
