@@ -1012,3 +1012,20 @@ $topbar-link-font-family: "Nunito";
     margin-right: 0; 
   }
 }
+@import 'foundation';
+.full-length-button {
+  .button {
+  @include button($full-width: true);
+}
+}
+
+@import 'foundation';
+.feedback-button {
+  .button {
+  @include button($full-width: true);
+}
+}
+
+
+
+

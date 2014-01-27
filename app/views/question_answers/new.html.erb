@@ -14,7 +14,7 @@
     <% end %>
     <%= simple_form_for([@question, @question_answer]) do |f| %>
       <%= f.input :answer_body, label: "Answer" %>
-      <div class="save-answers-question-answers">
+      <div class="full-length-button">
         <%= f.submit 'Answer Question',class: "button" %>
       </div>
     <% end %>

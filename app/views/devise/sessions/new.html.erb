@@ -4,7 +4,7 @@
     <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <%= f.input :email, label: "Email", :autofocus => true %>
       <%= f.input :password, required: true, label: "Password" %>
-        <div class="sign-in">
+        <div class="full-length-button">
           <%= f.submit "Sign in", class: "button" %>
         </div>
     <% end %>

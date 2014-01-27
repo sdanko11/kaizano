@@ -30,6 +30,7 @@ describe 'a register user wants to sign in' do
       expect(page).to have_content "Presentation Rating"
       expect(page).to have_content user.first_name
       expect(page).to have_content user.last_name
+      
     end
 
 
