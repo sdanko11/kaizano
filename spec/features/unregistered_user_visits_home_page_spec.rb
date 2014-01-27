@@ -14,7 +14,7 @@ describe 'a unregisted user vistits the home page' do
 
       expect(page).to have_content "Kaizano"
       expect(page).to have_link "Sign Up"
-      expect(page).to have_link "Create a Event"
+      expect(page).to have_link "Create an Event"
       expect(page).to have_link "Join a Presentation"
       expect(page).to have_link "Sign In"
     end
@@ -38,7 +38,7 @@ describe 'a unregisted user vistits the home page' do
     it "does not allow unregisted users to create an event" do 
 
       visit root_path
-      click_link 'Create a Event'
+      click_link 'Create an Event'
 
       expect(page).to have_content "E-mail"
       expect(page).to have_content "Password"
