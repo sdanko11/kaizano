@@ -26,4 +26,6 @@ describe User do
    kasdjfhasldfjhasdlfjkhasdflsadkjfhasldkjfhasldkjfhsadkljfhasdflkjhsadfljksadfsdfkljsadfkjhsadfljkh
    asdflaskdjfhsadlkfjhasdflkasdjfhasldkfjhsadlkjfhasdlfkjhsadfklsadfj') }
 
+  it { should_not have_valid(:about_me).when("", nil) }
+
 end

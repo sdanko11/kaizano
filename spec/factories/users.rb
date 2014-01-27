@@ -9,6 +9,7 @@ FactoryGirl.define do
    last_name "Danko"
    twitter_handle "www.twitter.com"
    sign_in_count 2
+   about_me "My name is steve danko"
   end
 end
 
@@ -20,5 +21,6 @@ FactoryGirl.define do
    password_confirmation "1222678"
    last_name "Danko"
    twitter_handle "www.twitter.com"
+   about_me "My names is bob."
   end
 end

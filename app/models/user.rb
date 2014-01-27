@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :encrypted_password
   validates_presence_of :sign_in_count
+  validates_presence_of :about_me
   has_many :events, dependent: :destroy
   mount_uploader :avatar, ImageUploader
   validates_length_of :about_me, :maximum => 500
