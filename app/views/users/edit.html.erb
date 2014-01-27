@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="panel small-5 small-centered columns">  
+  <div class="panel small-11 small-centered medium-7 large-5 columns">
     <h2 class="sign-up-title">Edit Profile</h2>
       <%= simple_form_for(@user) do |f| %>
         <%= f.input :first_name %><br/>
@@ -9,10 +9,21 @@
         <%= f.file_field :avatar%><br>
         <%= f.input :twitter_handle, label: 'Twitter Url'%><br/>
         <%= f.input :linked_in_url, label: 'LinkedIn Url'%><br/>
-        <div class="save-changes-button">
-          <%= f.submit 'Save Changes',class: "button" %>
-          <%= link_to "Cancel", user_path, class: "button" %>
-       <% end %>  
+        <div class="row">
+          <div class="row">
+            <div class="large-6 medium-6 columns">
+              <div class="full-length-button">
+                <%= f.submit 'Save Changes',class: "button" %>
+              </div>
+            </div>
+            <div class="large-6 medium-6 columns">
+              <div class="full-length-button">
+                <%= link_to "Cancel", user_path, class: "button" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div> 
     </div>
   </div>
 </div>

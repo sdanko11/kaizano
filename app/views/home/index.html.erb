@@ -1,5 +1,5 @@
 <div class="container-home">
-  <div class="panel small-6 small-centered columns"> 
+  <div class="panel small-11 small-centered medium-6 large-6 columns"> 
     <div class="row">
       <div class="title-home">
         <h1 align="center">Welcome to Kaizano</h1>
@@ -14,22 +14,36 @@
       </div>
     </div>
     <br>
-    <div class="row">
-      <div class="small-12 columns">
-        <div class="home-button-group">
-          <% if user_signed_in? %>
-          <ul class="inline-list">
-            <li><%= link_to 'Create an Event', new_event_path, class: "button" %></li>
-            <li><%= link_to 'Join a Presentation', events_path, class: "button" %></li>
-          </ul>
-          <% else %>
-            <%= link_to 'Create an Event', new_user_registration_path, class: "button" %>
-            <span id="join_presentation_button">
+    <% if user_signed_in? %>
+      <div class="row">
+        <div class="row">
+          <div class="medium-12 large-6 columns">
+            <div class="full-length-button">
+              <%= link_to 'Create an Event', new_event_path, class: "button" %>
+            </div>
+          </div>
+          <div class="medium-12 large-6 columns">
+            <div class="full-length-button">
               <%= link_to 'Join a Presentation', events_path, class: "button" %>
-            </span>
-          <% end %>
-        </ul>
+            </div>
+          </div>
       </div>
+    <% else %>
+      <div class="row">
+        <div class="row">
+          <div class="medium-12 large-6 columns">
+            <div class="full-length-button">
+              <%= link_to 'Create an Event', new_user_registration_path, class: "button" %>
+            </div>
+          </div>
+          <div class="medium-12 large-6 columns">
+            <div class="full-length-button">
+              <%= link_to 'Join a Presentation', events_path, class: "button" %>
+            </div>
+          </div>
+        </div>
+      </div>
+     <% end %>
     </div>
   </div>
 </div>
