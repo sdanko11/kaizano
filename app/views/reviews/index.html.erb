@@ -10,53 +10,52 @@
   </div>
 </div>
 <div class="row">
-  <div class="small-4 columns">
+  <div class="large-4 small-11 columns">
     <h1 class="title"><%= @event.name %><h1>
   </div>
-  <div class="small-3 small-push-1 columns">
-    <div class="ratings-recieved">
-      <table width="220", height="100">
+  <div class="event-tables">
+    <div class="large-4 columns">
+      <table height="100">
         <thead align="center">
-          <th>Ratings Recieved</th>
-        </thead>
-        <tr>
-        <% if @event.count_reviews > 0 %>
-          <td align="center"><%= @event.count_reviews %></td>
-        <% else %>
-          <td>No Ratings Recieved</td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
-  <div class="small-5 small-push-1 columns">
-    <div class="rating-table">
-      <table width="220", height="100", display="inline-block">
-        <thead align="center">
-          <th>Average Rating</th>
+          <th width="250">Ratings Recieved</th>
         </thead>
           <tr>
-        <% if @event.count_reviews > 0 %>
-          <td align="center"><%= @event.calculate_average_rating %></td>
-        <% else %>
-          <td>No Ratings Recieved</td>
-        <% end %>
-        </tr>
-      </table>
+          <% if @event.count_reviews > 0 %>
+            <td align="center"><%= @event.count_reviews %></td>
+          <% else %>
+            <td>No Ratings Recieved</td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+      <div class="large-4 columns">
+      <table height="100">
+        <thead align="center">
+          <th width="250">Average Rating</th>
+        </thead>
+          <tr>
+          <% if @event.count_reviews > 0 %>
+            <td align="center"><%= @event.calculate_average_rating %></td>
+          <% else %>
+            <td>No Ratings Recieved</td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="small-11 columns">
+  <div class="small-11 large-11 columns">
     <h6><%= @event.description%></h6>
   </div>
 </div>
 <div class="row">
-  <div class="small-11 columns">
+  <div class="small-11 large-12 columns">
     <div class="feedback-table">
-      <table class="center", width="880", height="50", display="inline-block">
+      <table height="50">
         <thead>
-          <th class="table-header">
+          <th class="table-header" width="915">
             <span>Audience Feedback Comments</span>
             <a class="feedback-link" href="#">View Feedback</a>
           </th>
@@ -81,14 +80,14 @@
   </div>
 </div>
 <div class="row">
-  <div class="small-11 columns">
-    <table class="question-table", width="880", height="50", display="inline-block">
+  <div class="small-11 large-12 columns">
+    <table height="50">
       <thead>
-        <th class="table-header">
+        <th class="table-header" width="750">
           <span>Audience Questions</span>
           <a class="question-link" href="#">View Questions</a>
         </th>
-        <th>
+        <th width="163">
         </th> 
       </thead>
         <tbody class="question-table-content hide">
