@@ -6,10 +6,20 @@
       </div>
     <%= simple_form_for([@question, @question_answer]) do |f| %>
       <%= f.input :answer_body, label: "Answer" %>
-      <div class="save-changes-button-event">
-        <%= f.submit 'Save Changes',class: "button" %>
-        <%= link_to 'Cancel', :back, class: "button" %>
+      <div class="row">
+        <div class="row">
+          <div class="large-6 medium-6 columns">
+            <div class="full-length-button">
+              <%= f.submit 'Save Changes',class: "button" %>
+            </div>
+          </div>
+          <div class="large-6 medium-6 columns">
+            <div class="full-length-button">
+              <%= link_to 'Cancel', :back, class: "button" %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div> 
   </div>
 </div>
