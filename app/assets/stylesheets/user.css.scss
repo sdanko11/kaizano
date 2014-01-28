@@ -1,41 +1,13 @@
 .add-new-event-button{
   padding-top: 20px;
-  .button {
-    width: 225px;
-  }
 }
 
 #user_about_me {
   height: 200px;
 }
 
-.sign-up-button {
-  .button {
-    width: 461px;
-  }
-}
-
-.sign-up {
-  .button {
-    width: 491px;
-  }
-}
-
-.sign-in {
-  .button {
-    width: 278px;
-  }
-}
-
 .title-sign-up {
   text-align: center;
-}
-
-
-.save-changes-button {
-  .button {
-    width: 243px;
-  }
 }
 
 .edit-pofile {
@@ -60,6 +32,10 @@
 
 .event-table {
   width: 925px;
+}
+
+.save-changes-flash-message {
+  padding-top: 10px;
 }
 
 

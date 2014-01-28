@@ -11,6 +11,10 @@
       <h1><%= @user.format_speaker_name %></h1>
       <div class="edit-pofile">
         <%= link_to "Edit Profile", edit_user_path(@user) %>
+        <div class="save-changes-flash-message">
+          <%=flash[:saved]%>
+          <%=flash[:edits_saved]%>
+        </div>
       </div>
     </div>
   </div>
@@ -68,8 +72,6 @@
     </div>
     <div class="full-length-button">
       <%= link_to "Add Speaking Event", new_event_path, class: "button" %>
-        <%=flash[:saved]%>
-        <%=flash[:edits_saved]%>
     </div>
   </div>
 </div>

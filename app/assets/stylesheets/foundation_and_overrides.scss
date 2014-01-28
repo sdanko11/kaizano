@@ -999,19 +999,7 @@ $topbar-link-font-family: "Nunito";
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
-@import 'foundation';
 
-.home-button-group {
-  text-align: center;
-
-  .button {
-    margin-right: 20px;
-  }
-
-  .button:last-child {
-    margin-right: 0; 
-  }
-}
 @import 'foundation';
 .full-length-button {
   .button {
