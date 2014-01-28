@@ -5,20 +5,23 @@
   </div>
 <% end %>
 <div class="row">
-  <div class="small-4 columns">
+  <div class="small-11 medium-3 large-4 columns">
     <div class="photo">
       <%= image_tag @user.avatar.thumb.url %>
       <h1><%= @user.format_speaker_name %></h1>
+      <div class="edit-pofile">
+        <%= link_to "Edit Profile", edit_user_path(@user) %>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="small-7 columns">
+    <div class="small-11 medium-8 large-7 columns">
       <div class="stats-tables">
         <ul class="small-block-grid-2 columns">
           <li class="table-data">
-            <table class="right" width="240" height="100">
+            <table height="100">
               <thead >
-                <th align="center">Total Presentations</th>
+                <th width="250">Total Presentations</th>
               </thead>
                 <tr>
                 <td align="center"><%= "#{@all_events.count}" %></td>
@@ -26,9 +29,9 @@
             </table>
           </li>
           <li>
-            <table class="right" width="240" height="100">
+            <table height="100">
               <thead align="center">
-                <th>Presentations with Reviews</th>
+                <th width="250">Presentations with Reviews</th>
               </thead>
                 <tr>
                   <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
@@ -36,18 +39,18 @@
             </table>
           </li>
            <li>
-            <table class="right" width="240" height="100">
+            <table height="100">
               <thead align="center">
-                <th>Average Presentation Rating</th>
+                <th width="250">Average Presentation Rating</th>
               </thead>
                 <tr>
                 <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.each_event_rating_average)}" %></td>
             </table>
           </li>
           <li>
-            <table class="right" width="240" height="100">
+            <table height="100">
               <thead align="center">
-                <th>Highest Rated Presentation</th>
+                <th width="250">Highest Rated Presentation</th>
               </thead>
                 <tr>
                 <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.each_event_rating_average)}" %></td>
@@ -60,11 +63,10 @@
   </div>
 </div>
 <div class="row">
-  <div class="small-5 columns">
-    <div class="edit-pofile">
-      <%= link_to "Edit Profile", edit_user_path(@user) %>
+  <div class="large-4 medium-4 small-12 columns">
+    <div class="row">
     </div>
-    <div class="add-new-event-button">
+    <div class="full-length-button">
       <%= link_to "Add Speaking Event", new_event_path, class: "button" %>
         <%=flash[:saved]%>
         <%=flash[:edits_saved]%>
@@ -72,14 +74,14 @@
   </div>
 </div>
 <div class="row">
-  <div class="small-12 columns">
-    <table class="event-table">
+  <div class="small-12 medium-10 large-12 columns">
+    <table>
       <thead>
-        <th>Presentation Name</th>
-        <th>Number of Reviews</th>
-        <th>Presentation Rating</th>
-        <th></th>
-        <th></th>
+        <th width="200">Presentation Name</th>
+        <th width="200">Number of Reviews</th>
+        <th width="250">Presentation Rating</th>
+        <th width="125"></th>
+        <th width="125"></th>
       </thead>
       <% @all_events.each do |event| %>
         <tr>
@@ -87,8 +89,8 @@
         <tr>
         <td><%=event.name%></td>
         <% if event.count_reviews != 0 %>
-          <td><%= event.count_reviews %></td>
-          <td><%= event.calculate_average_rating %></td>
+          <td align="center"><%= event.count_reviews %></td>
+          <td align="center"><%= event.calculate_average_rating %></td>
         <% else %>
           <td><%= "No Reviews" %></td>
           <td><%= "No Reviews" %></td>
