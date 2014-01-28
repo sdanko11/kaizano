@@ -13,7 +13,7 @@
         <%= link_to "Edit Profile", edit_user_path(@user) %>
         <div class="save-changes-flash-message">
           <%=flash[:saved]%>
-          <%=flash[:edits_saved]%>
+        <%=flash[:edits_saved]%>
         </div>
       </div>
     </div>
@@ -94,11 +94,11 @@
           <td align="center"><%= event.count_reviews %></td>
           <td align="center"><%= event.calculate_average_rating %></td>
         <% else %>
-          <td><%= "No Reviews" %></td>
-          <td><%= "No Reviews" %></td>
+          <td align="center"><%= "No Reviews" %></td>
+          <td align="center"><%= "No Reviews" %></td>
         <% end %>
-        <td><%= link_to "Edit Event", edit_event_path(event)%></td>
-        <td><%= link_to "View Reviews", event_reviews_path(event) %></td>
+        <td align="center"><%= link_to "Edit Event", edit_event_path(event)%></td>
+        <td align="center"><%= link_to "View Reviews", event_reviews_path(event) %></td>
       </tr>
       <%end%>
     </table>
