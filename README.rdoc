@@ -1,28 +1,15 @@
-== README
+Kaizano is a web application that allows for Professional Speakers to 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+recieve feed back on presentations they perform.
 
-Things you may want to cover:
+How the app works:
 
-* Ruby version
+As a presneter you create a speaking event on Kainzano
 
-* System dependencies
+Each event is created with a unique access password
 
-* Configuration
+Give the password to your audience at the presnetation.
 
-* Database creation
+The audience can then give you feedback on your presnetaion and ask you questions.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The app is live at http://kaizano.herokuapp.com/.  

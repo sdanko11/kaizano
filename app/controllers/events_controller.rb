@@ -42,7 +42,7 @@ class EventsController < ApplicationController
       flash[:saved] = "Saved Changes"
       redirect_to user_path(current_user)
     else
-       render :edit
+      render :edit
     end
   end
 
