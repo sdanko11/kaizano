@@ -1,15 +1,15 @@
-Kaizano is a web application that allows for Professional Speakers to 
-
-recieve feed back on presentations they perform.
+Kaizano is a web application that allows for Professional Speakers to recieve feed back on presentations they perform.
 
 How the app works:
 
 As a presneter you create a speaking event on Kainzano
 
-Each event is created with a unique access password
+Each event is created with a unique access password.
 
 Give the password to your audience at the presnetation.
 
 The audience can then give you feedback on your presnetaion and ask you questions.
+
+As a presntor you can view the feedback & track your performance over time.
 
 The app is live at http://kaizano.herokuapp.com/.  
