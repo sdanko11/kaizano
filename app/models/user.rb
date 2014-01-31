@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
       all_event_averages.each do |event|
         event_average_totals << event.values.join.to_f
       end
-      average_total = event_average_totals.inject(0) { |sum, review| sum+=review }
+      average_total = event_average_totals.inject(0) { |sum, review| sum += review }
       (average_total/events_with_reviews_count).round(2)
     else
       "Make Some Events!"
@@ -45,13 +45,13 @@ class User < ActiveRecord::Base
   end
 
   def events_with_reviews_count
-   @count = 0
+   count = 0
     events.each do |event|
       if event.reviews.count > 0
-        @count +=1
+        count +=1
       end
     end
-    @count
+    count
   end
 
   def get_highest_rated_presentation(all_event_averages)
