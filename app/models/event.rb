@@ -34,4 +34,13 @@ class Event < ActiveRecord::Base
     "#{user.first_name} #{user.last_name}"
   end
 
+  def parse_name
+    event_name = name
+    if event_name.length > 15
+      "#{event_name[0..15]}" + "..."
+    else
+      "#{event_name}"
+    end
+  end
+
 end

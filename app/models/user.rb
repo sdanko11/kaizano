@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
     if all_event_averages.count > 0
       events_sorted_by_average = all_event_averages.sort_by { |k| k.values}
       highest_rated = events_sorted_by_average.last
-      "#{highest_rated.keys.join}, #{highest_rated.values.join}"
+      parse_event_name(highest_rated)
     else 
       "You have no Events!"
     end
@@ -66,6 +66,16 @@ class User < ActiveRecord::Base
 
   def format_speaker_name
     "#{first_name} #{last_name}"
+  end
+
+  def parse_event_name(highest_rated)
+    highest_rated_event_name = highest_rated.keys.join
+    if highest_rated_event_name.length > 20
+      parsed_name = highest_rated_event_name[0..20] + "..."
+      "#{parsed_name}, #{highest_rated.values.join}"
+    else
+      "#{highest_rated_event_name}, #{highest_rated.values.join}"
+    end
   end
 
 end
