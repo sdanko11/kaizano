@@ -1,6 +1,7 @@
 <div class="container">
   <div class="panel small-11 small-centered medium-7 large-5 columns">
     <h2>Edit Event Details</h2>
+    <h5 class="delete-event"><%= link_to "Delete Event", @event, method: :delete, data: { confirm: 'Are you sure?  All reviews and questions will also be deleted.' } %></h5>
     <%= simple_form_for(@event) do |f| %>
       <%= f.input :name %>
       <%= f.input :event_password, as: :text %>

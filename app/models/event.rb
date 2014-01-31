@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   validates_presence_of :event_password
   validates :event_password, uniqueness: true
   belongs_to :user
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   validates_length_of :event_password, :maximum => 8
   has_many :questions, dependent: :destroy
 

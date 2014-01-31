@@ -36,6 +36,12 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def destroy
+    @event = Event.find(params[:id]).destroy
+    flash[:deleted] = "Deleted Event"
+    redirect_to user_path(current_user)
+  end
+
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)

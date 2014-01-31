@@ -21,6 +21,7 @@ presentation topic' do
       expect(Question.count).to eql(2)
       expect(page).to have_content "Question Added"
       expect(page).to have_content question.body
+      
     end
 
     it "does not add a question if there is no question added" do
