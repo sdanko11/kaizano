@@ -6,5 +6,6 @@ FactoryGirl.define do
    sequence(:name) { |n| "pe#{n}ssss" } 
    description "this is a talk on rails"
    sequence(:event_password) { |n| "ste#{n}s" } 
+   event_date Time.now
   end
 end

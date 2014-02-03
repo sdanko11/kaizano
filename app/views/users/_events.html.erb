@@ -1,0 +1,47 @@
+<div class="small-12 medium-10 large-12 columns">
+  <table>
+    <thead id="events-header">
+      <th width="200">Presentation Name</th>
+      <th width="200">Number of Reviews</th>
+      <th width="250">Presentation Rating</th>
+      <th width="125"></th>
+      <th width="125"></th>
+    </thead>
+    <tr id="event-title-future">
+      <th align="center" colspan="5"> Future Speaking Events </th>
+    </tr>
+    <% @all_events.order("event_date").each do |event| %>
+      <% if event.event_date > Time.now || event.format_date == Time.now.to_date.strftime("%b %e, %Y")%>
+        <td><%=event.parse_name%></td>
+          <% if event.count_reviews != 0 %>
+            <td align="center"><%= event.count_reviews %></td>
+            <td align="center"><%= event.calculate_average_rating %></td>
+          <% else %>
+            <td align="center"><%= "No Reviews" %></td>
+            <td align="center"><%= "No Reviews" %></td>
+          <% end %>
+        <td align="center"><%= link_to "Edit Event", edit_event_path(event)%></td>
+        <td align="center"><%= link_to "View Reviews", event_reviews_path(event) %></td>
+      </tr>
+      <% end %>
+    <% end %>
+    <tr id="event-title-past">
+      <th align="center" colspan="5"> Past Speaking Events </th>
+    </tr>
+    <% @all_events.order("event_date DESC").each do |event| %>
+      <% if event.event_date < Time.now && event.format_date != Time.now.to_date.strftime("%b %e, %Y")%>
+        <td><%=event.parse_name%></td>
+          <% if event.count_reviews != 0 %>
+            <td align="center"><%= event.count_reviews %></td>
+            <td align="center"><%= event.calculate_average_rating %></td>
+          <% else %>
+            <td align="center"><%= "No Reviews" %></td>
+            <td align="center"><%= "No Reviews" %></td>
+          <% end %>
+          <td align="center"><%= link_to "Edit Event", edit_event_path(event)%></td>
+          <td align="center"><%= link_to "View Reviews", event_reviews_path(event) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>

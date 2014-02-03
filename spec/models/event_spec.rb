@@ -12,6 +12,8 @@ describe Event do
   it { should_not have_valid(:event_password).when(nil, '') }
   it { should_not have_valid(:event_password).when("this is a long string", 
       "not 8 characters long")}
+  it { should have_valid(:event_date).when(Time.now) }
+  it { should_not have_valid(:event_date).when('', nil) }
 
   it { should belong_to(:user) }
 

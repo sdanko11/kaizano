@@ -42,6 +42,9 @@ describe 'a registered user wants to create a speaking event' do
       click_link "Add Speaking Event"
       fill_in "Event Name", with: event.name
       fill_in "Event password", with: event.event_password
+      select("January", from: "event_event_date_2i")
+      select("3", from: "event_event_date_3i")
+      select("2014", from: "event_event_date_1i")
       fill_in "Event Description", with: event.description
       click_button "Create Event"
 

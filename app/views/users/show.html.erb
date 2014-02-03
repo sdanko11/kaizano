@@ -19,58 +19,12 @@
         <%= link_to "Edit Profile", edit_user_path(@user) %>
         <div class="save-changes-flash-message">
           <%=flash[:saved]%>
-        <%=flash[:edits_saved]%>
+          <%=flash[:edits_saved]%>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="small-11 medium-8 large-7 columns">
-      <div class="stats-tables">
-        <ul class="small-block-grid-2 columns">
-          <li class="table-data">
-            <table height="100">
-              <thead >
-                <th width="250">Total Presentations</th>
-              </thead>
-                <tr>
-                <td align="center"><%= "#{@all_events.count}" %></td>
-                </tr>
-            </table>
-          </li>
-          <li>
-            <table height="100">
-              <thead align="center">
-                <th width="250">Presentations with Reviews</th>
-              </thead>
-                <tr>
-                  <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
-                </tr>
-            </table>
-          </li>
-           <li>
-            <table height="100">
-              <thead align="center">
-                <th width="250">Average Presentation Rating</th>
-              </thead>
-                <tr>
-                <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.each_event_rating_average)}" %></td>
-            </table>
-          </li>
-          <li>
-            <table height="100">
-              <thead align="center">
-                <th width="250">Highest Rated Presentation</th>
-              </thead>
-                <tr>
-                <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.each_event_rating_average)}" %></td>
-                </tr>
-            </table>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <%= render "user_stats" %>
 </div>
 <div class="row">
   <div class="large-4 medium-4 small-12 columns">
@@ -82,31 +36,5 @@
   </div>
 </div>
 <div class="row">
-  <div class="small-12 medium-10 large-12 columns">
-    <table>
-      <thead>
-        <th width="200">Presentation Name</th>
-        <th width="200">Number of Reviews</th>
-        <th width="250">Presentation Rating</th>
-        <th width="125"></th>
-        <th width="125"></th>
-      </thead>
-      <% @all_events.each do |event| %>
-        <tr>
-        </tr>
-        <tr>
-        <td><%=event.parse_name%></td>
-        <% if event.count_reviews != 0 %>
-          <td align="center"><%= event.count_reviews %></td>
-          <td align="center"><%= event.calculate_average_rating %></td>
-        <% else %>
-          <td align="center"><%= "No Reviews" %></td>
-          <td align="center"><%= "No Reviews" %></td>
-        <% end %>
-        <td align="center"><%= link_to "Edit Event", edit_event_path(event)%></td>
-        <td align="center"><%= link_to "View Reviews", event_reviews_path(event) %></td>
-      </tr>
-      <%end%>
-    </table>
-  </div>
+  <%= render 'events' %>
 </div>

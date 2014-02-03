@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="small-11 medium-8 large-7 columns">
+    <div class="stats-tables">
+      <ul class="small-block-grid-2 columns">
+        <li class="table-data">
+          <table height="100">
+            <thead >
+              <th width="250">Total Presentations</th>
+            </thead>
+              <tr>
+              <td align="center"><%= "#{@all_events.count}" %></td>
+              </tr>
+          </table>
+        </li>
+        <li>
+          <table height="100">
+            <thead align="center">
+              <th width="250">Presentations with Reviews</th>
+            </thead>
+              <tr>
+                <td align="center"><%= "#{@user.events_with_reviews_count}" %></td>
+              </tr>
+          </table>
+        </li>
+         <li>
+          <table height="100">
+            <thead align="center">
+              <th width="250">Average Presentation Rating</th>
+            </thead>
+              <tr>
+              <td align="center"><%= "#{@user.calculate_all_presentations_average(@user.each_event_rating_average)}" %></td>
+          </table>
+        </li>
+        <li>
+          <table height="100">
+            <thead align="center">
+              <th width="250">Highest Rated Presentation</th>
+            </thead>
+              <tr>
+              <td align="center"><%= "#{@user.get_highest_rated_presentation(@user.each_event_rating_average)}" %></td>
+              </tr>
+          </table>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
