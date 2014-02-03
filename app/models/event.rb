@@ -34,6 +34,10 @@ class Event < ActiveRecord::Base
     "#{user.first_name} #{user.last_name}"
   end
 
+  def format_date
+    event_date.to_date.strftime("%b %e, %Y")
+  end
+
   def parse_name
     event_name = name
     if event_name.length > 15

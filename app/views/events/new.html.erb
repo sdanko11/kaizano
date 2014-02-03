@@ -11,10 +11,13 @@
         <%= f.input :event_password %>
       </div>
       <div class="row">
-        <%= f.input :location%>
+        <%= f.input :location %>
       </div>
       <div class="row">
-        <%= f.input :event_url%>
+        <%= f.input :event_url %>
+      </div>
+      <div class="row">
+        <%= f.input :event_date, label: "Date", as: :date, start_year: Date.today.year, order: [:month , :day, :year], :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}  %>
       </div>
       <div class="row">
         <%= f.input :description, label: "Event Description (500 characters max)" %>

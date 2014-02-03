@@ -10,10 +10,11 @@
  *
  *= require_self
  *= require foundation_and_overrides
-
  *= require_tree .
   *= require font-awesome
  */
+
+
 
 .title-font {
   font-family: 'Nunito';

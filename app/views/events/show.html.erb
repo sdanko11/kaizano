@@ -9,6 +9,9 @@
     <div class="title">
       <h1 class="event-header"><%= @event.name %></h1>
       <h4>Speaker: <%= @event.format_speaker_name %></h4>
+      <% if !@event.event_date.nil? %>
+        <h6>Date: <%= @event.format_date %></h6>
+      <% end %>
       <%if @event.user.about_me != ''%>
         <ul class="inline-list">
           <% if @event.user.twitter_handle != '' %>

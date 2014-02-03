@@ -7,6 +7,7 @@
       <%= f.input :event_password, as: :text %>
       <%= f.input :location %>
       <%= f.input :event_url %>
+      <%= f.input :event_date, label: "Date", as: :date, start_year: Date.today.year, order: [:month , :day, :year], :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}  %>
       <%= f.input :description %>
     <div class="row">
       <div class="row">
