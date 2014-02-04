@@ -28,4 +28,6 @@ describe Event do
    kasdjfhasldfjhasdlfjkhasdflsadkjfhasldkjfhasldkjfhsadkljfhasdflkjhsadfljksadfsdfkljsadfkjhsadfljkh
    asdflaskdjfhsadlkfjhasdflkasdjfhasldkfjhsadlkjfhasdlfkjhsadfklsadfj') }
 
+  it { should have_many(:multi_choice_questions).dependent(:destroy) } 
+
 end

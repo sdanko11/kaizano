@@ -7,6 +7,7 @@ Kaizano::Application.routes.draw do
     resources :reviews
     resources :questions
     resources :event_sessions
+    resources :multi_choice_questions
   end
 
   resources :questions do

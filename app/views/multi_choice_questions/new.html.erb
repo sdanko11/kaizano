@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="panel small-11 small-centered medium-7 large-5 columns">  
+    <div class="row">
+      <h2 class="new-event-title">Add Multiple Choice Question</h>
+    </div>
+    <%=simple_form_for([@event, @multi_choice_question]) do |f|%>
+      <div class="row">
+        <%= f.input :question_body, label: "Question" %>
+      </div>
+      <div class="row">
+        <%= f.input :answer_a, label: "Option A" %>
+      </div>
+      <div class="row">
+        <%= f.input :answer_b, label: "Option B"%>
+      </div>
+      <div class="row">
+        <%= f.input :answer_c, label: "Option C" %>
+      </div>
+      <div class="row">
+        <%= f.input :answer_d, label: "Option D" %>
+      </div>
+      <div class="row">
+        <div class="full-length-button">
+          <%=f.submit 'Create Question',class: "button"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
