@@ -20,6 +20,10 @@
         <%= f.input :answer_d, label: "Option D" %>
       </div>
       <div class="row">
+        <%= f.label :answer, label: "Correct Answer" %>
+        <%= f.select :answer, ["A","B","C","D"], label: "Correct Answer", include_blank: true %>
+      </div>
+      <div class="row">
         <div class="full-length-button">
           <%=f.submit 'Create Question',class: "button"%>
         </div>

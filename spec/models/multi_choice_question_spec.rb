@@ -16,6 +16,9 @@ describe MultiChoiceQuestion do
 
   it { should have_valid(:answer_d).when("Your site is Awesome", nil, '') }
 
+  it { should have_valid(:answer).when("A", "B", "C", "D") }
+  it { should_not have_valid(:answer).when("", nil) }
+
   it { should have_many(:multi_choice_answer_submission).dependent(:destroy) } 
   it { should have_one(:multi_choice_answer).dependent(:destroy) }
 

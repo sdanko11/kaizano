@@ -46,7 +46,8 @@ ActiveRecord::Schema.define(version: 20140204163011) do
     t.text     "answer_a",      null: false
     t.text     "answer_b",      null: false
     t.text     "answer_c",      null: false
-    t.text     "answer_d"
+    t.text     "answer_d",      null: false
+    t.string   "answer",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -6,7 +6,8 @@ class CreateMultiChoiceQuestions < ActiveRecord::Migration
       t.text :answer_a, null: false
       t.text :answer_b, null: false
       t.text :answer_c, null: false
-      t.text :answer_d
+      t.text :answer_d, null: false
+      t.string :answer, null: false
       t.timestamps
     end
   end
