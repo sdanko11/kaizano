@@ -16,6 +16,10 @@ Kaizano::Application.routes.draw do
     resources :question_answers
   end
 
+  resources :multi_choice_questions do 
+    resources :multi_choice_answers
+  end
+
   resources :users, :thanks, :messages, :how_it_works, :learn_mores, :contact_forms, :left_feedbacks, :about_us
 
   #  get "blog_post/index"

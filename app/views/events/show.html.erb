@@ -43,6 +43,9 @@
       <div class="feedback-button">
         <%= link_to 'Give Feedback', new_event_review_path(@event), class: "button" %>
       </div>
+      <div class="feedback-button">
+        <%= link_to 'Answer Speaker Questions', event_multi_choice_question_path(@event, 'no_id'), class: "button" %>
+      </div>
       <div class="row">
         <div class="small-12 small-centered medium-6 medium-centered large-5 large-centered columns">
           <h4 class="question-header">Ask a Question</h4>
