@@ -3,7 +3,7 @@
     <div class="row">
       <h2 class="new-event-title"><%= @multi_choice_question.question_body %> </h>
     </div>
-    <%=simple_form_for([@multi_choice_question, @multi_choice_answer]) do |f|%>
+    <%= form_for([@multi_choice_question, @multi_choice_answer]) do |f|%>
       <div class="row">
         <div class="row">
           <div class="small-1, medium-1, large-1 columns">
