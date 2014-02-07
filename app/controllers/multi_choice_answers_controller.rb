@@ -6,6 +6,8 @@ class MultiChoiceAnswersController < ApplicationController
     @multi_choice_answer = @multi_choice_question.multi_choice_answers.build(multi_choice_answer_params)
     if @multi_choice_answer.save
       redirect_to event_multi_choice_question_path(@event, @multi_choice_question)
+    else
+      render :new
     end
   end
 
