@@ -31,6 +31,7 @@ class MultiChoiceQuestionsController < ApplicationController
       index += 1
       @multi_choice_question = all_multi_choice_questions[index]
       if @multi_choice_question.nil?
+        session[:answered_multi_choice] << @event.id
         flash[:answered_questions] = "Thanks. Answers Saved"
         redirect_to event_path(@event)
       end

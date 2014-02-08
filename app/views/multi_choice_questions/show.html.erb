@@ -44,13 +44,13 @@
           </div>
         </div>
       </div>
-      <div class="full-length-button">
+      <div class="multi-choice-submission-button">
         <%=f.submit 'Submit',class: "button"%>
       </div>
     <% end %>
     <div class="row">
       <div class="small-12 medium-12 large-12 small-centered columns">
-        <h6 class="multi-choice-breadcrumb"><%= "Question #{@event.question_number(@multi_choice_question)}/#{@event.count_questions}" %></h6>
+        <p class="multi-choice-breadcrumb"><%= "Question #{@event.question_number(@multi_choice_question)}/#{@event.count_questions}" %></p>
       </div>
     </div>
   </div>

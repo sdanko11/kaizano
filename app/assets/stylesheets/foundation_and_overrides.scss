@@ -1021,3 +1021,9 @@ $topbar-link-font-family: "Nunito";
 }
 }
 
+@import 'foundation';
+.multi-choice-submission-button {
+  .button {
+  @include button($full-width: true);
+}
+}

@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :does_user_own_event, :only => [:edit]
   before_filter :did_they_enter_password?, only: [:show]
+  before_filter :have_they_answered_multi_choice_questions?, only: [:show]
 
   def index
     session[:events_authenticated] = [] if session[:events_authenticated].nil?
@@ -77,6 +78,12 @@ class EventsController < ApplicationController
       event = Event.find(params[:id])
       render status: 404 unless current_user.id == event.user_id || 
       session[:events_authenticated].include?(params[:id])
+    end
+  end
+
+  def have_they_answered_multi_choice_questions?
+    if !session[:answered_multi_choice].present?
+      session[:answered_multi_choice] = []
     end
   end
 
