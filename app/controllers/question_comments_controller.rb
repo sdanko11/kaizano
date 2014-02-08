@@ -19,6 +19,8 @@ class QuestionCommentsController < ApplicationController
     end
   end
 
+  private
+
   def question_comment_params
     params.require(:question_comment).permit(:body)
   end

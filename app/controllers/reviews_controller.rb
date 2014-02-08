@@ -67,7 +67,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def review_params
     params.require(:review).permit(:feedback_comments, :rating, :event_id)

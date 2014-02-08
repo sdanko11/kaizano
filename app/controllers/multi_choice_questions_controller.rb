@@ -38,6 +38,8 @@ class MultiChoiceQuestionsController < ApplicationController
     end
   end
 
+  private
+
   def multi_choice_question_params
     params.require(:multi_choice_question).permit(:question_body, :answer_a, :answer_b, :answer_c, 
     :answer_d, :answer)
