@@ -1,9 +1,4 @@
-<% if flash[:review_saved] %>
-  <div data-alert class="alert-box">
-      <%= flash[:review_saved] %>
-    <a href="#" class="close">&times;</a>
-  </div>
-<% end %>
+<%= render 'event_show_page_flash_messages' %>
 <div class="row">
   <div class="small-11 medium-6 large-6 columns">
     <div class="title">
@@ -43,8 +38,8 @@
       <div class="feedback-button">
         <%= link_to 'Give Feedback', new_event_review_path(@event), class: "button" %>
       </div>
-      <div class="feedback-button">
-        <%= link_to 'Answer Speaker Questions', event_multi_choice_question_path(@event, 'no_id'), class: "button" %>
+      <div class="answer-questions-button">
+        <%= link_to 'Answer Speaker Questions', event_multi_choice_question_path(@event, "no_id"), class: "button" %>
       </div>
       <div class="row">
         <div class="small-12 small-centered medium-6 medium-centered large-5 large-centered columns">

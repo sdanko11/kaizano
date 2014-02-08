@@ -1014,6 +1014,10 @@ $topbar-link-font-family: "Nunito";
 }
 }
 
-
-
+@import 'foundation';
+.answer-questions-button {
+  .button {
+  @include button($full-width: true);
+}
+}
 

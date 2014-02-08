@@ -14,9 +14,11 @@ class MultiChoiceAnswersController < ApplicationController
       redirect_to :back
     end
   end
+  
+  private
 
   def multi_choice_answer_params
-    params.require(:multi_choice_answer).permit(:answer_submission, :multi_choice_question_id)
+    params.require(:multi_choice_answer).permit(:answer_submission)
   end
 
 end

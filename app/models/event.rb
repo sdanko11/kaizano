@@ -31,6 +31,15 @@ class Event < ActiveRecord::Base
     reviews.count
   end
 
+  def count_questions
+    multi_choice_questions.count
+  end
+
+  def question_number(question)
+    all_questions = multi_choice_questions.all
+    return all_questions.index(question) + 1
+  end
+
   def format_speaker_name
     "#{user.first_name} #{user.last_name}"
   end
