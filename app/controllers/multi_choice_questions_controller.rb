@@ -4,7 +4,6 @@ class MultiChoiceQuestionsController < ApplicationController
     @multi_choice_questions = MultiChoiceQuestion.all
   end
 
-
   def new
     @event = Event.find(params[:event_id])
     @multi_choice_question = @event.multi_choice_questions.build
