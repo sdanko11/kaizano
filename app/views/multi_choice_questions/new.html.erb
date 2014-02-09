@@ -1,11 +1,16 @@
 <div class="container">
-  <div class="panel small-11 small-centered medium-7 large-5 columns">  
+  <div class="panel small-11 small-centered medium-7 large-6 columns">  
     <div class="row">
-      <h2 class="new-event-title">Add Multiple Choice Question</h>
+      <% if @event.created_at >= (10.seconds).ago %>
+        <h2 class="new-multi-choice-title">Add Multiple Choice Question</h2>
+        <h5 class="multi-choice-sub-header">Use multiple choice questions to gage how well your audience is grasping the topic your presenting on.</h5>
+      <% else %>
+        <h2 class="new-multi-choice-title">Add New Multiple Choice Question</h2>
+      <% end %>
     </div>
     <%=simple_form_for([@event, @multi_choice_question]) do |f|%>
       <div class="row">
-        <%= f.input :question_body, label: "Question" %>
+        <%= f.input :question_body, label: "Question", as: :text %>
       </div>
       <div class="row">
         <%= f.input :answer_a, label: "Option A" %>
@@ -24,10 +29,22 @@
         <%= f.select :answer, ["A","B","C","D"], label: "Correct Answer", include_blank: true %>
       </div>
       <div class="row">
-        <div class="full-length-button">
-          <%=f.submit 'Create Question',class: "button"%>
+        <div class="row">
+          <div class="small-12 medium-12 large-6 columns">
+            <div class="full-length-button">
+              <%= f.submit 'Save & Add Another Question', class: "button" %>
+            </div>
+          </div>
+          <div class="medium-12 large-6 columns">
+            <div class="full-length-button">
+              <%= f.submit 'Save & Go to Dashboard', class: "button"%>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
+    <div class="row">
+      <%= link_to "Go to Dashboard", user_path(current_user) %>
+    </div>
   </div>
 </div>

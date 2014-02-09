@@ -20,7 +20,8 @@ Kaizano::Application.routes.draw do
     resources :multi_choice_answers
   end
 
-  resources :users, :thanks, :messages, :how_it_works, :learn_mores, :contact_forms, :left_feedbacks, :about_us
+  resources :users, :thanks, :messages, :how_it_works, :learn_mores, :contact_forms, :left_feedbacks, :about_us,
+  :add_multi_choice_questions
 
   #  get "blog_post/index"
 

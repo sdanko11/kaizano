@@ -13,7 +13,11 @@ class MultiChoiceQuestionsController < ApplicationController
     @event = Event.find(params[:event_id])
     @multi_choice_question = @event.multi_choice_questions.build(multi_choice_question_params)
     if @multi_choice_question.save
-      redirect_to user_path(current_user)
+      if params[:commit] == "Save & Add Another Question"
+        redirect_to new_event_multi_choice_question_path(@event)
+      else
+        redirect_to user_path(current_user)
+      end 
     else
       render :new
     end

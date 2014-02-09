@@ -116,3 +116,7 @@
     </table>
   </div>
 </div>
+<% @event.calculate_percentage_of_correct_answers(@event.correct_question_answers).each do |event| %>
+  <%= "#{event.keys.join}" %>
+  <%= "#{event.values.join}%" %><br>
+<% end %>

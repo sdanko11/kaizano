@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  
   validates_presence_of :name
   validates_presence_of :description
   validates_length_of :description, :maximum => 500
@@ -20,9 +21,9 @@ class Event < ActiveRecord::Base
  def calculate_average_rating
     @all_reviews = []
     review_count = count_reviews
-      reviews.each do |review|
-        @all_reviews << review.rating.to_f
-      end
+    reviews.each do |review|
+      @all_reviews << review.rating.to_f
+    end
     ratings_total = @all_reviews.inject(0) { |sum, rating| sum += rating }
     (ratings_total/review_count).round(2)
   end
@@ -46,6 +47,38 @@ class Event < ActiveRecord::Base
 
   def format_date
     event_date.to_date.strftime("%b %e, %Y")
+  end
+
+  def correct_question_answers
+    answer_counts = []
+    multi_choice_questions.each do |question|
+      correct_count = { question.question_body => [0, question.multi_choice_answers.count] }
+      question.multi_choice_answers.each do |answer|
+        if answer.answer_submission == question.answer
+          correct_count[question.question_body][0] += 1
+        end
+      end
+      answer_counts << correct_count
+    end
+    answer_counts
+  end
+
+  def total_answer_submissions
+    submission_count = []
+    multi_choice_questions.each do |question|
+     each_question_submission_count = { question.id => question.multi_choice_answers.count }
+     submission_count << each_question_submission_count
+    end
+    submission_count
+  end
+
+  def calculate_percentage_of_correct_answers(multi_choice_question_data)
+    all_questions_with_percents = []
+    multi_choice_question_data.each do |question|
+      percentage_of_correct_answers = question.values.flatten.first.to_f/question.values.flatten.last.to_f
+      all_questions_with_percents << {question.keys.join => (percentage_of_correct_answers * 100).to_i}
+    end
+    all_questions_with_percents
   end
 
   def parse_name

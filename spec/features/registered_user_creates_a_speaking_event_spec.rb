@@ -10,8 +10,8 @@ describe 'a registered user wants to create a speaking event' do
   # user must specify the description
   # must have the option to add a location
   # must have the option to add a event url
-  # must be notified if the event is created succesfully
-  # must be redirect back to the user dashboard after creation
+  # -if the event is succefully created the user should be lead to create new multi
+  # choice queston view
   # event must not be saved if all required fields are not added
 
   it "should have a button to create a event on the user dashboard" do
@@ -28,7 +28,8 @@ describe 'a registered user wants to create a speaking event' do
       expect(page).to have_link "Add Speaking Event"
   end
 
-  it "should have create a event if all required fields are added" do
+  it "should have create a event if all required fields are added && lead to new multi choice 
+  question creation" do
 
       user = FactoryGirl.create(:user)
       event = FactoryGirl.build(:event, user: user)
@@ -49,12 +50,11 @@ describe 'a registered user wants to create a speaking event' do
       click_button "Create Event"
 
       expect(Event.count).to eql(1)
-      expect(page).to have_content "Event Saved Successfully"
-      expect(page).to have_content user.first_name
-      expect(page).to have_content user.last_name
-      expect(page).to have_content event.name
-      expect(page).to have_link "Edit Event"
-      expect(page).to have_link "View Reviews"
+      expect(page).to have_content "Add Multiple Choice Question"
+      expect(page).to have_button "Save & Add Another Question"
+      expect(page).to have_button "Save & Go to Dashboard"
+      expect(page).to have_content "Use multiple choice questions to gage how well
+      your audience is grasping the topic your presenting on."
 
   end
 
@@ -133,5 +133,4 @@ describe 'a registered user wants to create a speaking event' do
 
   end
   
-
 end

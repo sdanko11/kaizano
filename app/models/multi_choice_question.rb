@@ -7,5 +7,6 @@ class MultiChoiceQuestion < ActiveRecord::Base
    validates_presence_of :answer_d
    validates_presence_of :answer
    has_many :multi_choice_answers, dependent: :destroy 
+   belongs_to :event
 
 end

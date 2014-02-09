@@ -60,6 +60,7 @@ group :test, :development do
   gem "dotenv"
   gem "launchy"
   gem "mailcatcher"
+  gem "timecop", "~> 0.7.1"
 end
 
 

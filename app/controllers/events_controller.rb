@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
     if @event.save
       flash[:event_saved] = "Event Saved Successfully"
-      redirect_to user_path(current_user)
+      redirect_to new_event_multi_choice_question_path(@event)
     else
       render :new
     end
