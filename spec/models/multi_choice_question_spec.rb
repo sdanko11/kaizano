@@ -21,5 +21,6 @@ describe MultiChoiceQuestion do
   it { should_not have_valid(:answer).when("", nil) }
 
   it { should have_many(:multi_choice_answers).dependent(:destroy) } 
+  it { should belong_to(:event) }
 
 end
