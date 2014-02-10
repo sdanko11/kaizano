@@ -10,6 +10,10 @@ require 'spec_helper'
   # it should show the presentation average rating
   # it show the number of ratings revieved
   # it should have a link to comment on questions if there are any questions present
+  # it should show the multi choice questions if their are any for a presentation
+  # it should show the % of correct answers for a multi choice question
+  # it should show the number of answers submitted for each question
+  # it should let the user know if there are no answers submitted for a question
 
 
   it "it should have the presentation and name" do
