@@ -30,7 +30,6 @@ $(".feedback-link").click(function(event){
   event.preventDefault();
   $(".feedback-table-content").toggle(300);
 });
-
 });
 
 $('.answer-link').click(function(event) {
