@@ -1,0 +1,30 @@
+<div class="chart">
+  <div class="row">
+    <div class="large-8 large-centered columns">
+      <div class="chart-object">  
+        <div class="row">
+          <div class="small-11, medium-11, large-11 large-centered columns">
+            <h4><%= @multi_choice_question.question_body %></h4>
+          </div>
+          <div class="small-11, medium-11, large-11 large-centered columns">
+            <h6><%= "A) #{@multi_choice_question.answer_a}" %></h6>
+          </div>
+          <div class="small-11, medium-11, large-11 large-centered columns">
+            <h6><%= "B) #{@multi_choice_question.answer_b}" %></h6>
+          </div>
+          <div class="small-11, medium-11, large-11 large-centered columns">
+            <h6><%= "C) #{@multi_choice_question.answer_c}" %></h6>
+          </div>
+          <div class="small-11, medium-11, large-11 large-centered columns">
+            <h6><%= "D) #{@multi_choice_question.answer_d}" %></h6>
+          </div>
+        </div>
+        <div class ="row">
+          <div class="small-12, medium-12, large-12 large-centered columns">
+            <%= pie_chart @multi_choice_answers.group("answer_submission").count, :library => {:backgroundColor => "#CCCCCC"} %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

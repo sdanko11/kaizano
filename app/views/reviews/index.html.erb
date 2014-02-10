@@ -139,6 +139,7 @@
               <td class="percent-correct" width="170"><%= question.count_answers %></td>
               <td class="percent-correct" width="163"><%= question.check_for_answers %></td>
             </tr>
+            <%= link_to "Edit Answer", event_multi_choice_questions_path(question), class: "button tiny" %>
           <% end %>
         </tbody>
       </table>

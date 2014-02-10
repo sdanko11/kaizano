@@ -1,7 +1,8 @@
 class MultiChoiceQuestionsController < ApplicationController
 
   def index
-    @multi_choice_questions = MultiChoiceQuestion.all
+    @multi_choice_question = MultiChoiceQuestion.find(params[:event_id])
+    @multi_choice_answers = @multi_choice_question.multi_choice_answers.load
   end
 
   def new

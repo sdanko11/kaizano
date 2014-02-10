@@ -1,5 +1,5 @@
 class MultiChoiceAnswersController < ApplicationController
-  
+
   def create
     @multi_choice_question = MultiChoiceQuestion.find(params[:multi_choice_question_id])
     @event = Event.find(@multi_choice_question.event_id)

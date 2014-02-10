@@ -47,6 +47,7 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    chartkick (1.2.1)
     choice (0.1.6)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -236,6 +237,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   capybara
   carrierwave
+  chartkick
   coffee-rails (~> 4.0.0)
   devise
   dotenv

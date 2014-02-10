@@ -27,6 +27,8 @@ gem 'jquery-rails'
 
 gem 'simple_form'
 
+gem "chartkick"
+
 gem "font-awesome-rails"
 
 gem 'carrierwave'
