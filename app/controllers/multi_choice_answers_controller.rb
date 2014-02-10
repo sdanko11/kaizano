@@ -11,6 +11,7 @@ class MultiChoiceAnswersController < ApplicationController
         render :new
       end
     else
+      flash[:add_a_valid_answer] = "Must Choose a Answer to Submit"
       redirect_to :back
     end
   end

@@ -37,7 +37,7 @@ class Event < ActiveRecord::Base
   end
 
   def question_number(question)
-    all_questions = multi_choice_questions.all
+    all_questions = multi_choice_questions.load
     return all_questions.index(question) + 1
   end
 

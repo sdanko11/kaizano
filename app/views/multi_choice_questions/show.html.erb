@@ -50,6 +50,13 @@
     <% end %>
     <div class="row">
       <div class="small-12 medium-12 large-12 small-centered columns">
+        <div class="did-not-answer-question-flash">
+          <%= flash[:add_a_valid_answer] %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 medium-12 large-12 small-centered columns">
         <p class="multi-choice-breadcrumb"><%= "Question #{@event.question_number(@multi_choice_question)}/#{@event.count_questions}" %></p>
       </div>
     </div>
