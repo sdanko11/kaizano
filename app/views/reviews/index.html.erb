@@ -10,7 +10,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="large-4 small-11 columns">
+  <div class="large-4 small-12 columns">
     <h1 class="title"><%= @event.name %><h1>
   </div>
   <div class="event-tables">
@@ -46,7 +46,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="small-11 large-11 columns">
+  <div class="small-11 large-12 columns">
     <h6><%= @event.description%></h6>
   </div>
 </div>
@@ -116,7 +116,32 @@
     </table>
   </div>
 </div>
-<% @event.calculate_percentage_of_correct_answers(@event.correct_question_answers).each do |event| %>
-  <%= "#{event.keys.join}" %>
-  <%= "#{event.values.join}%" %><br>
+<% if !@multi_choice_questions.first.nil? %>
+  <div class="row">
+    <div class="small-11 large-12 columns">
+      <table height="50">
+        <thead>
+          <th class="table-header" width="580">
+            <span>Multiple Choice Question Results</span>
+            <a class="multi-choice-link" href="#">Show Results</a>
+          </th>
+          <th width="170">
+            <span>Answers Submitted</span>
+          </th> 
+          <th width="163">
+            <span>Correct Answer %</span>
+          </th> 
+        </thead>
+        <tbody class="multi-choice-table-content hide">
+          <% @multi_choice_questions.each do |question| %>
+            <tr>
+              <td width="580"><%= question.question_body %></td>
+              <td class="percent-correct" width="170"><%= question.count_answers %></td>
+              <td class="percent-correct" width="163"><%= question.check_for_answers %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 <% end %>

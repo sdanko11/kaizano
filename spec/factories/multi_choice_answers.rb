@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :multi_choice_answer do
+    answer_submission "A"
   end
 end

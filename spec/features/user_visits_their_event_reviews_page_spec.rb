@@ -432,4 +432,79 @@ require 'spec_helper'
 
   end
 
+  it "should calculate the correct % for multi choice questions and show the # of times
+  the question was answered" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    multi_choice_question = FactoryGirl.create(:multi_choice_question, answer: 'A',
+    event: event5)
+    
+    multi_choice_answer1 = FactoryGirl.create(:multi_choice_answer, 
+    answer_submission: 'B', multi_choice_question: multi_choice_question)
+    
+    multi_choice_answer2 = FactoryGirl.create(:multi_choice_answer, 
+    answer_submission: 'A', multi_choice_question: multi_choice_question)
+    
+    multi_choice_answer3 = FactoryGirl.create(:multi_choice_answer, 
+    answer_submission: 'A', multi_choice_question: multi_choice_question)
+    
+    multi_choice_answer = FactoryGirl.create(:multi_choice_answer, 
+    answer_submission: 'B', multi_choice_question: multi_choice_question)
+
+    multi_choice_answer = FactoryGirl.create(:multi_choice_answer, 
+    answer_submission: 'D', multi_choice_question: multi_choice_question)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+
+    expect(page).to have_content "Multiple Choice Question Results"
+    expect(page).to have_link "Show Results"
+    expect(page).to have_content "Correct Answer %"
+    expect(page).to have_content "40.0%"
+    expect(page).to have_content "Answers Submitted"
+    expect(page).to have_content "5"
+
+  end
+
+  it "should not show the multi choice table if there are no multi choice questions" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+
+    expect(page).to_not have_content "Multiple Choice Question Results"
+    expect(page).to_not have_link "Show Results"
+    expect(page).to_not have_content "Correct Answer %"
+
+  end
+
+  it "let the user no if there were no answers for a multi choice question" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    multi_choice_question = FactoryGirl.create(:multi_choice_question, answer: 'A',
+    event: event5)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+
+    expect(page).to have_content "No Answers"
+
+  end
+
 end

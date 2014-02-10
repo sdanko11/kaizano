@@ -30,6 +30,10 @@ $(".feedback-link").click(function(event){
   event.preventDefault();
   $(".feedback-table-content").toggle(300);
 });
+
+$(".multi-choice-link").click(function(event){
+  event.preventDefault();
+  $(".multi-choice-table-content").toggle(300);
 });
 
 $('.answer-link').click(function(event) {
@@ -38,3 +42,5 @@ $('.answer-link').click(function(event) {
   $answer = $showAnswerLink.parent().find('.answer-feed');
   $answer.toggle(300);
  });
+
+});

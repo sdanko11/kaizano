@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
   def index
     @event = Event.find(params[:event_id])
     @reviews = @event.reviews
+    @multi_choice_questions = @event.multi_choice_questions
   end
 
   def new
