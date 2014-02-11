@@ -135,11 +135,23 @@
         <tbody class="multi-choice-table-content hide">
           <% @multi_choice_questions.each do |question| %>
             <tr>
-              <td width="580"><%= question.question_body %></td>
+              <td width="580">
+                <div class="row">
+                  <div class="small-12 columns">
+                    <%= question.question_body %>
+                  </div>
+                </div>
+                <% if question.any_answers? %>
+                  <div class="row">
+                    <div class="small-12 columns">
+                      <%= link_to "Answer Break Down", event_multi_choice_questions_path(question) %>
+                    </div>
+                  </div>
+                <% end %>
+              </td>
               <td class="percent-correct" width="170"><%= question.count_answers %></td>
               <td class="percent-correct" width="163"><%= question.check_for_answers %></td>
             </tr>
-            <%= link_to "Edit Answer", event_multi_choice_questions_path(question), class: "button tiny" %>
           <% end %>
         </tbody>
       </table>

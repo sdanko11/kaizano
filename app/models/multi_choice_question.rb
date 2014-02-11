@@ -29,6 +29,13 @@ class MultiChoiceQuestion < ActiveRecord::Base
     return ((correct_answers[0].to_f/correct_answers[1].to_f) * 100).round(2).to_s + "%"
   end
 
+  def any_answers?
+    if multi_choice_answers.count > 0
+      return true
+    else
+      return false
+    end
+  end
 
   def count_answers
     if multi_choice_answers.first.nil?
