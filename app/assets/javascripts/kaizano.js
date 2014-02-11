@@ -42,5 +42,4 @@ $('.answer-link').click(function(event) {
   $answer = $showAnswerLink.parent().find('.answer-feed');
   $answer.toggle(300);
  });
-
 });
