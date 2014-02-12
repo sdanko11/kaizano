@@ -35,6 +35,9 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    if @event.multi_choice_questions.count > 0
+      @multi_choice_questions = @event.multi_choice_questions.first
+    end
   end
 
   def destroy

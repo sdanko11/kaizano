@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="panel small-11 small-centered medium-7 large-6 columns">  
+    <div class="row">
+      <h2 class="new-multi-choice-title">Edit Multiple Choice Question</h2>
+    </div>
+    <%=simple_form_for([@event, @multi_choice_question]) do |f|%>
+      <div class="row">
+        <%= f.input :question_body, label: "Question", as: :text %>
+      </div>
+      <div class="row">
+        <%= f.input :answer_a, label: "Option A" %>
+      </div>
+      <div class="row">
+        <%= f.input :answer_b, label: "Option B"%>
+      </div>
+      <div class="row">
+        <%= f.input :answer_c, label: "Option C" %>
+      </div>
+      <div class="row">
+        <%= f.input :answer_d, label: "Option D" %>
+      </div>
+      <div class="row">
+        <%= f.label :answer, label: "Correct Answer" %>
+        <%= f.select :answer, ["A","B","C","D"], label: "Correct Answer", include_blank: true %>
+      </div>
+      <div class="row">
+        <div class="row">
+          <div class="small-12 medium-12 large-6 columns">
+            <div class="full-length-button">
+              <%= f.submit 'Save Edits', class: "button" %>
+            </div>
+          </div>
+          <div class="medium-12 large-6 columns">
+            <div class="full-length-button">
+              <%= link_to 'Cancel', :back, class: "button"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
