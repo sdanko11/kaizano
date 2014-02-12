@@ -4,48 +4,71 @@
     <a href="#" class="close">&times;</a>
   </div>
 <% end %>
-<div class="container">
-  <div class="panel small-11 small-centered medium-7 large-5 columns">
-    <h2>Edit Event Details</h2>
-    <h5 class="delete-event"><%= link_to "Delete Event", @event, method: :delete, data: { confirm: 'Are you sure?  All reviews and questions will also be deleted.' } %></h5>
-    <%= simple_form_for(@event) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :event_password, as: :text %>
-      <%= f.input :location %>
-      <%= f.input :event_url %>
-      <%= f.input :event_date, label: "Date", as: :date, start_year: Date.today.year, order: [:month , :day, :year], :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}  %>
-      <%= f.input :description %>
-    <div class="row">
-      <div class="row">
-        <div class="large-6 medium-6 columns">
-          <div class="full-length-button">
-            <%= f.submit 'Save Changes',class: "button" %>
-          </div>
-        </div>
-        <div class="large-6 medium-6 columns">
-          <div class="full-length-button">
-            <%= link_to "Cancel", user_path(current_user), class: "button" %>
+<div class="row">
+  <div class="container">
+    <div class="panel small-11 medium-8 large-12 columns">
+      <h2>Edit Event Details</h2>
+      <h5 class="delete-event"><%= link_to "Delete Event", @event, method: :delete, data: { confirm: 'Are you sure?  All reviews and questions will also be deleted.' } %></h5>
+      <%= simple_form_for(@event) do |f| %>
+        <div class="row">
+          <div class="large-12 columns">
+            <div class="row">
+              <div class="large-3 columns">
+                <%= f.input :name %>
+              </div>
+              <div class="large-3 columns">
+                <%= f.input :location %>
+              </div>
+              <div class="large-3 columns">
+                <%= f.input :event_url %>
+              </div>
+              <div class="large-3 columns">
+                <%= f.input :event_password, as: :text %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-4 columns">
+                <%= f.input :event_date, label: "Date", as: :date, start_year: Date.today.year, order: [:month , :day, :year], :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}  %>
+              </div>
+              <div class="large-8 columns">
+                <div id="edit-event-description">
+                  <%= f.input :description; %>
+                </div>
+              </div>
+              <div class="large-12 columns">
+                <table>
+                  <thead>
+                    <tr>
+                      <th width="875">Multiple Choice Questions</th>
+                      <th width="175"><%= link_to "Add New Question", new_event_multi_choice_question_path(@event) %></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @event.multi_choice_questions.each do |question| %>
+                      <tr>
+                        <td><%= question.question_body %></td>
+                        <td align="center"><%= link_to "Edit", edit_event_multi_choice_question_path(@event, question) %></td>
+                      <tr>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>              
+              <div class="large-6 medium-6 columns">
+                <div class="full-length-button">
+                  <%= f.submit 'Save Changes',class: "button" %>
+                </div>
+              </div>
+              <div class="large-6 medium-6 columns">
+                <div class="full-length-button">
+                  <%= link_to "Cancel", user_path(current_user), class: "button" %>
+                </div>
+              </div>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="small-6 small-centered columns">
-    <%= link_to "Add Multi Choice", new_event_multi_choice_question_path(@event) %>
-  </div>
-</div>
-<div class="row">
-  <div class="small-6 small-centered columns">
-    <% @event.multi_choice_questions.each do |question| %>
-      <div class ="row">
-        <%= question.question_body %>
-        <%= link_to "Edit", edit_event_multi_choice_question_path(@event, question) %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
-  

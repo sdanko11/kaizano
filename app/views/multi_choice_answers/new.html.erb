@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="panel small-11 small-centered medium-7 large-5 columns">  
+    <div class="row">
+      <h3 class="multi-choice-answer-title"><%= @multi_choice_question.question_body %> </h3>
+    </div>
+    <%= form_for([@multi_choice_question, @multi_choice_answer]) do |f|%>
+      <div class="row">
+        <div class="row">
+          <div class="small-1 medium-1 large-1 columns">
+            <%= f.radio_button(:answer_submission, "A", label: "#{@multi_choice_question.answer_a}") %>
+          </div>
+          <div class="medium-11 large-11 columns">
+            <%= f.label(:answer_submission, "#{@multi_choice_question.answer_a}") %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row">
+          <div class="small-1 medium-1 large-1 columns">
+            <%= f.radio_button(:answer_submission, "B", label: "#{@multi_choice_question.answer_b}") %>
+          </div>
+          <div class="medium-11 large-11 columns">
+            <%= f.label(:answer_submission, "#{@multi_choice_question.answer_b}") %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row">
+          <div class="small-1 medium-1 large-1 columns">
+            <%= f.radio_button(:answer_submission, "C", label: "#{@multi_choice_question.answer_c}") %>
+          </div>
+          <div class="medium-11 large-11 columns">
+            <%= f.label(:answer_submission, "#{@multi_choice_question.answer_c}") %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row">
+          <div class="small-1 medium-1 large-1 columns">
+            <%= f.radio_button(:answer_submission, "D", label: "#{@multi_choice_question.answer_d}") %>
+          </div>
+          <div class="medium-11 large-11 columns">
+            <%= f.label(:answer_submission, "#{@multi_choice_question.answer_d}") %>
+          </div>
+        </div>
+      </div>
+      <div class="multi-choice-submission-button">
+        <%=f.submit 'Submit',class: "button"%>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="small-12 medium-12 large-12 small-centered columns">
+        <div class="did-not-answer-question-flash">
+          <%= flash[:add_a_valid_answer] %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 medium-12 large-12 small-centered columns">
+        <p class="multi-choice-breadcrumb"><%= "Question #{@event.question_number(@multi_choice_question)}/#{@event.count_questions}" %></p>
+      </div>
+    </div>
+  </div>
+</div>

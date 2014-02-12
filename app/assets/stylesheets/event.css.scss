@@ -14,6 +14,12 @@
   height: 200px;
 }
 
+#edit-event-description {
+  #event_description {
+    height: 137px;
+  }
+}
+
 #new_question {
   text-align: right;
 }
@@ -81,3 +87,14 @@
   background-color: #CCCCCC
 }
 
+#event_name {
+  height: 50px;
+}
+
+#event_location {
+  height: 50px;
+}
+
+#event_event_url {
+  height: 50px;
+}
