@@ -18,7 +18,7 @@ class MultiChoiceQuestionsController < ApplicationController
     @multi_choice_question = @event.multi_choice_questions.build(multi_choice_question_params)
     if @multi_choice_question.save
       if params[:commit] == "Save & Add Another Question"
-        session[:update_route] = "yes"
+        session[:update_route] = "no"
         redirect_to new_event_multi_choice_question_path(@event)
       elsif session[:last_page_viewed].include?(@event.id.to_s)
         session[:update_route] = nil
