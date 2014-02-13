@@ -6,6 +6,9 @@ class MultiChoiceQuestionsController < ApplicationController
   end
 
   def new
+    if session[:update_route].nil?
+      session[:last_page_viewed] = request.env['HTTP_REFERER']
+    end
     @event = Event.find(params[:event_id])
     @multi_choice_question = @event.multi_choice_questions.build
   end
@@ -14,9 +17,14 @@ class MultiChoiceQuestionsController < ApplicationController
     @event = Event.find(params[:event_id])
     @multi_choice_question = @event.multi_choice_questions.build(multi_choice_question_params)
     if @multi_choice_question.save
-      if params[:commit] == "Save Question"
+      if params[:commit] == "Save & Add Another Question"
+        session[:update_route] = "yes"
         redirect_to new_event_multi_choice_question_path(@event)
+      elsif session[:last_page_viewed].include?(@event.id.to_s)
+        session[:update_route] = nil
+        redirect_to session[:last_page_viewed]
       else
+        session[:update_route] = nil
         redirect_to user_path(current_user)
       end 
     else

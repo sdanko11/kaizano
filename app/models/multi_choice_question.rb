@@ -31,9 +31,9 @@ class MultiChoiceQuestion < ActiveRecord::Base
 
   def any_answers?
     if multi_choice_answers.count > 0
-      return true
+      true
     else
-      return false
+      false
     end
   end
 

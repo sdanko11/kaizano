@@ -58,6 +58,14 @@ class Event < ActiveRecord::Base
     all_questions_with_percents
   end
 
+  def any_multi_choice_questions?
+    if multi_choice_questions.count > 0
+      true
+    else
+      false
+    end
+  end
+
   def parse_name
     event_name = name
     if event_name.length > 15
