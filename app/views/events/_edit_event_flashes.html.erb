@@ -1,0 +1,18 @@
+<% if flash[:answered_questions] %>
+  <div data-alert class="alert-box">
+      <%= flash[:answered_questions] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+<% if flash[:question_saved] %>
+  <div data-alert class="alert-box">
+      <%= flash[:question_saved] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+<% if flash[:deleted_question] %>
+  <div data-alert class="alert-box">
+      <%= flash[:deleted_question] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>

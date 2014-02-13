@@ -22,9 +22,11 @@ class MultiChoiceQuestionsController < ApplicationController
         redirect_to new_event_multi_choice_question_path(@event)
       elsif session[:last_page_viewed].include?(@event.id.to_s)
         session[:update_route] = nil
+        flash[:question_saved] = "Saved"
         redirect_to session[:last_page_viewed]
       else
         session[:update_route] = nil
+        flash[:question_saved] = "Saved"
         redirect_to user_path(current_user)
       end 
     else
@@ -63,6 +65,12 @@ class MultiChoiceQuestionsController < ApplicationController
         redirect_to event_path(@event)
       end
     end
+  end
+
+  def destroy
+    @multi_choice_question = MultiChoiceQuestion.find(params[:id]).destroy
+    flash[:deleted_question] = "Deleted Question"
+    redirect_to edit_event_path(@multi_choice_question.event)
   end
 
   private
