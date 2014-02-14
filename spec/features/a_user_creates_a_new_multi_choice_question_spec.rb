@@ -15,19 +15,26 @@ describe 'a user wants to add a multiple choice question' do
   # must only show the sub header if the event was created 10 seconds ago
 
   it "should create the question and lead to the new multi choice question view if the user 
-  clicks the 'Save & Add Another Question' button" do
+  clicks the 'Save & Add Another Question' button, and lead the user back to the dashboard once
+  they submit their final question" do
 
       user = FactoryGirl.create(:user)
-      event = FactoryGirl.create(:event, user: user)
+      event = FactoryGirl.build(:event, user: user)
       multi_choice_question = FactoryGirl.build(:multi_choice_question, event: event)
-
 
       visit root_path
       click_link 'Sign In'
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Sign in'
-      visit new_event_multi_choice_question_path(event)
+      click_link "Add Speaking Event"
+      fill_in "Event Name", with: event.name
+      fill_in "Event password", with: event.event_password
+      select("January", from: "event_event_date_2i")
+      select("3", from: "event_event_date_3i")
+      select("2014", from: "event_event_date_1i")
+      fill_in "Event Description", with: event.description
+      click_button "Create Event"
 
       fill_in "Question", with: multi_choice_question.question_body
       fill_in "Option A", with: multi_choice_question.answer_a
@@ -35,12 +42,31 @@ describe 'a user wants to add a multiple choice question' do
       fill_in "Option C", with: multi_choice_question.answer_c
       fill_in "Option D", with: multi_choice_question.answer_d
       select("A", from: "Correct Answer")
+      
       click_button "Save & Add Another Question"
 
-      expect(event.multi_choice_questions.count).to eql(1)
-      expect(page).to have_content "Add Multiple Choice Question"
-      expect(page).to have_button "Save & Add Another Question"
-      expect(page).to have_button "Save Question"
+      fill_in "Question", with: multi_choice_question.question_body
+      fill_in "Option A", with: multi_choice_question.answer_a
+      fill_in "Option B", with: multi_choice_question.answer_b
+      fill_in "Option C", with: multi_choice_question.answer_c
+      fill_in "Option D", with: multi_choice_question.answer_d
+      select("A", from: "Correct Answer")
+      
+      click_button "Save & Add Another Question"
+
+      fill_in "Question", with: multi_choice_question.question_body
+      fill_in "Option A", with: multi_choice_question.answer_a
+      fill_in "Option B", with: multi_choice_question.answer_b
+      fill_in "Option C", with: multi_choice_question.answer_c
+      fill_in "Option D", with: multi_choice_question.answer_d
+      select("A", from: "Correct Answer")
+
+      click_button "Save Question"
+
+      expect(page).to have_content event.name
+      expect(page).to have_content user.first_name
+      expect(page).to have_content user.last_name
+      expect(page).to have_link "Edit Profile"
 
   end
 
