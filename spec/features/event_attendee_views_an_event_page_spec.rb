@@ -70,6 +70,7 @@ and leave feedback for the presentation to further there undestading of presenta
       expect(page).to have_field "question_body"
       expect(page).to have_button "Ask Question"
       expect(page).to have_content "Ask a Question"
+      
     end
 
     it "should have all existing questions listed if there are any questions" do

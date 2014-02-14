@@ -44,16 +44,16 @@
           </div>
           <div class="row">
             <div class="small-12 small-centered medium-6 medium-centered large-5 large-centered columns">
-              <h4 class="question-header">Ask a Question</h4>
             </div>
           </div>
         <% end %>
-      <%= simple_form_for ([@event, @question]) do |f| %>
-        <%= f.input :body, label: false, as: :text %>
-        <%=f.submit "Ask Question",class: "button" %><br>
-        <%=flash[:question_added]%>
-        <%=flash[:question_can_not_be_blank]%>
-      <% end %>
+        <h4 id="ask_question_header">Ask a Question</h4>
+        <%= simple_form_for ([@event, @question]) do |f| %>
+          <%= f.input :body, label: false, as: :text %>
+          <%=f.submit "Ask Question",class: "button" %><br>
+          <%=flash[:question_added]%>
+          <%=flash[:question_can_not_be_blank]%>
+        <% end %>
       </div>
     </div>
   </div>
