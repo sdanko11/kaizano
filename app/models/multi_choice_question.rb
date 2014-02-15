@@ -37,10 +37,6 @@ class MultiChoiceQuestion < ActiveRecord::Base
     end
   end
 
-  def self.update_route?
-    binding.pry
-  end
-
   def count_answers
     if multi_choice_answers.first.nil?
       return "No Answers"
