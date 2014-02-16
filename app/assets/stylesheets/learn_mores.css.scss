@@ -2,11 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.learn-more-header {
+.how-it-works-text {
+  padding-top: 25px;
+}
+
+.learn-more-objects {
+  padding-top: 25px;
+}
+
+#learn_more_title {
+  font-size: 75px;
+  font-weight: bold; 
   text-align: center;
   padding-top: 35px;
 }
 
-.how-it-works-text {
-  padding-top: 25px;
+.screen-shot {
+  max-width: auto;
+  height: auto;
+  border: 10px solid #4D4D4D;
+  border-radius: 50px;
+}
+
+.get-started {
+  padding-top: 50px;
 }

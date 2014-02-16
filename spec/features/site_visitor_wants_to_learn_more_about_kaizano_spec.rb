@@ -22,7 +22,11 @@ describe 'a site visitor wants to learn more about kaizano' do
       visit root_path
       click_link "Learn More"
 
-      expect(page).to have_content "What is Kaizano?"
+      expect(page).to have_content "Improve Your Public Speaking"
+      expect(page).to have_content "Connect with your Audience"
+      expect(page).to have_content "Real Honest Audience Feedback"
+      expect(page).to have_content "Multiple Choice Questions"
+      expect(page).to have_content "Your Dashboard"
       expect(page).to have_link "Get Started"
       
   end
@@ -39,8 +43,6 @@ describe 'a site visitor wants to learn more about kaizano' do
       visit root_path
       click_link "Learn More"
 
-      expect(page).to have_content user.first_name
-      expect(page).to have_content user.last_name
       click_link "Get Started"
       expect(page).to have_link "Add Speaking Event"
 
