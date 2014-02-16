@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   before_filter :authenticate_user!
   before_filter :validate_user, :only => :show
 
@@ -8,6 +9,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.remove_avatar! if params[:user][:remove_avatar] == "1"
     if @user.update(user_params)
       flash[:saved]="Saved Changes"
       redirect_to  user_path
@@ -19,6 +21,16 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @all_events = current_user.events
+  end
+
+  def destroy
+    @user = User.find(params[:id]).destroy
+    if @user.destroyed? 
+      flash[:deleted_account] = "Account deleted, we're sorry to lose you."
+      redirect_to root_path
+    else 
+      render :new
+    end
   end
 
   def validate_user

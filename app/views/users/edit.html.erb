@@ -7,6 +7,10 @@
         <%= f.input :about_me, label: "About you (500 character max)", as: :text%><br/>
         <%= f.label "Profile Photo"%><br>
         <%= f.file_field :avatar%><br>
+        <label>
+          <%= f.check_box :remove_avatar %>
+          Remove Avatar?
+        </label>
         <%= f.input :twitter_handle, label: 'Twitter Url'%><br/>
         <%= f.input :linked_in_url, label: 'LinkedIn Url'%><br/>
         <div class="row">
@@ -23,6 +27,11 @@
             </div>
           <% end %>
         </div>
+        <div class="row">
+          <div class="large-6 columns">
+            <h6><%= link_to "Delete Account", @user, method: :delete, data: { confirm: 'Are you sure you want to delete your account?' } %></h6>
+          </div>
+        <div>
       </div> 
     </div>
   </div>

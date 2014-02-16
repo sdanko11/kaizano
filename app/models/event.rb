@@ -49,15 +49,6 @@ class Event < ActiveRecord::Base
     event_date.to_date.strftime("%b %e, %Y")
   end
 
-  def calculate_percentage_of_correct_answers(multi_choice_question_data)
-    all_questions_with_percents = []
-    multi_choice_question_data.each do |question|
-      percentage_of_correct_answers = question.values.flatten.first.to_f/question.values.flatten.last.to_f
-      all_questions_with_percents << {question.keys.join => (percentage_of_correct_answers * 100).to_i}
-    end
-    all_questions_with_percents
-  end
-
   def any_multi_choice_questions?
     if multi_choice_questions.count > 0
       true

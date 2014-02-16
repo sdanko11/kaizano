@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
+  
   validates_presence_of :rating, message: "Please Give a Review"
   validates_length_of :rating, :maximum => 8
   belongs_to :event

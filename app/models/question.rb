@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
 
   def format_comments
     question_comments.each do |comment|
-      puts "#{comment.body}"
+      "#{comment.body}"
     end
   end
 

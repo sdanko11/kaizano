@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  
   before_filter :does_user_own_event, :only => [:index]
   before_filter :have_they_entered_password?, only: [:new]
 

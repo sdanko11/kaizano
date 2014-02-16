@@ -1,4 +1,5 @@
 class QuestionAnswersController < ApplicationController
+  
   before_filter :does_user_own_event, :only => [:new, :create, :edit, :update]
 
   def new
