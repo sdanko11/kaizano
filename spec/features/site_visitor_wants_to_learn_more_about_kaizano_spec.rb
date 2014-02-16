@@ -24,7 +24,7 @@ describe 'a site visitor wants to learn more about kaizano' do
 
       expect(page).to have_content "Improve Your Public Speaking"
       expect(page).to have_content "Connect with your Audience"
-      expect(page).to have_content "Real Honest Audience Feedback"
+      expect(page).to have_content "Honest Audience Feedback"
       expect(page).to have_content "Multiple Choice Questions"
       expect(page).to have_content "Your Dashboard"
       expect(page).to have_link "Get Started"
