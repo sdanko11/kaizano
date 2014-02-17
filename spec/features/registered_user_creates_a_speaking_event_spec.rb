@@ -53,7 +53,7 @@ describe 'a registered user wants to create a speaking event' do
       expect(page).to have_content "Add Multiple Choice Question"
       expect(page).to have_button "Save & Add Another Question"
       expect(page).to have_button "Save Question"
-      expect(page).to have_content "Use multiple choice questions to gage how well
+      expect(page).to have_content "Use multiple choice questions to gauge how well
       your audience is grasping the topic your presenting on."
 
   end

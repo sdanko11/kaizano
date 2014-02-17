@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :validate_user, :only => :show
 
+  def show
+    @user = User.find(params[:id])
+    @all_events = current_user.events
+  end
+
   def edit
     @user = current_user
   end
@@ -16,11 +21,6 @@ class UsersController < ApplicationController
     else
       render action: 'edit'
     end
-  end
-
-  def show
-    @user = User.find(params[:id])
-    @all_events = current_user.events
   end
 
   def destroy

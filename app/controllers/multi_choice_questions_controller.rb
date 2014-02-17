@@ -34,20 +34,6 @@ class MultiChoiceQuestionsController < ApplicationController
     end
   end
 
-  def edit 
-    @event = Event.find(params[:event_id])
-    @multi_choice_question = MultiChoiceQuestion.find(params[:id])
-  end
-
-  def update
-    @event = Event.find(params[:event_id])
-    @multi_choice_question = MultiChoiceQuestion.find(params[:id])
-    if @multi_choice_question.update_attributes(multi_choice_question_params)
-      flash[:answered_questions] = "Saved Changes"
-      redirect_to edit_event_path(@event)
-    end
-  end
-
   def show
     @event = Event.find(params[:event_id])
     @multi_choice_answer = MultiChoiceAnswer.new
@@ -64,6 +50,20 @@ class MultiChoiceQuestionsController < ApplicationController
         flash[:answered_questions] = "Answers Submitted"
         redirect_to event_path(@event)
       end
+    end
+  end
+
+  def edit
+    @event = Event.find(params[:event_id])
+    @multi_choice_question = MultiChoiceQuestion.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:event_id])
+    @multi_choice_question = MultiChoiceQuestion.find(params[:id])
+    if @multi_choice_question.update_attributes(multi_choice_question_params)
+      flash[:answered_questions] = "Saved Changes"
+      redirect_to edit_event_path(@event)
     end
   end
 

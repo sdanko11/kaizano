@@ -33,17 +33,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @question_comment = QuestionComment.new
+    @question = Question.new
+    @multi_choice_answer = MultiChoiceAnswer.new
+    @event = Event.find(params[:id])
+  end
+
   def edit
     @event = Event.find(params[:id])
     if @event.multi_choice_questions.count > 0
       @multi_choice_questions = @event.multi_choice_questions.first
     end
-  end
-
-  def destroy
-    @event = Event.find(params[:id]).destroy
-    flash[:deleted] = "Deleted Event"
-    redirect_to user_path(current_user)
   end
 
   def update
@@ -56,11 +57,10 @@ class EventsController < ApplicationController
     end
   end
 
-  def show
-    @question_comment = QuestionComment.new
-    @question = Question.new
-    @multi_choice_answer = MultiChoiceAnswer.new
-    @event = Event.find(params[:id])
+  def destroy
+    @event = Event.find(params[:id]).destroy
+    flash[:deleted] = "Deleted Event"
+    redirect_to user_path(current_user)
   end
 
   def does_user_own_event

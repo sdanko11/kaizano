@@ -4,24 +4,31 @@ Kaizano::Application.routes.draw do
   root to: "home#index"
 
   resources :events do
-    resources :reviews
-    resources :questions
-    resources :event_sessions
+    resources :reviews, only: [:index, :show, :create, :new]
+    resources :questions, only: [:new, :create]
     resources :multi_choice_questions
   end
 
   resources :questions do
-    resources :question_votes 
-    resources :question_comments
-    resources :question_answers
+    resources :question_comments, only: [:new, :create]
+    resources :question_answers, only: [:new, :create, :edit, :update]
   end
 
   resources :multi_choice_questions do 
-    resources :multi_choice_answers
+    resources :multi_choice_answers, only: [:create]
   end
 
-  resources :users, :thanks, :messages, :how_it_works, :learn_mores, :contact_forms, :left_feedbacks, :about_us,
-  :add_multi_choice_questions
+  resources :users, only: [:edit, :update, :show, :destroy]
+
+  resources :how_it_works, only: [:index]
+
+  resources :learn_mores, only: [:index]
+
+  resources :contact_forms, only: [:new, :create] 
+
+  resources :left_feedbacks, only: [:index]
+
+  resources :about_us, only: [:index]
 
   #  get "blog_post/index"
 

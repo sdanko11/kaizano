@@ -297,7 +297,7 @@ describe 'a user wants to add a multiple choice question' do
     click_button 'Sign in'
 
     visit new_event_multi_choice_question_path(event)
-    expect(page).to_not have_content "Use multiple choice questions to gage how 
+    expect(page).to_not have_content "Use multiple choice questions to gauge how 
     well your audience is grasping the topic your presenting on."
     expect(page).to_not have_content "Add Multiple Choice Question"
     expect(page).to have_content "Add New Multiple Choice Question"
@@ -317,7 +317,7 @@ describe 'a user wants to add a multiple choice question' do
     click_button 'Sign in'
 
     visit new_event_multi_choice_question_path(event)
-    expect(page).to have_content "Use multiple choice questions to gage how 
+    expect(page).to have_content "Use multiple choice questions to gauge how 
     well your audience is grasping the topic your presenting on."
     expect(page).to have_content "Add Multiple Choice Question"
 
