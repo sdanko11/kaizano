@@ -1,75 +1,80 @@
 <%= render 'edit_event_flashes' %>
+<div class="row">
+  <div class="small-11 medium-7 large-11 small-centered columns">
+    <div class="back-link">
+      <%= link_to "Back to Dashboard", :back %>
+    </div>
+  </div>
+</div>
 <div class="row small">
-  <div class="container">
-    <div class="panel small-11 medium-7 large-11 small-centered columns">
-      <h2>Edit Event Details</h2>
-      <h5 class="delete-event"><%= link_to "Delete Event", @event, method: :delete, data: { confirm: 'Are you sure?  All reviews and questions will also be deleted.' } %></h5>
-      <%= simple_form_for(@event) do |f| %>
-        <div class="row">
-          <div class="large-12 columns">
-            <div class="row">
-              <div class="large-3 columns">
-                <%= f.input :name %>
-              </div>
-              <div class="large-3 columns">
-                <%= f.input :location %>
-              </div>
-              <div class="large-3 columns">
-                <%= f.input :event_url %>
-              </div>
-              <div class="large-3 columns">
-                <%= f.input :event_password, as: :text %>
+  <div class="panel small-11 medium-7 large-11 small-centered columns">
+    <h2>Edit Event Details</h2>
+    <h5 class="delete-event"><%= link_to "Delete Event", @event, method: :delete, data: { confirm: 'Are you sure?  All reviews and questions will also be deleted.' } %></h5>
+    <%= simple_form_for(@event) do |f| %>
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="row">
+            <div class="large-3 columns">
+              <%= f.input :name %>
+            </div>
+            <div class="large-3 columns">
+              <%= f.input :location %>
+            </div>
+            <div class="large-3 columns">
+              <%= f.input :event_url %>
+            </div>
+            <div class="large-3 columns">
+              <%= f.input :event_password, as: :text %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <%= f.input :event_date, label: "Date", as: :date, start_year: Date.today.year, order: [:month , :day, :year], :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}  %>
+            </div>
+            <div class="large-8 columns">
+              <div id="edit-event-description">
+                <%= f.input :description; %>
               </div>
             </div>
-            <div class="row">
-              <div class="large-4 columns">
-                <%= f.input :event_date, label: "Date", as: :date, start_year: Date.today.year, order: [:month , :day, :year], :prompt => {:day => 'Day', :month => 'Month', :year => 'Year'}  %>
+            <% if @event.any_multi_choice_questions? %>
+              <div class="large-12 columns">
+                <h4>Multiple Choice Questions</h4>
               </div>
-              <div class="large-8 columns">
-                <div id="edit-event-description">
-                  <%= f.input :description; %>
-                </div>
+              <div class="large-12 columns">
+                <h5><%= link_to "Add New Question", new_event_multi_choice_question_path(@event) %></h5>
               </div>
-              <% if @event.any_multi_choice_questions? %>
-                <div class="large-12 columns">
-                  <h4>Multiple Choice Questions</h4>
-                </div>
-                <div class="large-12 columns">
-                  <h5><%= link_to "Add New Question", new_event_multi_choice_question_path(@event) %></h5>
-                </div>
-                <div class="large-12 columns">
-                  <table>
-                    <tbody>
-                      <% @event.multi_choice_questions.each do |question| %>
-                        <tr>
-                          <td width="875"><%= question.question_body %></td>
-                          <td align="center"><%= link_to "Edit", edit_event_multi_choice_question_path(@event, question) %></td>
-                        <tr>
-                        <% end %>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              <% else %>
-                <div class="large-12 columns">
-                  <h5 id="add_multi_choice_no_questions"><%= link_to "Add Multiple Choice Question", new_event_multi_choice_question_path(@event) %></h5>
-                </div>
-              <% end %>            
-              <div class="large-6 medium-6 columns">
-                <div class="full-length-button">
-                  <%= f.submit 'Save Changes',class: "button" %>
-                </div>
+              <div class="large-12 columns">
+                <table>
+                  <tbody>
+                    <% @event.multi_choice_questions.each do |question| %>
+                      <tr>
+                        <td width="875"><%= question.question_body %></td>
+                        <td align="center"><%= link_to "Edit", edit_event_multi_choice_question_path(@event, question) %></td>
+                      <tr>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="large-6 medium-6 columns">
-                <div class="full-length-button">
-                  <%= link_to "Cancel", user_path(current_user), class: "button" %>
-                </div>
+            <% else %>
+              <div class="large-12 columns">
+                <h5 id="add_multi_choice_no_questions"><%= link_to "Add Multiple Choice Question", new_event_multi_choice_question_path(@event) %></h5>
               </div>
+            <% end %>            
+            <div class="large-6 medium-6 columns">
+              <div class="full-length-button">
+                <%= f.submit 'Save Changes',class: "button" %>
               </div>
+            </div>
+            <div class="large-6 medium-6 columns">
+              <div class="full-length-button">
+                <%= link_to "Cancel", user_path(current_user), class: "button" %>
+              </div>
+            </div>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
