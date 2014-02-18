@@ -10,17 +10,17 @@ describe 'a site visitor wants to learn more about kaizano' do
   # If the user is signed it the get started button takes them to their dashboard
   # if the user is not signed in it takes them to the signup page
 
-  it "should have link to learn more" do
+  it "should have link to about" do
 
     visit root_path
-    expect(page).to have_link "Learn More"
+    expect(page).to have_link "About"
 
   end
 
-  it "has learn more content on the page" do
+  it "has about content on About" do
 
       visit root_path
-      click_link "Learn More"
+      click_link "About"
 
       expect(page).to have_content "Improve Your Public Speaking"
       expect(page).to have_content "Connect with your Audience"
@@ -41,7 +41,7 @@ describe 'a site visitor wants to learn more about kaizano' do
       fill_in 'Password', with: user.password
       click_button 'Sign in'
       visit root_path
-      click_link "Learn More"
+      click_link "About"
 
       click_link "Get Started"
       expect(page).to have_link "Add Speaking Event"
@@ -51,7 +51,7 @@ describe 'a site visitor wants to learn more about kaizano' do
   it "leads a visor to the sign up page if they are not signed in after visting the learn more page" do
 
       visit root_path
-      click_link "Learn More"
+      click_link "About"
       click_link "Get Started"
 
       expect(page).to have_content "Sign Up"

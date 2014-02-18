@@ -29,7 +29,7 @@
                 <a href="#">More</a>
                 <ul class="dropdown">
                   <li><%= link_to "How it Works", how_it_works_path %></li>
-                  <li><%= link_to "Learn More", learn_mores_path %></li>
+                  <li><%= link_to "About", learn_mores_path %></li>
                   <li><%= link_to "Contact Us",new_contact_form_path %></li>
                 </ul>
               </li>
@@ -37,13 +37,13 @@
           <% else %>
             <ul class="right">
               <li><%= link_to "Join a Presentation", events_path %></li>
-              <li><%= link_to "How it Works",how_it_works_path %></li>
+              <li><%= link_to "About", learn_mores_path %></li>
               <li><%= link_to "Sign Up",new_user_registration_path %></li>
               <li><%= link_to "Sign In",new_user_session_path %></li>      
               <li class="has-dropdown">
                 <a href="#">More</a>
                 <ul class="dropdown">
-                  <li><%= link_to "Learn More", learn_mores_path %></li>
+                  <li><%= link_to "How it Works",how_it_works_path %></li>
                   <li><%= link_to "Contact Us",new_contact_form_path %></a></li>
                 </ul>
               </li>
