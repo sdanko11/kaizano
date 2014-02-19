@@ -12,6 +12,7 @@ describe 'a site visitor wants to learn more about kaizano' do
 
   it "should have link to about" do
 
+    user = FactoryGirl.create(:user)
     visit root_path
     expect(page).to have_link "About"
 

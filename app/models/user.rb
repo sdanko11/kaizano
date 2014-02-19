@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :encrypted_password
   validates_presence_of :sign_in_count
-  validates_presence_of :about_me
   has_many :events, dependent: :destroy
   mount_uploader :avatar, ImageUploader
   validates_length_of :about_me, :maximum => 500
@@ -78,4 +77,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def calulate_profile_completion_percent
+    precentage_complete = 20
+    precentage_complete += 35 if about_me
+    precentage_complete += 10 if twitter_handle
+    precentage_complete += 10 if linked_in_url
+    precentage_complete += 25 if avatar.present?
+    return "Profile is #{precentage_complete}% complete"
+  end
+
+      
 end
