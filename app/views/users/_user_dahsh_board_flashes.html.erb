@@ -1,0 +1,18 @@
+<% if flash[:event_saved] %>
+  <div data-alert class="alert-box">
+      <%= flash[:event_saved] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+<% if flash[:saved] %>
+  <div data-alert class="alert-box">
+      <%= flash[:saved] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+<% if flash[:deleted] %>
+  <div data-alert class="alert-box">
+      <%= flash[:deleted] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>

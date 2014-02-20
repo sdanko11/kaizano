@@ -9,7 +9,7 @@ describe 'a registered user should know how much they have to go before thier pr
   # twitter and linked in accounts for 20% 
   # profile photo accounts for 25%
 
-  it "should state the profile is 100% complete if all fields are added" do
+  it "not state the percentage of profile completed if the profile is 100% complete" do
 
     user = FactoryGirl.create(:user)
     
@@ -19,7 +19,7 @@ describe 'a registered user should know how much they have to go before thier pr
     fill_in 'Password', with: user.password
     click_button 'Sign in'
 
-    expect(page).to have_content "Profile is 100% complete"
+    expect(page).to_not have_content "Profile is 100% complete"
     
   end
 

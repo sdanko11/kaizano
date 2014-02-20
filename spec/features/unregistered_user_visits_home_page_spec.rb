@@ -57,7 +57,6 @@ describe 'a unregisted user vistits the home page' do
       password_field = page.all(:field, "Password")
       fill_in "user_password", with: "password"
       fill_in "user_password_confirmation", with: "password"
-      fill_in "user_about_me", with: "My name is steve."
 
       click_button "Sign up"
   
@@ -93,7 +92,6 @@ describe 'a unregisted user vistits the home page' do
       password_field = page.all(:field, "pad")
       fill_in "user_password", with: "pad"
       fill_in "user_password_confirmation", with: "password"
-      fill_in "user_about_me", with: "My name is steve."
 
       click_button "Sign up"
   

@@ -79,11 +79,11 @@ class User < ActiveRecord::Base
 
   def calulate_profile_completion_percent
     precentage_complete = 20
-    precentage_complete += 35 if about_me
-    precentage_complete += 10 if twitter_handle
-    precentage_complete += 10 if linked_in_url
+    precentage_complete += 35 if !about_me.nil? && about_me.length > 0
+    precentage_complete += 10 if !twitter_handle.nil? && twitter_handle.length > 0
+    precentage_complete += 10 if linked_in_url && linked_in_url.length > 0
     precentage_complete += 25 if avatar.present?
-    return "Profile is #{precentage_complete}% complete"
+    return "#{precentage_complete}%"
   end
 
       
