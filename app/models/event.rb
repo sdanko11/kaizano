@@ -1,24 +1,37 @@
 class Event < ActiveRecord::Base
   
   validates_presence_of :name
+  
   validates_presence_of :description
+  
   validates_length_of :description, :maximum => 500
+  
   validates_presence_of :event_password
+  
   validates_presence_of :event_date
+  
   validates :event_password, uniqueness: true
+  
   belongs_to :user
-  has_many :reviews, dependent: :destroy
-  validates_length_of :event_password, :maximum => 8
-  has_many :questions, dependent: :destroy
-  has_many :multi_choice_questions, dependent: :destroy
+  
+  has_many :reviews, 
+    dependent: :destroy
 
+  has_many :questions, 
+    dependent: :destroy
+  
+  has_many :multi_choice_questions, 
+    dependent: :destroy
+  
+  validates_length_of :event_password, :maximum => 8
+  
   def self.search(search)
     if search != nil
       Event.where("event_password like ?", "#{search}")
     end
   end
 
- def calculate_average_rating
+  def calculate_average_rating
     @all_reviews = []
     review_count = count_reviews
     reviews.each do |review|

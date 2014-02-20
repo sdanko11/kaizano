@@ -25,6 +25,5 @@ FactoryGirl.define do
    password_confirmation "1222678"
    last_name "Danko"
    twitter_handle "www.twitter.com"
-   about_me "My names is bob."
   end
 end

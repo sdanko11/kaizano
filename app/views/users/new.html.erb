@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="panel small-11 small-centered medium-7 large-5 columns">  
+    <div class="row">
+      <h2 class="new-event-title">About You</h2>
+      <h5><i>Let the audience know who you are.</i></h5>
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.input :about_me, label: false %>
+        <div class="full-length-button">
+          <%= f.submit 'Next',class: "button" %>
+        </div>
+        <div class="about-me-flash">
+          <%= flash[:add_about_me] %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

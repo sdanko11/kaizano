@@ -28,6 +28,46 @@ describe 'a registered user wants to create a speaking event' do
       expect(page).to have_link "Add Speaking Event"
   end
 
+  it "should lead to a view to add about me if the user does not have about me as part of 
+  their profile" do
+
+      user = FactoryGirl.create(:user, about_me: nil)
+
+      visit root_path
+      click_link 'Sign In'
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      click_button 'Sign in'
+      visit user_path(user)
+      click_link "Add Speaking Event"
+
+      expect(page).to have_content "About You"
+      expect(page).to have_content "Let the audience know who you are."
+      expect(page).to have_button "Next"
+  end
+
+  it "should lead to the new event view if the user has an about me section" do
+
+      user = FactoryGirl.create(:user)
+
+      visit root_path
+      click_link 'Sign In'
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      click_button 'Sign in'
+      visit user_path(user)
+      click_link "Add Speaking Event"
+
+      expect(page).to have_content "Create New Speaking Event"
+      expect(page).to have_content "Event Name"
+      expect(page).to have_content "Location"
+      expect(page).to have_content "Event url"
+      expect(page).to have_content "Date"
+      expect(page).to have_content "Event Description"
+      expect(page).to have_button "Create Event"
+
+  end
+
   it "should have create a event if all required fields are added && lead to new multi choice 
   question creation" do
 

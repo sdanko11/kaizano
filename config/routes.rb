@@ -18,7 +18,7 @@ Kaizano::Application.routes.draw do
     resources :multi_choice_answers, only: [:create]
   end
 
-  resources :users, only: [:edit, :update, :show, :destroy]
+  resources :users, only: [:edit, :update, :show, :destroy, :new]
 
   resources :how_it_works, only: [:index]
 

@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :validate_user, :only => :show
 
+  def new
+    @user = current_user
+  end
+
   def show
     @user = User.find(params[:id])
     @all_events = current_user.events
@@ -15,11 +19,21 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.remove_avatar! if params[:user][:remove_avatar] == "1"
-    if @user.update(user_params)
-      flash[:saved]="Saved Changes"
-      redirect_to  user_path
-    else
-      render action: 'edit'
+    if params[:commit] == "Save Changes"
+      if @user.update(user_params)
+        flash[:saved] = "Saved Changes"
+        redirect_to  user_path
+      else
+        render action: 'edit'
+      end
+    elsif params[:commit] == "Next"
+      if params[:user][:about_me].length > 0
+        @user.update(user_params)
+        redirect_to new_event_path
+      else
+        flash[:add_about_me] = "Must Complete About You to Continue"
+        render action: 'new'
+      end
     end
   end
 

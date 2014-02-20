@@ -1,15 +1,25 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable
+  
   validates_presence_of :first_name
+  
   validates_presence_of :last_name
+  
   validates_presence_of :email
+  
   validates_presence_of :encrypted_password
+  
   validates_presence_of :sign_in_count
-  has_many :events, dependent: :destroy
+  
+  has_many :events, 
+    dependent: :destroy
+  
   mount_uploader :avatar, ImageUploader
+
   validates_length_of :about_me, :maximum => 500
 
 
@@ -84,6 +94,16 @@ class User < ActiveRecord::Base
     precentage_complete += 10 if linked_in_url && linked_in_url.length > 0
     precentage_complete += 25 if avatar.present?
     return "#{precentage_complete}%"
+  end
+
+  def has_about_me?
+    if self.about_me.nil?
+      return false
+    elsif self.about_me.length == 0
+      return false
+    else 
+      return true
+    end
   end
 
       
