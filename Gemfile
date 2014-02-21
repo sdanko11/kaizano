@@ -32,6 +32,7 @@ gem "chartkick"
 gem "font-awesome-rails"
 
 gem 'carrierwave'
+
 gem 'rmagick'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -42,9 +43,14 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'foundation-rails'
 
+group :assets do
+  gem 'foundation-icons-sass-rails'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+
 end
 
 gem 'devise'

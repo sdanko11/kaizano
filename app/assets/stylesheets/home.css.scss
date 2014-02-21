@@ -2,9 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// .sub-header1 {
+//   font-size: 75px;
+//   color: white;
+//   font-weight: bold;
+// }
 
-.sub-header {
-  text-align: center;
+.sub-header1 {
+  font-size: 45px;
+  color: white;
+  font-weight: bold;
+}
+
+.sub-header2 {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  line-height: 30px;
+}
+.title-home {
+  padding-bottom: 10px;
 }
 
 .give-feedback-button {
@@ -21,5 +38,21 @@
 }
 
 .container-home {
-  padding-top: 50px;
+  padding-top: 8%;
 }
+
+#home_buttons {
+  padding-top: 10px;
+}
+
+.header {
+  background: image-url('backround_images/kaizano_br1.jpg') no-repeat top center;
+  height: 550px;
+  background-size: contain;
+  background-size: cover;
+}
+
+#icons {
+  text-align: center;
+  padding-top: 5%;
+} 
