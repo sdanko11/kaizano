@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
 
   validates_length_of :about_me, :maximum => 500
 
-
   def each_event_rating_average
     @each_event_rating_average = []
     @all_ratings_from_an_event = []
@@ -98,13 +97,12 @@ class User < ActiveRecord::Base
 
   def has_about_me?
     if self.about_me.nil?
-      return false
+      false
     elsif self.about_me.length == 0
-      return false
+      false
     else 
-      return true
+      true
     end
   end
-
       
 end

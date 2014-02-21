@@ -27,12 +27,11 @@ class UsersController < ApplicationController
         render action: 'edit'
       end
     elsif params[:commit] == "Next"
-      if params[:user][:about_me].length > 0
-        @user.update(user_params)
+      if params[:user][:about_me].length > 0 && @user.update(user_params)
         redirect_to new_event_path
       else
-        flash[:add_about_me] = "Must Complete About You to Continue"
-        render action: 'new'
+        flash[:add_about_me] = "Must Complete About You to Continue" if params[:user][:about_me].length == 0
+        render :new
       end
     end
   end
