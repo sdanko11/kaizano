@@ -47,8 +47,11 @@ describe 'a user wants to delete thier account spec' do
     click_link 'Edit Profile'
     click_link "Delete Account"
   
-    expect(page).to have_content "Welcome to Kaizano"
+    expect(page).to have_content "Hone your Presentation Skills
+    We Make it Easy to Connect with your Audience and Improve your Presentation Skills."
+    
     expect(page).to have_content "Account deleted, we're sorry to lose you."
+    
     expect(User.count).to eql(0)
     expect(Event.count).to eql(0)
     expect(Review.count).to eql(0)
