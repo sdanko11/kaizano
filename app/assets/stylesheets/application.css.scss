@@ -11,7 +11,7 @@
  *= require_self
  *= require foundation_and_overrides
  *= require_tree .
-  *= require font-awesome
+ *= require font-awesome
  */
 
 
@@ -23,9 +23,6 @@
   font-family: 'Nunito';
 }
 
-/*.page-body {
-  padding-bottom: 50px;
-}*/
 .container {
   padding-top: 35px;
 }
