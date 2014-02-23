@@ -6,6 +6,7 @@
     </title>
     <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body class="page-body">
@@ -61,6 +62,5 @@
     </script>
     <link rel="stylesheet" href="css/foundation-icons.css" />
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
   </body>
 </html>
