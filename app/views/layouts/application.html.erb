@@ -5,8 +5,8 @@
       <%= content_for?(:title) ? yield(:title) : "Kaizano" %>
     </title>
     <%= stylesheet_link_tag "application" %>
-    <%= csrf_meta_tags %>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body class="page-body">
