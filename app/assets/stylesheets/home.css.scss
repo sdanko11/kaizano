@@ -2,12 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .sub-header1 {
-//   font-size: 75px;
-//   color: white;
-//   font-weight: bold;
-// }
-
 .sub-header1 {
   font-size: 45px;
   color: white;
@@ -20,6 +14,7 @@
   font-weight: bold;
   line-height: 30px;
 }
+
 .title-home {
   padding-bottom: 10px;
 }
@@ -28,7 +23,7 @@
   padding-left: 25px;
   .button{
   width: 200px;
-}
+  }
 }
 
 .home-button-group {
