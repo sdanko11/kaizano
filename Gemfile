@@ -43,9 +43,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'foundation-rails'
 
-group :assets do
-  gem 'foundation-icons-sass-rails'
-end
+gem 'foundation-icons-sass-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
