@@ -17,3 +17,5 @@
 //= require_self
 
 $(function(){ $(document).foundation(); });
+
+//= require turbolinks
