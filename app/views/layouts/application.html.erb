@@ -5,6 +5,7 @@
       <%= content_for?(:title) ? yield(:title) : "Kaizano" %>
     </title>
     <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
@@ -59,8 +60,5 @@
     ga('create', 'UA-47486611-1', 'kaizano.herokuapp.com');
     ga('send', 'pageview');
     </script>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-    <link rel="stylesheet" href="css/foundation-icons.css" />
   </body>
 </html>

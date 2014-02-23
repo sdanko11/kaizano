@@ -30,6 +30,7 @@
       </div>
     </div> 
     <div class="row">
+      <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
       <%= pie_chart @multi_choice_answers.group("answer_submission").count, :library => {:backgroundColor => "#F2F2F2"} %>
     </div>
   </div>
