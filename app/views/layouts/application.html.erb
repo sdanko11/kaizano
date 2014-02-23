@@ -6,7 +6,7 @@
     </title>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
     <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+    
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="css/foundation-icons.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,5 +62,6 @@
     ga('create', 'UA-47486611-1', 'kaizano.herokuapp.com');
     ga('send', 'pageview');
     </script>
+    <%= javascript_include_tag "vendor/modernizr" %>
   </body>
 </html>
