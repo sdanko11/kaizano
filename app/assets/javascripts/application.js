@@ -15,6 +15,5 @@
 //= require foundation
 //= require_tree .
 //= require_self
-//= require turbolinks
 
 $(function(){ $(document).foundation(); });
