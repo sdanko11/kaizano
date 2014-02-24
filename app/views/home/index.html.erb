@@ -82,6 +82,19 @@
       <font class="title-home">Get Analytics on all your presentations, see where you're falling short and track your improvement.</font>
   </div>
 </div>
+<div id="home_button_get_started">
+  <div class ="row">
+    <div class="small-11 medium-6 large-6 small-centered columns">
+      <div class="full-length-button">
+        <% if user_signed_in? %>
+          <%= link_to "Get Started Today!", new_event_path, class: "button round" %>
+        <% else %>
+          <%= link_to "Get Started Today!", new_user_registration_path, class: "button round" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 <div id="name">
   <div id="footer" style="background-color:#000000;">
     <div class="row">
