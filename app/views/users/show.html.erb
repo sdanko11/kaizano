@@ -41,17 +41,11 @@
 <% end %>
 <div class="row">
   <div class="large-4 medium-4 small-12 columns">
-    <div class="row">
-    </div>
-      <div class="full-length-button">
-        <% if @user.has_about_me? %>
-          <%= link_to "Add Speaking Event", new_event_path, class: "button" %>
-        <% else %>
-          <%= link_to "Add Speaking Event", new_user_path, class: "button" %>
-        <% end %>
-      </div>
+    <div class="full-length-button">
+      <%= link_to "Add Speaking Event", new_event_path, class: "button" %>
     </div>
   </div>
+</div>
 <div class="row">
   <%= render 'events' %>
 </div>

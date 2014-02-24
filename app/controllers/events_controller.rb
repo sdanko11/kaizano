@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   before_filter :does_user_own_event, :only => [:edit]
   before_filter :did_they_enter_password?, only: [:show]
   before_filter :have_they_answered_multi_choice_questions?, only: [:show]
+  before_filter :do_they_have_about_me?, only: [:new, :create]
 
   def index
     session[:events_authenticated] = [] if session[:events_authenticated].nil?
@@ -89,6 +90,10 @@ class EventsController < ApplicationController
     if !session[:answered_multi_choice].present?
       session[:answered_multi_choice] = []
     end
+  end
+
+  def do_they_have_about_me?
+    redirect_to new_user_path if current_user.about_me.nil? || current_user.about_me.blank?
   end
 
   private
