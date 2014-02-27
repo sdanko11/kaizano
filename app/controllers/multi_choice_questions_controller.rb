@@ -36,21 +36,8 @@ class MultiChoiceQuestionsController < ApplicationController
 
   def show
     @event = Event.find(params[:event_id])
+    @multi_choice_question = MultiChoiceQuestion.find(params[:id])
     @multi_choice_answer = MultiChoiceAnswer.new
-    if params[:id] == "no_id"
-      @multi_choice_question = @event.multi_choice_questions.first
-    else
-      all_multi_choice_questions = @event.multi_choice_questions.load
-      last_question_answered = MultiChoiceQuestion.find(params[:id])
-      index = all_multi_choice_questions.index(last_question_answered)
-      index += 1
-      @multi_choice_question = all_multi_choice_questions[index]
-      if @multi_choice_question.nil?
-        session[:answered_multi_choice] << @event.id
-        flash[:answered_questions] = "Answers Submitted"
-        redirect_to event_path(@event)
-      end
-    end
   end
 
   def edit

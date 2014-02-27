@@ -40,6 +40,7 @@ class EventsController < ApplicationController
     @question = Question.new
     @multi_choice_answer = MultiChoiceAnswer.new
     @event = Event.find(params[:id])
+    @multi_choice_question = @event.multi_choice_questions.first
   end
 
   def edit

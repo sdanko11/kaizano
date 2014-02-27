@@ -40,7 +40,7 @@
       </div>
         <% if @event.multi_choice_questions.present? && !session[:answered_multi_choice].include?(@event.id)  %>
           <div class="answer-questions-button">
-            <%= link_to 'Answer Speaker Questions', event_multi_choice_question_path(@event, "no_id"), class: "button" %>
+            <%= link_to 'Answer Speaker Questions', event_multi_choice_question_path(@event, @multi_choice_question), class: "button" %>
           </div>
           <div class="row">
             <div class="small-12 small-centered medium-6 medium-centered large-5 large-centered columns">

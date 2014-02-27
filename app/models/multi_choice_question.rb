@@ -53,4 +53,14 @@ class MultiChoiceQuestion < ActiveRecord::Base
     end
   end
 
+  def last_question?
+    self == self.event.multi_choice_questions.last
+  end
+
+  def get_next_question
+    all_questions = self.event.multi_choice_questions.all
+    index = all_questions.index(self)
+    all_questions[index += 1]
+  end
+
 end
