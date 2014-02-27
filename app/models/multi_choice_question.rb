@@ -53,5 +53,4 @@ class MultiChoiceQuestion < ActiveRecord::Base
     end
   end
 
-
 end

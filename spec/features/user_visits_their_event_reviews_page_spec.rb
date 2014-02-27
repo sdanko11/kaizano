@@ -511,4 +511,46 @@ require 'spec_helper'
 
   end
 
+  it "the graph view should display the multi-choice question, the correct answer, and the 
+  total number of answers submitted" do
+
+    user = FactoryGirl.create(:user)
+    event5 = FactoryGirl.create(:event, user: user)
+    multi_choice_question = FactoryGirl.create(:multi_choice_question, answer: 'A',
+    event: event5)
+    
+    multi_choice_answer1 = FactoryGirl.create(:multi_choice_answer, 
+    answer_submission: 'B', multi_choice_question: multi_choice_question)
+    
+    multi_choice_answer2 = FactoryGirl.create(:multi_choice_answer, 
+    answer_submission: 'A', multi_choice_question: multi_choice_question)
+    
+    multi_choice_answer3 = FactoryGirl.create(:multi_choice_answer, 
+    answer_submission: 'A', multi_choice_question: multi_choice_question)
+    
+    multi_choice_answer = FactoryGirl.create(:multi_choice_answer, 
+    answer_submission: 'B', multi_choice_question: multi_choice_question)
+
+    multi_choice_answer = FactoryGirl.create(:multi_choice_answer, 
+    answer_submission: 'D', multi_choice_question: multi_choice_question)
+
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign in'
+    click_link "View Reviews"
+    click_link "Show Results"
+    click_link "Answer Break Down"
+
+    expect(page).to have_content "Answers Submitted: #{multi_choice_question.multi_choice_answers.count}"
+    expect(page).to have_content multi_choice_question.question_body
+    expect(page).to have_content multi_choice_question.answer_a
+    expect(page).to have_content multi_choice_question.answer_b
+    expect(page).to have_content multi_choice_question.answer_c
+    expect(page).to have_content multi_choice_question.answer_d
+    expect(page).to have_content "Correct Answer: #{multi_choice_question.answer}"
+
+  end
+
 end
