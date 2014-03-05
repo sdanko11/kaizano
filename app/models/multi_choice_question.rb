@@ -38,11 +38,7 @@ class MultiChoiceQuestion < ActiveRecord::Base
   end
 
   def any_answers?
-    if multi_choice_answers.count > 0
-      true
-    else
-      false
-    end
+    multi_choice_answers.count > 0
   end
 
   def count_answers
@@ -58,7 +54,7 @@ class MultiChoiceQuestion < ActiveRecord::Base
   end
 
   def get_next_question
-    all_questions = self.event.multi_choice_questions.all
+    all_questions = self.event.multi_choice_questions.to_a
     index = all_questions.index(self)
     all_questions[index += 1]
   end
