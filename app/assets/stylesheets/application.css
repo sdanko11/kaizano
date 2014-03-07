@@ -11,8 +11,10 @@
  *= require_self
  *= require foundation_and_overrides
  *= require_tree .
- *= require font-awesome
+  *= require font-awesome
  */
+
+
 
 .title-font {
   font-family: 'Nunito';
@@ -30,4 +32,3 @@
   background-color: #fafafa;
 }
 
-@import 'foundation-icons';
